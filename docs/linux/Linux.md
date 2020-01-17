@@ -1,0 +1,292 @@
+---
+title: Linux
+date: 2018-3-25 00:00:10
+categories: 'Linux'
+tags:
+    - 'Linux'
+---
+
+# yum
+
+#### 1、安装软件
+
+安装某个软件时，yum会自动安装这个软件的所有依赖包
+
+加上-y参数，可以不用用户确认
+
+```
+yum install firefox
+yum -y install firefox
+```
+
+#### 2、卸载软件
+
+-y参数同上
+
+```
+yum remove firefox
+yum -y remove firefox
+```
+
+#### 3、更新软件
+
+```
+yum update mysql
+```
+
+#### 4、搜索某个包
+
+使用版本号可以使搜索更加精准
+
+```
+yum list openssh
+yum list openssh-4.3p2
+```
+
+#### 5、搜索软件包
+
+```
+yum search vsftpd
+```
+
+#### 6、获取软件包信息
+
+```
+yum info firefox
+```
+
+#### 7、列出所有可用包
+
+```
+yum list | less
+```
+
+#### 8、列出所有安装的软件包
+
+```
+yum list installed | less
+```
+
+
+
+# Mysql
+
+```
+禁止root从远程登录数据库
+开启root远程登录权限
+grant all on mysql.* to 'root'@'%' identified by 'snd@123';
+flush privileges;
+```
+
+#### 重置mysql密码
+
+```
+
+mysqld_safe --user=mysql --skip-grant-tables --skip-networking &
+
+mysql -u root mysql
+
+//修改密码
+update user set password=password('新密码') where user='root';
+
+//立即生效
+flush privileges
+```
+
+
+
+# Apache
+
+```
+Apache 所在目录
+/etc/httpd
+
+Apache 运行目录
+/var/www/html
+
+查看版本
+httpd -v
+
+```
+
+
+
+## svn
+
+#### 1、安装服务
+
+```
+#安装apache服务  
+yum install httpd  
+
+#安装svn服务和httpd模块  
+yum install subversion mod_dav_svn 
+```
+
+#### 2.创建svn仓库
+
+```
+#创建仓库目录  
+mkdir -p /var/www/svn  
+#创建svn仓库  
+svnadmin create /var/www/svn/project  
+#配置改仓库的配置文件  
+vim /var/www/svn/project/conf/svnserve.conf  
+#禁用匿名用户并开启验证用户权限。  
+anon-access = none  
+auth-access = write  
+```
+
+#### 3.svn整合apache配置subversion.conf文件如下内容：
+
+```
+LoadModule dav_svn_module     modules/mod_dav_svn.so  
+LoadModule authz_svn_module   modules/mod_authz_svn.so  
+<Location /project>  
+    DAV svn  
+    SVNPath /var/www/svn/project/                  
+    AuthType Basic  
+    AuthName "svn"   
+    AuthUserFile /var/www/svn/project/conf/passwd  
+    Require valid-user  
+</Location>  
+```
+
+```
+#修改/var/www/svn权限  
+chown apache.apache /var/www/svn -R  
+chmod 777 /var/www/svn -R  
+#关闭SELinux  
+setenforce 0  
+#重启apache服务  
+service httpd restart
+```
+
+#### 4.创建svn用户
+
+```
+cd /var/www/svn/project/conf  
+#使用htpasswd创建用户,首次创建用户  
+htpasswd -cb passwd user password  
+#添加用户  
+htpasswd -b passwd new-user new-password  
+#删除用户  
+htpasswd -D passwd user  
+#修改用户密码  
+htpasswd passwd user  
+```
+
+#### 5.配置svn权限
+
+```
+#编辑authz文件，设置guest组包含test和abc两个用户。
+[groups]
+guest = test,abc
+#配置组权限,设置根目录下guest组为可读写，其他用户为可读。
+[/]
+guest = rw
+* = r
+```
+
+
+
+
+
+# 删除编译安装
+
+```
+常见的反安装target有： make uninstall/distclean/veryclean 等等。如果没有， 事先记得记录'make install'的所有输出日志，'make install &> |tee make.log'。然后在日志里能够看得到到底安装了那些文件到那些位置，通常会使用'cp'或者'install'命令拷贝文件。
+
+作者：孙立伟
+链接：https://www.zhihu.com/question/20092756/answer/13948057
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+
+
+# yum安装php71
+
+```
+1、yum --enablerepo=remi-safe -y install php71
+
+2、yum install php71-php-mcrypt php71-php-mcrypt php71-php-json php71-php-mbstring php71-php-xml php71-php-soap php71-php-xmlrpc php71-php-simplexml php71-php-curl php71-php-mysqlnd
+
+3、yum --enablerepo=remi-safe -y install php71-php-fpm
+
+4、systemctl enable php71-php-fpm
+
+5、systemctl start php71-php-fpm
+
+
+```
+
+
+
+# yum安装mysql5.7
+
+```
+
+```
+
+
+
+# ps命令详解
+
+```
+作用：显示瞬间行程 (process) 的动态
+
+常见参数：
+-A    列出所有的进程
+-w    显示加宽可以显示较多的资讯
+-au    显示较详细的资讯
+-aux    显示所有包含其他使用者的行程(常用参数)
+
+
+```
+
+
+
+# netstat命令详解
+
+```
+作用：显示各种网络相关信息，如网络连接，路由表，接口状态 (Interface Statistics)，masquerade 连接，多播成员 (Multicast Memberships) 等等
+
+常见参数：
+-a (all)显示所有选项，默认不显示LISTEN相关
+-t (tcp)仅显示tcp相关选项
+-u (udp)仅显示udp相关选项
+-n 拒绝显示别名，能显示数字的全部转化成数字。
+-l 仅列出有在 Listen (监听) 的服務状态
+
+-p 显示建立相关链接的程序名
+-r 显示路由信息，路由表
+-e 显示扩展信息，例如uid等
+-s 按各个协议进行统计
+-c 每隔一个固定时间，执行该netstat命令。
+
+
+
+```
+
+```
+rpm wget http://dev.MySQL.com/get/mysql57-community-release-el7-7.noarch.rpm
+```
+
+```
+        location / {
+                index index.html index.htm index.php;
+
+                        if (!-e $request_filename) {
+                        rewrite . /index.php last;
+                        }
+                }
+
+                location ~ .php$ {
+                    include fastcgi.conf;
+                    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                    fastcgi_pass 127.0.0.1:9000;
+                    fastcgi_index index.php;
+                }
+```
+

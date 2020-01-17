@@ -9,7 +9,17 @@ module.exports = {
   // 设置页面导航栏，此为全局有效，也可以在单个md文件中设置false，来关闭此页面的导航栏
   navbar: true,
   lastUpdated: '更新于',
-  sidebar: sidebar,
+  // sidebar: {
+  //   '/docs/css/CSS世界.md/': [
+  //     ['CSS.md', 'CSS世界'],
+  //     ['CSS干货.md', 'CSS干货']
+  //   ]
+  // },
+  sidebar:[
+    ['/docs/css/CSS干货.md','CSS干货'],
+    ['/docs/css/CSS世界.md','CSS世界']
+  ],
+  sidebarDepth: 3,
   // 增加头部导航栏
   nav: [
     { text: 'Home', link: '/' },

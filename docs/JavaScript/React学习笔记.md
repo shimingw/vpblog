@@ -1,0 +1,218 @@
+---
+title: "React学习笔记"
+date: 2019-6-6
+permalink: "2019-6-6-JavaScript-React学习笔记"
+---
+
+## 表单
+
+### 受控组件
+表单中的组件显示绑定value属性，组件中状态的变化，由react组件触发change方法，最终触发本组件的setState方法，进行状态的更新
+说白了，表单中用户每个一个输入的值，都会经过程序员写的方法，所以是受控组件
+
+### 非受控组件
+表单中输入的数据都由dom处理。
+用户输入的值是不可控的，用户可以随意输入任何值。
+
+
+## ref
+两种使用方式
+> 函数式组件无法使用`ref`属性，只有实例化组件和**html**组件可以使用`ref`
+1. 类似**vue**的用法
+```
+为组件定义ref名称
+<Card ref="card" /> 
+调用组件实例
+this.refs.card
+```
+2. 在组件实例化时定义
+```
+constructor(props) {
+    super(props);
+    this.card = React.createRef();
+}
+<Card ref={this.card} />
+调用组件实例
+this.card.current
+```
+
+## 组合vs继承
+1. react组件间的复用都采用组合的形式
+2. 如果组件间有函数（UI无关的功能）存在复用，建议单独提取成一个function进行复用
+
+
+## 性能优化
+### PureComponent 
+`PureComponent`会为`shouldComponentUpdate`方法提供一个浅比较方法。如果数据没有发生变化，则不会触发render方法重新渲染。
+但是如果传入的是一个对象，则每次都不会渲染，因为对象的比较是指针。
+
+所以不使用突变改变对象，使用concat，Object.assign，展开运算符等能返回一个新对象的方法进行赋值修改，或者可以使用`immutable`与`PureComponent`结合使用。
+
+## diff-keys
+当react渲染列表时，需要为每一个相同的子组件添加一个key属性。
+如果没有key属性的话，在列表的头部插入一个节点，那么react会认为整个列表都需要重新渲染，其实只需要在头部渲染那个新增的节点
+
+增加了key属性以后，react会使用key来匹配原始树的节点，如果原始的key还存在react并不会销毁该组件，只会移动或者修改
+
+key必须是唯一的
+
+必须要保证每一条数据的key都是唯一的，因为如果不唯一，可能会导致子组件数据更新了，然后触发componentWillReceiveProps方法去更新其子组件
+**但是如果其子组件的状态是通过子组件自身的state维护，而非通过props进行维护，例如为非受控组件，就会导致该组件无法更新的情况**
+
+
+## context
+原来嵌套组件传值通过props一层一层传进去
+
+现在通过context可以解决这种高度耦合的问题
+
+`const {Provider, Consumer} = React.createContext(defaultValue);`
+父组件设为`<Provider value={/* some value */}>`可以用来传递参数，子组件设为`<Consumer>
+  {value => /* render something based on the context value */}
+</Consumer>`可以用来接收参数
+
+## Portals
+`ReactDOM.createPortal(child, container)`
+可以将子元素，渲染到指定dom节点，而不是默认的父节点中。
+
+虽然不在父节点中，但是父节点可以监听到改元素的冒泡时间
+
+## HOC
+高阶组件，用来将一些组件中相同的功能抽象出来，封装成一个函数，不同的部分作为组件
+
+当使用高阶组件时，如果直接在高阶组件上使用ref，获取到的值，为高阶组件的ref而不是我们想获取到的，被封装的组件的ref。
+
+## Hooks
+什么是hook？
+
+Hook是一种特殊功能，可让您“挂钩”React功能。例如，useState是一个Hook，它允许您将React状态添加到功能组件。我们稍后会学习其他的Hook。
+
+我什么时候使用hook？
+
+如果你编写一个函数组件并意识到你需要为它添加一些状态，那么之前你必须将它转换为一个类。**现在，您可以在现有功能组件中使用Hook。**我们现在要做到这一点！
+
+### useState
+使无状态组件可以使用类的功能
+`const [count, setCount] = useState(0);`返回当前状态和更新它的函数
+
+
+### useEffect
+使无状态组件可以使用声明周期功能
+
+可以取代下面这三个生命周期的功能
+componentDidMount, componentDidUpdate, and componentWillUnmount
+
+#### 组件更新时触发
+正常情况下，初始化会触发一次`useEffect`，只要组件更新就会触发`useEffect`
+```
+  React.useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+  });
+```
+
+#### 特定值发生变化时触发
+当不需要每次组件状态更新都触发时，在尾部传入数组可以设置需要监听的值
+```
+useEffect(() => {
+  document.title = `You clicked ${count} times`;
+}, [ count ]);
+```
+
+#### 仅初始化时触发
+如果数组中什么值都不传入，那就只会在初始化时触发一次
+```
+useEffect(() => {
+  document.title = `You clicked ${count} times`;
+}, [ ]);
+```
+
+#### 仅在组件销毁时触发
+数组中不传入任何值，并且在钩子中return一个函数
+```
+useEffect(() => {
+  return () => {
+    console.log('delete');
+  };
+}, [ ]);
+```
+
+### 自定义hook
+> 自定义挂钩是一种自然遵循Hooks设计的约定，而不是React功能
+
+将hook封装在一个函数中，使其具有复用性
+```
+import React, { useState, useEffect } from 'react';
+
+function useFriendStatus(friendID) {
+  const [isOnline, setIsOnline] = useState(null);
+
+  useEffect(() => {
+    function handleStatusChange(status) {
+      setIsOnline(status.isOnline);
+    }
+
+    ChatAPI.subscribeToFriendStatus(friendID, handleStatusChange);
+    return () => {
+      ChatAPI.unsubscribeFromFriendStatus(friendID, handleStatusChange);
+    };
+  });
+
+  return isOnline;
+}
+```
+
+### 钩子使用注意事项
+在组件顶层使用useState声明钩子，不要在if语句中声明
+
+
+## prop-types
+用来设置组件的接受的props，以及一些限制
+```
+component.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  completed: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired
+}
+```
+
+## redux
+### action
+> 定义了动作的类型，以及每个动作所需要的参数
+```
+export function addTodo(text) {
+  return { type: ADD_TODO, text }
+}
+```
+
+### reducers
+> 使用switch...case匹配action类型的动作，修改相对应的state
+
+```
+function visibilityFilter(state = initialState.visibilityFilter, action) {
+  switch (action.type) {
+    case SET_VISIBILITY_FILTER:
+      return action.filter;     //返回的值即为更新的后的state
+    default:
+      return state;
+  }
+}
+```
+使用`combineReducers`封装多个`reducer`
+```
+const todoApp = combineReducers({
+  visibilityFilter,
+  todos,
+  articleList
+});
+```
+
+### store
+在前面的章节中，我们学会了使用 `action` 来描述“发生了什么”，和使用 `reducers` 来根据 `action` 更新 `state` 的用法。
+
+Store 就是把它们联系到一起的对象。Store 有以下职责：
+
+- 维持应用的 `state`；
+- 提供 `getState()` 方法获取 `state`；
+- 提供 `dispatch(action)` 方法更新 `state`；
+- 通过 `subscribe(listener)` 注册监听器;
+- 通过 `subscribe(listener)` 返回的函数注销监听器。

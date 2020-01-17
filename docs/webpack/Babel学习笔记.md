@@ -1,0 +1,93 @@
+---
+title: Babel学习笔记
+date: 2019-6-14 00:00:10
+categories: 'webpack'
+tags:
+    - 'Babel'
+---
+## babel模块
+- `@babel/core` babel的核心模块，将代码转换成AST，再将AST转成代码都靠它
+- `@babel/types` 一个用于 AST 节点的 Lodash 式工具库
+- `babylon` Babel 的解析器。最初是 从Acorn项目fork出来的。使用了基于插件的架构，有一个 plugins 选项可以开关内置的插件，现已被`@babel/parser`代替
+- `@babel/parser` 取代`babylon`，成为Babel新的解析器
+- `@babel/traverse` Babel Traverse（遍历）模块维护了整棵树的状态，并且负责替换、移除和添加节点。
+- `@babel/generator` 读取AST并将其转换为代码和源码映射
+- `@babel/template` 
+
+## Babel 的处理步骤
+Babel 的三个主要处理步骤分别是： 解析（parse），转换（transform），生成（generate）。
+
+### 解析
+解析步骤接收代码并输出 AST。 这个步骤分为两个阶段：词法分析（Lexical Analysis） 和 语法分析（Syntactic Analysis）。
+
+#### 词法分析
+词法分析阶段把字符串形式的代码转换为 令牌（tokens） 流。
+
+会把每一块代码转换成单独的一个类型对象，比如
+```
+n * n;
+[
+  { type: { ... }, value: "n", start: 0, end: 1, loc: { ... } },
+  { type: { ... }, value: "*", start: 2, end: 3, loc: { ... } },
+  { type: { ... }, value: "n", start: 4, end: 5, loc: { ... } },
+  ...
+]
+```
+
+#### 语法分析
+语法分析阶段会把一个令牌流转换成AST的形式。这个阶段会使用令牌中的信息把它们转换成一个 AST的表述结构，这样更易于后续的操作。
+
+会把词法分析的类型对象转换成一个树形结构（AST语法树）
+
+### 转换
+转换步骤接收 AST 并对其进行**遍历**，在此过程中对节点进行**添加、更新及移除等操作**。 这是 Babel 或是其他编译器中最复杂的过程同时也**是插件将要介入工作的部分**
+
+### 生成
+将AST语法树转换成，字符串形式的代码
+
+## 遍历
+想要转换 AST 你需要进行递归的树形遍历。
+
+### Visitors（访问者）
+访问者是一个用于 AST 遍历的跨语言的模式。 简单的说它们就是一个对象，定义了用于在一个树状结构中**获取具体节点**的方法。
+
+
+## babel-core
+
+> **Babel**的核心模块，调用，**babel-core**的API可以进行转码
+
+```
+var babel = require('babel-core');
+
+// 字符串转码
+babel.transform('code();', options);
+```
+
+
+
+## babel-preset-env
+
+> 转码规则，配合**babel-core**和**babel-loader** 使用，可以根据你定义的规则进行转码。
+>
+> 例如**babel-preset-env**预设了很多可供选择环境，浏览器的版本等等
+
+
+
+## babel-plugin-transform-runtime 
+
+> 该插件是在运行时，起作用，为环境填充不具备的API
+>
+> 外部引用辅助函数和内置函数，自动填充代码而不会污染全局变量 
+
+例如：
+
+实例方法如`"foobar".includes("foo")`无法工作，因为这需要修改现有的内置插件（[`@babel/polyfill`](http://babeljs.io/docs/usage/polyfill)用于此）。 
+
+
+
+## babel-runtime
+
+> 与**transform-runtime** 结合使用
+>
+> **transform-runtime**转码时会使用到一些工具函数。将这些工作函数单独抽离到了**babel-runtime**中，减少多余的代码
+

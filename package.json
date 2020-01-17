@@ -12,6 +12,7 @@
   "devDependencies": {
     "nodemon": "^2.0.2",
     "tracer": "^1.0.2",
-    "vuepress": "^1.2.0"
+    "vuepress": "^1.2.0",
+    "yaml-front-matter": "^4.1.0"
   }
 }

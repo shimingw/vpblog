@@ -1,14 +1,14 @@
 ---
 title: "CSS干货"
 date: 2019-10-28
-permalink: "2018-10-28-css-ganhuo"
+permalink: "2019-10-28-css-ganhuo"
 ---
 
 
 
 总结使用css时遇到的一些问题，以及解决方案
 
-### 自适应布局实现文字超长显示
+## 自适应布局实现文字超长显示
 
 ```
 width: 100px;
@@ -63,11 +63,11 @@ display:block;
 
 
 
-### flex属性解析
+## flex属性解析
 
 flex是一个[简写属性](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Shorthand_properties)，用来设置 [flex-grow](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-grow), [flex-shrink](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-shrink) 与 [flex-basis](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-basis)。
 
-#### flex-grow
+### flex-grow
 
 > 定义弹性盒子项（flex item）的拉伸因子
 
@@ -87,13 +87,13 @@ flex是一个[简写属性](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Sho
 
 ```
 
-#### **flex-shrink**
+### **flex-shrink**
 
 > 指定了 flex 元素的收缩规则，元素仅在默认宽度之和大于容器的时候才会发生收缩
 
 `flex-shrink`属性需要结合`flex-basis`属性一起使用，当`flex-basis`设置的宽度总和，大于父元素的宽度时，就会触发元素的等比例缩小，比例参照`flex-shrink`的数值
 
-#### flex-basis
+### flex-basis
 
 > 指定了 flex 元素在主轴方向上的初始大小。如果不使用  [`box-sizing`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-sizing) 改变盒模型的话，那么这个属性就决定了 flex 元素的内容盒（content-box）的尺寸。
 

@@ -1,0 +1,572 @@
+---
+title: "Vue笔记"
+date: 2017-9-6
+permalink: "2017-9-6-JavaScript-Vue笔记"
+---
+
+```
+class
+控制class是否添加
+    <span v-bind:class='{red:addClass}'>{{text}}</span>
+	
+```
+
+```
+数据双向绑定
+v-model
+指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素
+```
+
+```
+自定义指令
+v-focus
+```
+
+```
+钩子函数
+update
+```
+
+```
+选项对象
+computed
+```
+
+## vue注册组件
+
+```
+	Vue.component('todo-item', {
+  // todo-item 组件现在接受一个
+  // "prop"，类似于一个自定义属性
+  // 这个属性名为 todo。
+  props: ['todo'],
+  template: '<li>{{ todo.text }}</li>'
+})
+```
+
+### Vue生命周期
+
+```
+beforeCreate
+created
+beforeMount
+mounted
+beforeUpdate
+updated
+activated
+deactivated
+beforeDestroy
+destroyed
+```
+
+### vue指令
+
+```
+ v-bind 指令：
+ 	用来绑定一些属性
+ 	<div v-bind:id="dynamicId"></div>
+ 	<button v-bind:disabled="isButtonDisabled">Button</button>
+ 	缩写：
+	 	<a :href="url"></a>
+
+ 
+ v-if指令：
+ 	传入布尔值，用来控制元素是否显示
+ 	
+ v-on 指令：
+ 	用于监听 DOM 事件
+ 	<a v-on:click="doSomething">
+ 	缩写：
+	 	<a @click="doSomething"></a>
+```
+
+### vue修饰符
+
+```
+以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定
+	例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：
+	<form v-on:submit.prevent="onSubmit"></form>
+```
+
+### vue过滤语法
+
+```
+{{ message | capitalize }}
+    var data = { message: "akjsdakjsdhjkasdh" };
+    var vm = new Vue({
+      el: '#app',
+      data: data,
+      filters: {
+        capitalize: function (value) {
+          console.log(value)
+          return value;
+        }
+      }
+    });
+```
+
+
+
+
+
+# Vue-route
+
+```
+
+```
+
+
+
+# ajax请求
+
+```
+开发环境
+	通过配置proxyTable 代理请求
+
+生产环境
+	通过设置完成url路径
+```
+
+
+
+# 组件的通信
+
+```
+可以将标签内的数据传入组件中
+<custom-select btn="查询"></custom-select>
+使用props将数据传入组件
+props:["btn"]
+<input type="button" :value="btn">
+在子组件中使用{{}}来接收数据
+
+```
+
+```
+要把组件中的data写成一个方法
+是为了当多个地方使用一个组件时，不让其他组件的数据相互影响
+每个组件使用独立的数据
+```
+
+```
+使用is来扩展标签
+<table>
+	<tr is="custom-select"></tr>
+</table>
+```
+
+```
+利用自定义事件来实现父子组件之间的通信
+使用this.$emit()来触发以及传值
+```
+
+
+
+
+
+# Vue组件封装流程
+
+#### components
+
+```
+var Child = {
+  template: '<div>A custom component!</div>'
+}
+export default {
+  components: {
+    //在这个组件中注册使用的子组件
+    //例如以上配置
+     'my-component': Child
+  }
+}
+```
+
+#### props
+
+```
+props: ['todo']
+为该组件提供todo对象。
+
+传入这个封装好的组件中的值，可以设置type和require和default
+  props: {
+    apiUrl: {
+      type: String,
+      required: true
+    },
+    fields: {
+      type: Array,
+      required: true
+    },
+    sortOrder: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
+    detailRowComponent: {
+      type: String
+    }
+  },
+```
+
+#### render
+
+```
+用来代替template属性
+
+Vue 推荐在绝大多数情况下使用 template 来创建你的 HTML。然而在一些场景中，你真的需要 JavaScript 的完全编程的能力，这就是 render 函数，它比 template 更接近编译器。
+
+    Vue.component('anchored-heading', {
+      render: function (createElement) {
+        return createElement(
+          'h' + this.level,   // tag name 标签名称
+          this.$slots.default // 子组件中的阵列
+        )
+      },
+      props: {
+        level: {
+          type: Number,
+          required: true
+        }
+      }
+    })
+```
+
+#### methods
+
+```
+事件处理器
+methods 将被混入到 Vue 实例中。可以直接通过 VM 实例访问这些方法，或者在指令表达式中使用。方法中的 this 自动绑定为 Vue 实例。
+```
+
+
+
+#### slot
+
+```
+具名slot
+name 来配置如何分发内容
+    <slot name="header"></slot>
+    可以渲染某个具体的模板
+    <h1 slot="header">
+    </h1>
+
+
+<slot> 标签中的任何内容都被视为备用内容
+```
+
+
+
+#### scope
+
+```
+作用域插槽
+scope 的值对应一个临时变量名
+接收传递的props变量
+<div scope="props">
+    <span>{{props.text}}</span>
+</div>
+
+export default{
+      data(){
+          return {
+            props:{
+                text:"hahahahah"
+            }
+          }
+      }
+  }
+  
+```
+
+
+
+# vue获取对象属性
+
+```
+vm.$data
+获取vm的data数据属性
+
+vm.$el
+获取vm的dom属性
+
+
+```
+
+
+
+#### attr属性绑定
+
+```
+  <div v-bind:id="testId">
+  </div>
+```
+
+
+
+#### 缩写
+
+```
+v-bind 缩写
+    <!-- 完整语法 -->
+    <a v-bind:href="url"></a>
+    <!-- 缩写 -->
+    <a :href="url"></a>
+
+
+v-on 缩写
+    <!-- 完整语法 -->
+    <a v-on:click="doSomething"></a>
+    <!-- 缩写 -->
+    <a @click="doSomething"></a>
+```
+
+
+
+#### computed
+
+```
+计算属性
+
+注意，不应该使用箭头函数来定义计算属性函数 (例如 aDouble: () => this.a * 2)。理由是箭头函数绑定了父级作用域的上下文，所以 this 将不会按照期望指向 Vue 实例，this.a 将是 undefined。
+
+    computed: {
+      // 仅读取，值只须为函数
+      aDouble: function () {
+        return this.a * 2
+      },
+      // 读取和设置
+      aPlus: {
+        get: function () {
+          return this.a + 1
+        },
+        set: function (v) {
+          this.a = v - 1
+        }
+      }
+    }
+```
+
+
+
+## Class 与 Style 绑定
+
+```
+1、设置为true则，该属性显示
+
+    <div class="static"
+         v-bind:class="{ active: isActive, 'text-danger': hasError }">
+    </div>
+
+    data: {
+      isActive: true,
+      hasError: false
+    }
+    
+2、也可以直接绑定数据里的一个对象：
+
+	<div v-bind:class="classObject"></div>
+	
+    data: {
+      classObject: {
+        active: true,
+        'text-danger': false
+      }
+    }
+    
+    
+3、可以使用 computed 计算属性
+
+	data(){
+          return {
+            isActive: true,
+            error: null
+          }
+      },
+    computed: {
+      classObject: function () {
+        return {
+          active: true,
+          'text-danger': true,
+        }
+      }
+    }
+    
+
+
+```
+
+
+
+####  v-if vs v-show
+
+```
+ v-if 有更高的切换开销
+ v-show 有更高的初始渲染开销
+ 
+ 因此，如果需要非常频繁地切换，则使用 v-show 较好
+ 如果在运行时条件不太可能改变，则使用 v-if 较好
+```
+
+
+
+#### v-for
+
+```
+<li v-for="item in items">
+<li v-for="(item, index) in items">
+<li v-for="value in object">
+<div v-for="(value, key) in object">
+```
+
+
+
+## 构成组件
+
+```
+父子组件的关系可以总结为 props down, events up。
+
+父组件通过 props 向下传递数据给子组件。
+子组件通过 events 给父组件发送消息。
+
+注意在 JavaScript 中对象和数组是引用类型，指向同一个内存空间，如果 prop 是一个对象或数组，在子组件内部改变它会影响父组件的状态。
+
+
+```
+
+
+
+##### prop验证
+
+```
+  props: {
+    // 基础类型检测 (`null` 意思是任何类型都可以)
+    propA: Number,
+    // 多种类型
+    propB: [String, Number],
+    // 必传且是字符串
+    propC: {
+      type: String,
+      required: true
+    },
+    // 数字，有默认值
+    propD: {
+      type: Number,
+      default: 100
+    },
+    // 数组/对象的默认值应当由一个工厂函数返回
+    propE: {
+      type: Object,
+      default: function () {
+        return { message: 'hello' }
+      }
+    },
+    // 自定义验证函数
+    propF: {
+      validator: function (value) {
+        return value > 10
+      }
+    }
+  }
+```
+
+
+
+#### 动态组件
+
+##### V-bind:is
+
+```
+使用保留的 <component> 元素
+  <component :is="currentView">
+      <!-- 组件在 vm.currentview 变化时改变！ -->
+  </component>
+  
+  var Home = {
+    template: '<p>Welcome home!</p>'
+  }
+  
+  export default{
+      data(){
+          return {
+            currentView: 'home'
+          }
+      },
+    components: {
+      home: Home,
+      posts: posts,
+    }
+  }
+
+```
+
+
+
+##### Keep-alive
+
+```
+如果把切换出去的组件保留在内存中，可以保留它的状态或避免重新渲染。为此可以添加一个 keep-alive 指令参数
+组件会频繁切换时使用
+
+<keep-alive>
+  <component :is="currentView">
+    <!-- 非活动组件将被缓存！ -->
+  </component>
+</keep-alive>
+```
+
+
+
+# 编写可复用组件
+
+##### Vue 组件的 API 来自三部分 - props, events 和 slots ：
+
+1. Props 允许外部环境传递数据给组件
+2. Events 允许从外部环境在组件内触发副作用
+3. Slots 允许外部环境将额外的内容组合在组件中。
+
+
+
+
+#### mixins选项合并
+
+```
+生命周期的钩子选项合并后将会，组成一个数组，都将调用
+
+值为对象的选项，例如 methods, components 和 directives，将被混合为同一个对象。 两个对象键名冲突时，取组件对象的键值对。
+```
+
+
+
+
+
+# vuex
+
+### vuex调用方法
+
+```
+1、
+import {store} from './testVuex'
+        store.commit('increment')
+每次这样从文件引入vuex的store然后对其进行操作很不方便
+
+2、Vuex 通过 store 选项，提供了一种机制将状态从根组件“注入”到每一个子组件中（需调用 Vue.use(Vuex)）
+
+
+```
+
+### mapState 辅助函数
+
+```
+  computed: {
+    count () {
+      return this.$store.state.count
+    }
+  }
+  
+mapState  辅助函数帮助我们生成计算属性
+    computed: mapState({
+      // 箭头函数可使代码更简练
+      count: state => state.count
+    })
+```
+

@@ -53,13 +53,9 @@ img,iframe,viedeo,select等
 
   - > 替换元素和非替换元素的距离有多远？就是 src content 那一点
   - ```css
-      HTML：
-      <img class="emoji" src="laugh.png">
-
-      CSS：
-      .emoji:hover {
-          content: url(laugh-tear.png);
-      }
+    HTML： <img class='emoji' src='laugh.png' > CSS： .emoji:hover {
+      content: url(laugh-tear.png);
+    }
     ```
 
 ##css 伪类
@@ -109,32 +105,31 @@ img,iframe,viedeo,select等
   - 使 content 中的内容动起来
 
     ```css
+    dot {
+      display: inline-block;
+      height: 1em;
+      line-height: 1;
+      text-align: left;
+      vertical-align: bottom;
+      overflow: hidden;
+    }
 
-            dot {
-                display: inline-block;
-                height: 1em;
-                line-height: 1;
-                text-align: left;
-                vertical-align: bottom;
-                overflow: hidden;
-            }
+    dot::before {
+      display: block;
+      content: '...\A..\A.';
+      white-space: pre;
+      animation: dot 3s infinite step-start both;
+    }
 
-            dot::before {
-                display: block;
-                content: '...\A..\A.';
-                white-space: pre;
-                animation: dot 3s infinite step-start both;
-            }
+    @keyframes dot {
+      33% {
+        transform: translateY(-2em);
+      }
 
-            @keyframes dot {
-                33% {
-                    transform: translateY(-2em);
-                }
-
-                66% {
-                    transform: translateY(-1em);
-                }
-            }
+      66% {
+        transform: translateY(-1em);
+      }
+    }
     ```
 
 - content 计数器
@@ -149,15 +144,17 @@ img,iframe,viedeo,select等
 
 - padding 的%都是相对于宽度的。利用%可以设置元素宽高比
 
-  - ```
+  - ```css
     .box {
-        padding: 10% 50%;
-        position: relative;
+      padding: 10% 50%;
+      position: relative;
     }
     .box > img {
-        position: absolute;
-        width: 100%; height: 100%;
-        left: 0; top: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
     }
     ```
 
@@ -212,10 +209,7 @@ img,iframe,viedeo,select等
             asdasd
           </div>
         </div>
-      ```
-
-
-            .container {
+          .container {
             position: fixed;
             top: 0;
             right: 0;
@@ -245,8 +239,6 @@ img,iframe,viedeo,select等
             max-height: 100px;
             overflow: auto;
           }
-
-
       ```
 
 ## 流的破坏与保护
@@ -261,13 +253,14 @@ img,iframe,viedeo,select等
 
 - 触发 BFC
 
-  ```
+```
+
   <html>根元素；
   float 的值不为 none；
   overflow 的值为 auto、 scroll 或 hidden；
   display 的值为 table-cell、 table-caption 和 inline-block 中的任何一个；
   position 的值不为 relative 和 static。
-  ```
+```
 
 - 一般常用`overflow：hidden`或 `width: 9999px;display: table-cell;`去触发 BFC
 
@@ -286,20 +279,22 @@ img,iframe,viedeo,select等
   边角， ::-webkit-scrollbar-corner
   ```
 
-但是我们平时开发中只用下面 3 个属性：
-::-webkit-scrollbar { /_ 血槽宽度 _/
-width: 8px; height: 8px;
-}
-::-webkit-scrollbar-thumb { /_ 拖动条 _/
-background-color: rgba(0,0,0,.3);
-border-radius: 6px;
-}
-::-webkit-scrollbar-track { /_ 背景槽 _/
-background-color: #ddd;
-border-radius: 6px;
-}
+  但是我们平时开发中只用下面 3 个属性：
 
-````
+  ```
+  ::-webkit-scrollbar { /_ 血槽宽度 _/
+  width: 8px; height: 8px;
+  }
+  ::-webkit-scrollbar-thumb { /_ 拖动条 _/
+  background-color: rgba(0,0,0,.3);
+  border-radius: 6px;
+  }
+  ::-webkit-scrollbar-track { /_ 背景槽 _/
+  background-color: #ddd;
+  border-radius: 6px;
+  }
+
+  ```
 
 - 锚点定位
 
@@ -332,16 +327,14 @@ border-radius: 6px;
   </div>
   ```
 
--
-
-- overflow:hidden 元素依然可以滚动
+* overflow:hidden 元素依然可以滚动
 
 ### absolute
 
 - 无依赖绝对定位
-这可以使元素脱离文档流，但是又不影响元素的位置，并且使用 margin 可以改变相对位置
+  这可以使元素脱离文档流，但是又不影响元素的位置，并且使用 margin 可以改变相对位置
 
-````
+```
 
   <div class="nav">
       <h4 class="nav-list">
@@ -436,8 +429,6 @@ bottom: 0;
 ### css3 层叠上下文
 
 > `z-index` 一旦变成数值，哪怕是 0，就会创建一个层叠上下文。此时，层叠规则就发 生了变化
-
-![1543484027401](C:\Users\18044854\AppData\Local\Temp\1543484027401.png)
 
 （1）元素为 flex 布局元素（父元素 display:flex|inline-flex），同时 z-index
 值不是 auto。
@@ -539,8 +530,6 @@ font-weight 无论是设置 300、 400、 500 还是 600， 文字的粗细都�
 - `html { font: menu; } body { font-size: 16px; }`
 - `html { font: small-caption; } body { font-size: 16px; }`
 - `html { font: status-bar; } body { font-size: 16px; }`
-
-###
 
 ### @font-face
 
@@ -746,24 +735,28 @@ rgba(0, 0, 0, 0.05)
 
 ## 元素的显示与隐藏
 
-- 如果希望元素不可见，同时不占据空间，辅助设备无法访问，同时不渲染，可以使用`<script>`标签隐藏。例如：
+如果希望元素不可见，同时不占据空间，辅助设备无法访问，同时不渲染，可以使用`<script>`标签隐藏。例如：
 
-<script type="text/html">
-<img src="1.jpg">
-</script>
+    ```
+    <script type="text/html">
+    <img src="1.jpg">
+    </script>
+    ```
 
 此时，图片 1.jpg 是不会有请求的。 `<script>`标签是不支持嵌套的，因此，如果希望在
 
-<script>标签中再放置其他不渲染的模板内容，可以试试使用<textarea>元素。例如：
+`<script>`标签中再放置其他不渲染的模板内容，可以试试使用`<textarea>`元素。例如：
+```
 <script type="text/html">
 <img src="1.jpg">
 <textarea style="display:none;">
 <img src="2.jpg">
 </textarea>
 </script>
+```
 
 图片 2.jpg 也是不会有请求的。
-另外， <script>标签隐藏内容获取使用 script.innerHTML， <textarea>使用
+另外， `<script>`标签隐藏内容获取使用 script.innerHTML， `<textarea>`使用
 textarea.value。
 
 ## 用户界面样式
@@ -795,4 +788,3 @@ border-color: Highlight;
 - 定义了文本在水平或垂直方向上如何排布。
 - `writing-mode: horizontal-tb | vertical-rl | vertical-lr | sideways-rl | sideways-lr`
 - 可以使用 text-indent 实现文字下沉效果 https://demo.cssworld.cn/12/2-5.php
-```
