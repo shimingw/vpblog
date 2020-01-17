@@ -1,0 +1,17 @@
+## 跨域
+1. nginx反向代理
+2. jsonp
+前端
+请求路径后加上`callBack=cbName`
+例如
+`http://localhost:8080/request?callBack=cbName`
+后端
+返回的是一个js文件，在js文件中写入`cbName(data)`，`data`为后端返回给前端的数据
+前端加载完这个js后会，执行该回调函数，从而获取后端返回的数据
+3. 后端配置Access-Control-Allow-Origin
+后端配置允许接收的请求源`header('Access-Control-Allow-Origin:*')`
+
+
+
+
+

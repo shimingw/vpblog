@@ -1,0 +1,146 @@
+---
+title: webpack
+date: 2017-4-6 00:00:10
+categories: 'webpack'
+tags:
+    - 'webpack'
+---
+
+# webpack
+
+#### 更新node
+
+```
+node有一个模块叫n（这名字可够短的。。。），是专门用来管理node.js的版本的
+1、npm install -g n
+2、n stable	(升级node.js到最新稳定版)
+n后面也可以跟随版本号比如：
+n v0.10.26
+```
+#### 更新npm
+
+```
+npm install -g npm
+可以使用@加版本号
+```
+
+### Babel全家桶
+
+```
+1、babel-core
+ 	 把 js 代码分析成 ast ，方便各个插件分析语法进行相应的处理。有些新语法在低版本 js 中是不存在的，如箭头函数，rest 参数，函数默认值等，这种语言层面的不兼容只能通过将代码转为 ast，分析其语法后再转为低版本 js。
+ 	 
+2、babel-register
+    该模块给 require 加了个钩子，.js、jsx、.es、es6 后缀的模块都会先转码。此外有几点需要注意：
+		当前文件不会被转码；
+		需首先加载 babel-register；
+		由于是实时转码，只适合开发环境。
+		require('babel-register')
+		const index = require('./index.jsx')	
+		
+3、babel-cli
+	babel 命令行工具，可以转码文件或目录并输出至指定文件
+	
+4、babel-plugin-*
+	babel-plugin-* 代表了一系列的转码插件，如babel-plugin-transform-es2015-arrow-functions 用于转码 es6 中的箭头函数，babel-plugin-transform-async-to-generator 用于将 es7 中的 async 转成 generator。
+	
+babel-plugin-transform-runtime
+	将Promise、Set、Map 等新增对象，Object.assign、Object.entries 进行转码
+	
+5、babel-preset-*
+	我们现在有了 babel-plugin 系列，可以按需配置自己想要的特性。但若是想搭个 es6 环境，一个个地配置各个插件，我猜你会疯掉。babel-preset 系列就可以满足我们的需求，babel-preset 系列打包了一组插件，类似于餐厅的套餐。如 babel-preset-es2015 打包了 es6 的特性
+
+6、babel-polyfill
+	babel-polyfill 是针对全局环境的，引入它浏览器就好像具备了规范里定义的完整的特性，一旦引入，就会跑一个 babel-polyfill 实例
+```
+
+### webpack各种插件
+
+```
+html-webpack-plugin
+这个插件可以创建html文件，并自动将依赖写入html文件中
+```
+
+```
+webpack-dev-middleware
+它是对webpack一个简单的包装，它可以通过连接服务器服务那些从webpack发射出来的文件
+1、不会向硬盘写文件，而是在内存中，注意我们构建项目实际就是向硬盘写文件。
+2、当文件改变的时候，这个中间件不会再请求服务旧的包，你可以直接帅新浏览器就能看到最新的效果，这样你就不必等待构建的时间，所见即所得。
+
+```
+
+```
+webpack-hot-middleware
+webpack-hot-middleware 只配合 webpack-dev-middleware 使用，它能给你提供热加载。
+```
+
+```
+extract-text-webpack-plugin
+css文件生成单独的文件
+```
+
+```
+CommonsChunkPlugin
+公共模块的提取，如何加载图片，对于第一个问题，如何提取公共模块
+```
+
+```vue框架主要内容
+entry: {
+    index: path.resolve(__dirname, '../app/index/index.js'),
+    vendors: [
+        'Vue'
+    ]
+},
+上面代码的意思是，我们把Vue.js当做公共模块单独打包，你可以在这个数组中增加其他模块，一起作为公共模块打包成一个文件，我们执行构建命令，然后查看输出，如下图，成功提取：
+
+
+```
+
+### vue框架主要内容
+
+```
+1、vue-cli相当于脚手架 给你自动生成模板工程
+2、vue-router是 vue路由插件 支持你单页应用的
+3、vue-loader是webpack下loader插件 可以把.vue文件 输出成组件
+```
+```
+使用ESLint来编写代码？
+
+  标准（https://github.com/feross/standard）
+   Airbnb（https://github.com/airbnb/javascript）
+   没有（自己配置）
+
+使用Karma + Mocha进行设置单元测试？
+
+用Nightwatch设置e2e测试？
+```
+```
+npm清除缓存
+npm cache clean --force
+```
+
+```
+安装淘宝npm镜像
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
+
+```
+研究vue.js
+Object.defineProperty()
+argular.js
+脏检查
+```
+
+
+
+# require.ensure
+
+```
+异步加载
+mapBtn.click(function() {
+  require.ensure([], function() {
+    var baidumap = require('./baidumap.js') //baidumap.js放在我们当前目录下
+  })
+})
+```
+
