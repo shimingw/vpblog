@@ -1,0 +1,17 @@
+{
+  "name": "vuepress-blog",
+  "version": "1.0.0",
+  "description": "基于vuepress搭建的博客",
+  "scripts": {
+    "start": "npm run dev1",
+    "dev": "nodemon --watch docs bin/sidebar.js & ./node_modules/.bin/vuepress dev .",
+    "dev1": "vuepress dev ."
+  },
+  "author": "shimingw",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "tracer": "^1.0.2",
+    "vuepress": "^1.2.0"
+  }
+}
