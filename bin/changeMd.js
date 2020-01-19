@@ -22,6 +22,14 @@ ${params.__content}`
  * 4、如果是md文件则使用yaml-front-matter读取并修改文件头部内容
  */
 
+const mdPathDrop = fp.dropWhile(val => val !== 'docs')
+const mdPathFormat = fp.flow(
+  mdPathDrop,
+  fp.drop(1),
+  fp.dropLast(1),
+  fp.join('-')
+)
+
 main(docsRoot)
 
 function main(docsRoot) {
@@ -38,25 +46,17 @@ function main(docsRoot) {
   })
 }
 
-const mdPathDrop = fp.dropWhile(val => val !== 'docs')
-const mdPathFormat = fp.flow(
-  mdPathDrop,
-  fp.drop(1),
-  fp.dropLast(1),
-  fp.join('-')
-)
-
 function changeYamlFrontMatter(mdPath) {
-  fs.readFile(mdPath, 'utf8', function(err, fileContents) {
-    if (err) return
+  try {
+    const fileContents = fs.readFileSync(mdPath)
     const yamlData = yamlFront.loadFront(fileContents)
     const { title, date } = yamlData
     const mdPathList = mdPath.split(path.sep)
     const mdDocTitle = mdPathFormat(mdPathList)
     yamlData.date = moment(date).format('YYYY-MM-DD')
     yamlData.permalink = `${yamlData.date}-${mdDocTitle}-${title}`
-    console.log(mdPath);
-    
-    // fs.writeFileSync(mdPath, template(yamlData))
-  })
+    fs.writeFileSync(mdPath, template(yamlData))
+  } catch (error) {
+    console.log(mdPath, error)
+  }
 }
