@@ -2,10 +2,10 @@ const fs = require('fs')
 const path = require('path')
 const yamlFront = require('yaml-front-matter')
 const moment = require('moment')
+const fp = require('lodash/fp')
 
 const docsRoot = path.join(__dirname, '..', 'docs')
 
-const md = path.join(__dirname, '..', 'docs', 'linux', 'test.md')
 const template = params => `---
 title: "${params.title}"
 date: ${params.date}
@@ -21,26 +21,42 @@ ${params.__content}`
  * 3、将拼接好的路径使用fs.statSync(file).isDirectory()判断是否为md文件
  * 4、如果是md文件则使用yaml-front-matter读取并修改文件头部内容
  */
-const filesList = fs.readdirSync(docsRoot)
-// filesList.forEach(file=>{
 
-// })
-const name = filesList[0]
-const file = path.resolve(docsRoot, name)
-console.log(file)
-console.log(fs.statSync(file).isDirectory())
-console.log(fs.statSync(path.resolve(file, 'CSS世界.md')).isDirectory())
+main(docsRoot)
 
-// console.log(fs.readdirSync(file))
+function main(docsRoot) {
+  const childDocs = fs.readdirSync(docsRoot)
+  childDocs.forEach(childDoc => {
+    const childDocPath = path.resolve(docsRoot, childDoc)
+    if (fs.statSync(childDocPath).isDirectory()) {
+      // 如果是文件夹则继续遍历
+      main(childDocPath)
+    } else {
+      // 否则执行转换方法
+      changeYamlFrontMatter(childDocPath)
+    }
+  })
+}
 
-// fs.readFile(md, 'utf8', function(err, fileContents) {
-//   const yamlData = yamlFront.loadFront(fileContents)
-//   const { title, date } = yamlData
-//   yamlData.date = moment(date).format('YYYY-MM-DD')
-//   yamlData.permalink = `${yamlData.date}-title`
-//   console.log(template(yamlData))
-//   fs.writeFileSync(
-//     path.join(__dirname, '..', 'docs', 'linux', 'changeTest.md'),
-//     template(yamlData)
-//   )
-// })
+const mdPathDrop = fp.dropWhile(val => val !== 'docs')
+const mdPathFormat = fp.flow(
+  mdPathDrop,
+  fp.drop(1),
+  fp.dropLast(1),
+  fp.join('-')
+)
+
+function changeYamlFrontMatter(mdPath) {
+  fs.readFile(mdPath, 'utf8', function(err, fileContents) {
+    if (err) return
+    const yamlData = yamlFront.loadFront(fileContents)
+    const { title, date } = yamlData
+    const mdPathList = mdPath.split(path.sep)
+    const mdDocTitle = mdPathFormat(mdPathList)
+    yamlData.date = moment(date).format('YYYY-MM-DD')
+    yamlData.permalink = `${yamlData.date}-${mdDocTitle}-${title}`
+    console.log(mdPath);
+    
+    // fs.writeFileSync(mdPath, template(yamlData))
+  })
+}

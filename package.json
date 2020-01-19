@@ -10,6 +10,7 @@
   "author": "shimingw",
   "license": "MIT",
   "devDependencies": {
+    "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "nodemon": "^2.0.2",
     "tracer": "^1.0.2",
