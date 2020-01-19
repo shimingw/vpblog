@@ -9,7 +9,7 @@ const docsRoot = path.join(__dirname, '..', 'docs')
 const template = params => `---
 title: "${params.title}"
 date: ${params.date}
-permalink: "${params.date}-${params.title}"
+permalink: "${params.permalink}"
 ---
 ${params.__content}`
 
