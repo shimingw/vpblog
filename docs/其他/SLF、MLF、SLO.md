@@ -1,10 +1,9 @@
 ---
-title: SLF、MLF、SLO
-date: 2018-4-21 00:00:10
-categories: '金融笔记'
-tags:
-    - '货币手段'
+title: "SLF、MLF、SLO"
+date: 2018-04-21
+permalink: "2018-04-21-其他-SLF、MLF、SLO"
 ---
+
 
 # SLF、MLF、SLO
 

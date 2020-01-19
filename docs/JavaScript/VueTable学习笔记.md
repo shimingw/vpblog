@@ -1,8 +1,9 @@
 ---
 title: "VueTable"
-date: 2017-12-6
-permalink: "2017-12-6-JavaScript-VueTable"
+date: 2017-12-06
+permalink: "2017-12-06-JavaScript-VueTable"
 ---
+
 
 # VueTable
 

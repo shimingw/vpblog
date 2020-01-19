@@ -1,8 +1,9 @@
 ---
 title: "React学习笔记"
-date: 2019-6-6
-permalink: "2019-6-6-JavaScript-React学习笔记"
+date: 2019-06-06
+permalink: "2019-06-06-JavaScript-React学习笔记"
 ---
+
 
 ## 表单
 

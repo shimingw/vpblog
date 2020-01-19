@@ -1,8 +1,9 @@
 ---
 title: "CSS干货"
 date: 2019-10-28
-permalink: "2019-10-28-css-ganhuo"
+permalink: "2019-10-28-css-CSS干货"
 ---
+
 
 
 

@@ -1,8 +1,9 @@
 ---
 title: "vue-cli3"
-date: 2018-7-13
-permalink: "2018-7-13-JavaScript-vue-cli3"
+date: 2018-07-13
+permalink: "2018-07-13-JavaScript-vue-cli3"
 ---
+
 
 # vue-cli 3
 

@@ -1,10 +1,9 @@
 ---
-title: vscode使用eslint技巧
-date: 2019-11-11 00:00:10
-categories: 'vscode'
-tags:
-    - 'eslint'
+title: "vscode使用eslint技巧"
+date: 2019-11-11
+permalink: "2019-11-11-开发工具-vscode使用eslint技巧"
 ---
+
 
 
 

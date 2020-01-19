@@ -1,10 +1,9 @@
 ---
-title: 使用 ESlint、lint-staged 提升项目代码质量
-date: 2019-10-23 17:00:10
-categories: '代码质量'
-tags:
-    - 'JavaScript'
+title: "使用 ESlint、lint-staged 提升项目代码质量"
+date: 2019-10-24
+permalink: "2019-10-24-webpack-使用 ESlint、lint-staged 提升项目代码质量"
 ---
+
 ## lint-staged
 
 根据`package.json`中配置的`husky`工具（例如 [Prettier](https://prettier.io/), [ESlint](https://eslint.org/)） 对暂存区的代码进行检查

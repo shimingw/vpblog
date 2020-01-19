@@ -1,8 +1,9 @@
 ---
 title: "git干货"
-date: 2019-3-3
-permalink: "2019-3-3-git-ganhuo"
+date: 2019-03-03
+permalink: "2019-03-03-git-git干货"
 ---
+
 
 git的常用操作
 

@@ -1,10 +1,9 @@
 ---
-title: Babel学习笔记
-date: 2019-6-14 00:00:10
-categories: 'webpack'
-tags:
-    - 'Babel'
+title: "Babel学习笔记"
+date: 2019-06-14
+permalink: "2019-06-14-webpack-Babel学习笔记"
 ---
+
 ## babel模块
 - `@babel/core` babel的核心模块，将代码转换成AST，再将AST转成代码都靠它
 - `@babel/types` 一个用于 AST 节点的 Lodash 式工具库

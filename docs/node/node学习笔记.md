@@ -1,3 +1,8 @@
+---
+title: "undefined"
+date: 2020-01-19
+permalink: "2020-01-19-node-undefined"
+---
 ## 跨域
 1. nginx反向代理
 2. jsonp

@@ -1,10 +1,9 @@
 ---
-title: python学习笔记
-date: 2018-4-25 00:00:10
-categories: 'python'
-tags:
-    - 'python'
+title: "python学习笔记"
+date: 2018-04-25
+permalink: "2018-04-25-其他-python学习笔记"
 ---
+
 
 # python学习笔记
 

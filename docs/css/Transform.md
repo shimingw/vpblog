@@ -1,8 +1,9 @@
 ---
 title: "transform"
-date: 2018-2-6
-permalink: "2018-2-6-transform"
+date: 2018-02-06
+permalink: "2018-02-06-css-transform"
 ---
+
 
 # transform
 

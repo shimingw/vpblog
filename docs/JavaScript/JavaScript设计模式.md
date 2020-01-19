@@ -1,8 +1,9 @@
 ---
 title: "JavaScript设计模式"
-date: 2018-7-17
-permalink: "2018-7-17-JavaScript-JavaScript设计模式"
+date: 2018-07-17
+permalink: "2018-07-17-JavaScript-JavaScript设计模式"
 ---
+
 
 # JavaScript设计模式
 

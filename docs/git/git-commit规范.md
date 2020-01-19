@@ -1,8 +1,9 @@
 ---
 title: "git-commit规范"
 date: 2019-10-11
-permalink: "2019-10-11-git-lint"
+permalink: "2019-10-11-git-git-commit规范"
 ---
+
 
 
 在`git-commit-message`中约束规范`message`信息，提高`message`中信息的质量

@@ -1,10 +1,9 @@
 ---
-title: sql学习笔记
-date: 2018-5-6 00:00:10
-categories: '数据库'
-tags:
-    - 'sql'
+title: "sql学习笔记"
+date: 2018-05-06
+permalink: "2018-05-06-数据库-sql学习笔记"
 ---
+
 
 
 # select语句

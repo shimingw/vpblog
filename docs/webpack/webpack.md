@@ -1,10 +1,9 @@
 ---
-title: webpack
-date: 2017-4-6 00:00:10
-categories: 'webpack'
-tags:
-    - 'webpack'
+title: "webpack"
+date: 2017-04-06
+permalink: "2017-04-06-webpack-webpack"
 ---
+
 
 # webpack
 

@@ -1,8 +1,9 @@
 ---
 title: "redux"
-date: 2018-4-15
-permalink: "2018-4-15-JavaScript-redux"
+date: 2018-04-15
+permalink: "2018-04-15-JavaScript-redux"
 ---
+
 
 # redux
 

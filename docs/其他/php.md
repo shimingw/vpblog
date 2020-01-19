@@ -1,10 +1,9 @@
 ---
-title: Php
-date: 2018-4-25 00:00:10
-categories: 'Php'
-tags:
-    - 'Php'
+title: "Php"
+date: 2018-04-25
+permalink: "2018-04-25-其他-Php"
 ---
+
 
 ### namespace
 

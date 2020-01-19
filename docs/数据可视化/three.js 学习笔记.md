@@ -1,10 +1,9 @@
 ---
-title: three.js 学习笔记
-date: 2018-6-5 00:00:10
-categories: '可视化'
-tags:
-    - 'three.js'
+title: "three.js 学习笔记"
+date: 2018-06-05
+permalink: "2018-06-05-数据可视化-three.js 学习笔记"
 ---
+
 
 # three.js 学习笔记
 

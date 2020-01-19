@@ -1,8 +1,9 @@
 ---
 title: "LESS"
-date: 2018-7-27
-permalink: "2018-7-27-css-less"
+date: 2018-07-27
+permalink: "2018-07-27-css-LESS"
 ---
+
 
 ## less中的注释
 

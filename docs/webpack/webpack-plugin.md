@@ -1,10 +1,9 @@
 ---
-title: webpack-plugin
-date: 2019-10-26 00:00:10
-categories: 'webpack'
-tags:
-    - 'webpack'
+title: "webpack-plugin"
+date: 2019-10-26
+permalink: "2019-10-26-webpack-webpack-plugin"
 ---
+
 
 
 

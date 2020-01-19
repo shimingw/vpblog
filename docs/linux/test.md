@@ -1,10 +1,9 @@
 ---
-title: Linux
-date: 2018-3-25 00:00:10
-categories: 'Linux'
-tags:
-    - 'Linux'
+title: "Linux"
+date: 2018-03-25
+permalink: "2018-03-25-linux-Linux"
 ---
+
 
 # yum
 

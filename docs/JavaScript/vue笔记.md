@@ -1,8 +1,9 @@
 ---
 title: "Vue笔记"
-date: 2017-9-6
-permalink: "2017-9-6-JavaScript-Vue笔记"
+date: 2017-09-06
+permalink: "2017-09-06-JavaScript-Vue笔记"
 ---
+
 
 ```
 class

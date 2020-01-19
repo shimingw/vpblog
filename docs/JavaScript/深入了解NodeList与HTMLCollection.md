@@ -1,10 +1,9 @@
 ---
-title: 深入了解NodeList与HTMLCollection
-date: 2018-4-6 00:00:10
-categories: 'Javascript'
-tags:
-    - 'dom操作'
+title: "深入了解NodeList与HTMLCollection"
+date: 2018-04-06
+permalink: "2018-04-06-JavaScript-深入了解NodeList与HTMLCollection"
 ---
+
 
 # 深入了解NodeList与HTMLCollection
 

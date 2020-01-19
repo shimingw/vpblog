@@ -1,10 +1,9 @@
 ---
-title: nginx
-date: 2019-7-1 00:00:10
-categories: 'nginx'
-tags:
-    - 'nginx'
+title: "nginx"
+date: 2019-07-01
+permalink: "2019-07-01-linux-nginx"
 ---
+
 
 
 ### http协议
