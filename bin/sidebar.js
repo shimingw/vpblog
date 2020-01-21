@@ -2,7 +2,7 @@
  * @Description: 根据docs中目录结构自动生成侧边栏
  * @Author: shimingwen
  * @Date: 2020-01-17 09:46:11
- * @LastEditTime : 2020-01-20 16:51:06
+ * @LastEditTime : 2020-01-20 17:22:37
  * @LastEditors  : shimingwen
  */
 const fs = require('fs')
@@ -59,23 +59,8 @@ module.exports = {
     }
   ]
  */
+main(docsRoot)
 
-//  将无用路径进行切割
-const mdPathDrop = fp.flow(
-  fp.split(path.sep),
-  fp.dropWhile(val => val !== 'docs')
-)
-// const replaceSep = mdPath => mdPath.replace(/\\/g, '/')
-// const getMdTitle = mdPath => {
-//   try {
-//     return mdPath.match(/([a-zA-Z0-9\u4e00-\u9fa5]*)\.md/)[1]
-//   } catch (error) {
-//     console.log(mdPath)
-//   }
-// }
-// const createMdName = mdPath => [mdPath, getMdTitle(mdPath)]
-const mdPathFilter = fp.flow(mdPathDrop)
-const mdPathsDrop = fp.map(item => mdPathFilter(item))
 /**
  * 主体函数
  */
@@ -86,7 +71,6 @@ function main() {
 
   tocs.forEach(toc => {
     const js = mapTocToSidebar(toc)
-    console.log(js)
 
     if (!js.length) {
       return
@@ -162,5 +146,3 @@ function mapTocToSidebar(root, prefix) {
   // sidebar = sidebar.filter(item => item !== null && item !== undefined)
   return sidebar
 }
-
-main(docsRoot)
