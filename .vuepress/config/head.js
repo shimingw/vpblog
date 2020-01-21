@@ -1,5 +1,5 @@
 module.exports = [
-  // 这是做什么的
+  // TODO: 插入百度分析脚本
   // [
   //   "script",
   //   {

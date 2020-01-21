@@ -12,6 +12,7 @@ module.exports = {
   head: headConf,
   themeConfig: themeConf,
   plugins:[
+    require("./plugins/my-loader"),
     require("./plugins/my-router"),
   ]
 }

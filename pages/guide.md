@@ -1,6 +1,6 @@
 ---
-title: "导航"
-permalink: "guide"
+title: '导航'
+permalink: 'guide'
 comment: true
 single: true
 ---
@@ -38,14 +38,12 @@ export default {
   },
 
   mounted() {
-      debugger
     this.posts = this.$site.pages
     this.num = this.posts.length
   },
 
   computed: {
     topPublishPosts() {
-      debugger
       return this.getTopKPosts(this.page * this.step)
     }
   },
@@ -57,7 +55,7 @@ export default {
       return this.posts
         .filter(post => {
           const { frontmatter } = post;
-          return frontmatter && frontmatter.permalink && frontmatter.title;
+          return frontmatter && frontmatter.permalink && frontmatter.title && !frontmatter.single;
         })
         .map(post => {
           const execs = re.exec(post.relativePath)

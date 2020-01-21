@@ -18,7 +18,7 @@ module.exports = {
   // },
   sidebar,
   sidebarDepth: 3,
-  // 增加头部导航栏
+  // TODO: 增加头部导航栏
   nav: [
     { text: 'Home', link: '/' },
     { text: 'Guide', link: '/guide/' },
