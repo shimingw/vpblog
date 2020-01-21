@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>python学习笔记 | 嘻哈工程师</title>
+    <meta name="description" content="嘻哈工程师的博客">
+    <link rel="icon" href="/favicon.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.dbb3e392.css" as="style"><link rel="preload" href="/assets/js/app.36dd6cb9.js" as="script"><link rel="preload" href="/assets/js/2.43809916.js" as="script"><link rel="preload" href="/assets/js/40.987c596e.js" as="script"><link rel="preload" href="/assets/js/4.347cd80e.js" as="script"><link rel="prefetch" href="/assets/js/10.4e6ddd33.js"><link rel="prefetch" href="/assets/js/11.7561ad4c.js"><link rel="prefetch" href="/assets/js/12.0ea9617e.js"><link rel="prefetch" href="/assets/js/13.84483a71.js"><link rel="prefetch" href="/assets/js/14.a7f8c7cf.js"><link rel="prefetch" href="/assets/js/15.bba32bca.js"><link rel="prefetch" href="/assets/js/16.3133debb.js"><link rel="prefetch" href="/assets/js/17.a6d99212.js"><link rel="prefetch" href="/assets/js/18.a4402e69.js"><link rel="prefetch" href="/assets/js/19.e8b031b1.js"><link rel="prefetch" href="/assets/js/20.081f5fb5.js"><link rel="prefetch" href="/assets/js/21.13e3ceb6.js"><link rel="prefetch" href="/assets/js/22.705a061e.js"><link rel="prefetch" href="/assets/js/23.35cd7db7.js"><link rel="prefetch" href="/assets/js/24.54b1ed8d.js"><link rel="prefetch" href="/assets/js/25.0efbf215.js"><link rel="prefetch" href="/assets/js/26.f7aec095.js"><link rel="prefetch" href="/assets/js/27.707e3fb9.js"><link rel="prefetch" href="/assets/js/28.2805472f.js"><link rel="prefetch" href="/assets/js/29.8bcc2cc4.js"><link rel="prefetch" href="/assets/js/3.0d414669.js"><link rel="prefetch" href="/assets/js/30.6cf76f79.js"><link rel="prefetch" href="/assets/js/31.382ef51a.js"><link rel="prefetch" href="/assets/js/32.7a211421.js"><link rel="prefetch" href="/assets/js/33.8f702826.js"><link rel="prefetch" href="/assets/js/34.bb5099ce.js"><link rel="prefetch" href="/assets/js/35.1c10e20e.js"><link rel="prefetch" href="/assets/js/36.5f70896f.js"><link rel="prefetch" href="/assets/js/37.a3bd626a.js"><link rel="prefetch" href="/assets/js/38.e83486b4.js"><link rel="prefetch" href="/assets/js/39.1f9b5ee9.js"><link rel="prefetch" href="/assets/js/41.6268667d.js"><link rel="prefetch" href="/assets/js/42.d4937b89.js"><link rel="prefetch" href="/assets/js/43.e74931b9.js"><link rel="prefetch" href="/assets/js/44.4cee6a3c.js"><link rel="prefetch" href="/assets/js/45.a24893f8.js"><link rel="prefetch" href="/assets/js/46.893c62ff.js"><link rel="prefetch" href="/assets/js/47.443e2b9b.js"><link rel="prefetch" href="/assets/js/48.7d16fcc1.js"><link rel="prefetch" href="/assets/js/49.7916c999.js"><link rel="prefetch" href="/assets/js/5.aed875d0.js"><link rel="prefetch" href="/assets/js/50.f2bb9d15.js"><link rel="prefetch" href="/assets/js/51.3abdc5a9.js"><link rel="prefetch" href="/assets/js/52.2e83f3ba.js"><link rel="prefetch" href="/assets/js/53.eb22de47.js"><link rel="prefetch" href="/assets/js/54.43cf2189.js"><link rel="prefetch" href="/assets/js/55.a8176dc1.js"><link rel="prefetch" href="/assets/js/6.c842520d.js"><link rel="prefetch" href="/assets/js/7.f63192aa.js"><link rel="prefetch" href="/assets/js/8.d3af474d.js"><link rel="prefetch" href="/assets/js/9.634ce07d.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.dbb3e392.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">嘻哈工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="External" class="dropdown-title"><span class="title">External</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/2018-04-25-其他-python学习笔记/www.baidu.com.html" class="nav-link">baidu</a></li></ul></div></div> <a href="https://github.com/shimingw/vpblog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="External" class="dropdown-title"><span class="title">External</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/2018-04-25-其他-python学习笔记/www.baidu.com.html" class="nav-link">baidu</a></li></ul></div></div> <a href="https://github.com/shimingw/vpblog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/docs/2018-04-25-其他-Php/" class="sidebar-link">php</a></li><li><a href="/docs/2018-04-25-其他-python学习笔记/" class="active sidebar-link">python学习笔记</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#函数" class="sidebar-link">函数</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#def" class="sidebar-link">def</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#global" class="sidebar-link">global</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#可以为参数设置默认值" class="sidebar-link">可以为参数设置默认值</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#param" class="sidebar-link">*param</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#param-2" class="sidebar-link">**param</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#none" class="sidebar-link">None</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#import" class="sidebar-link">import</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#pyc-文件" class="sidebar-link">.pyc 文件</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#from-import" class="sidebar-link">from ... import ...</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#name" class="sidebar-link">_name_</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#dir" class="sidebar-link">dir()</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#tuple" class="sidebar-link">tuple</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#元组" class="sidebar-link">元组</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#list" class="sidebar-link">list</a></li></ul></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#project" class="sidebar-link">project</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#压缩文件的demo" class="sidebar-link">压缩文件的demo</a></li></ul></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#class" class="sidebar-link">class</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#类的基本用法（self，init）" class="sidebar-link">类的基本用法（self，_init_）</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#类变量与对象变量" class="sidebar-link">类变量与对象变量</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#classmethod-（类方法）" class="sidebar-link">classmethod （类方法）</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#staticmethod（-静态方法）" class="sidebar-link">staticmethod（ 静态方法）</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#继承" class="sidebar-link">继承</a></li></ul></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#输入与输出" class="sidebar-link">输入与输出</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#open" class="sidebar-link">open</a></li></ul></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#pickle模块" class="sidebar-link">pickle模块</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#unicode-模块" class="sidebar-link">Unicode 模块</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#异常处理" class="sidebar-link">异常处理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#捕捉异常" class="sidebar-link">捕捉异常</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#抛出异常" class="sidebar-link">抛出异常</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#with" class="sidebar-link">with</a></li></ul></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#标准库" class="sidebar-link">标准库</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#sys模块" class="sidebar-link">sys模块</a></li><li class="sidebar-sub-header"><a href="/docs/2018-04-25-其他-python学习笔记/#日志模块" class="sidebar-link">日志模块</a></li></ul></li></ul></li><li><a href="/docs/2018-04-21-其他-SLF、MLF、SLO/" class="sidebar-link">SLF、MLF、SLO</a></li><li><a href="/docs/2018-05-16-其他-二手房交易要付哪些税/" class="sidebar-link">二手房交易要付哪些税</a></li><li><a href="/docs/2017-04-13-其他-饮食手册/" class="sidebar-link">手册</a></li><li><a href="/docs/2017-02-06-其他-暗夜课程学习笔记/" class="sidebar-link">暗夜课程学习笔记</a></li><li><a href="/docs/2017-03-06-其他-楼盘分析笔记/" class="sidebar-link">楼盘分析笔记</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="python学习笔记"><a href="#python学习笔记" class="header-anchor">#</a> python学习笔记</h1> <h2 id="函数"><a href="#函数" class="header-anchor">#</a> 函数</h2> <h3 id="def"><a href="#def" class="header-anchor">#</a> def</h3> <div class="language- extra-class"><pre class="language-text"><code>用来声明函数
+def say_hello():
+	print('hello word')
+</code></pre></div><h3 id="global"><a href="#global" class="header-anchor">#</a> global</h3> <div class="language- extra-class"><pre class="language-text"><code>用来在函数内部声明引用全局变量
+</code></pre></div><h3 id="可以为参数设置默认值"><a href="#可以为参数设置默认值" class="header-anchor">#</a> 可以为参数设置默认值</h3> <div class="language- extra-class"><pre class="language-text"><code>def func(a, b=5, c=10):
+传值时也可以使用这样的方法
+func(c=50, a=100)
+</code></pre></div><h3 id="param"><a href="#param" class="header-anchor">#</a> *param</h3> <div class="language- extra-class"><pre class="language-text"><code>从此处开始直到结束的所有位置参数
+（ Positional Arguments） 都将被收集并汇集成一个称为“param”的元组（ Tuple） 
+</code></pre></div><h3 id="param-2"><a href="#param-2" class="header-anchor">#</a> **param</h3> <div class="language- extra-class"><pre class="language-text"><code>从此处开始直至结束的所有关键字
+参数都将被收集并汇集成一个名为 param 的字典（ Dictionary）
+</code></pre></div><h3 id="none"><a href="#none" class="header-anchor">#</a> None</h3> <div class="language- extra-class"><pre class="language-text"><code>如果一个函数没有返回值，则print返回值为None
+每一个函数都在其末尾隐含了一句 return None
+</code></pre></div><h3 id="import"><a href="#import" class="header-anchor">#</a> import</h3> <div class="language- extra-class"><pre class="language-text"><code>同js的import功能
+</code></pre></div><h3 id="pyc-文件"><a href="#pyc-文件" class="header-anchor">#</a> .pyc 文件</h3> <div class="language- extra-class"><pre class="language-text"><code>更快速的完成模块导入
+</code></pre></div><h3 id="from-import"><a href="#from-import" class="header-anchor">#</a> from ... import ...</h3> <div class="language- extra-class"><pre class="language-text"><code>引入模块中的某个功能
+同js中的import from
+</code></pre></div><h3 id="name"><a href="#name" class="header-anchor">#</a> <strong>name</strong></h3> <div class="language- extra-class"><pre class="language-text"><code>__name__ == '__main__'
+如果相等表示模块是独立运行的
+</code></pre></div><h3 id="dir"><a href="#dir" class="header-anchor">#</a> dir()</h3> <div class="language- extra-class"><pre class="language-text"><code>import my_module_one
+print(dir(my_module_one))
+显示当前模块的属性和方法
+</code></pre></div><h3 id="tuple"><a href="#tuple" class="header-anchor">#</a> tuple</h3> <div class="language- extra-class"><pre class="language-text"><code>可以用索引获取
+zoo = ('python', 'elephant', 'penguin')
+new_zoo = 'monkey', 'camel', zoo
+</code></pre></div><h3 id="元组"><a href="#元组" class="header-anchor">#</a> 元组</h3> <div class="language- extra-class"><pre class="language-text"><code>key、value的形式
+ab = {
+'Swaroop': 'swaroop@swaroopch.com',
+'Larry': 'larry@wall.org',
+'Matsumoto': 'matz@ruby-lang.org',
+'Spammer': 'spammer@hotmail.com'
+}
+</code></pre></div><h3 id="list"><a href="#list" class="header-anchor">#</a> list</h3> <div class="language- extra-class"><pre class="language-text"><code>类似js数组
+</code></pre></div><h2 id="project"><a href="#project" class="header-anchor">#</a> project</h2> <h3 id="压缩文件的demo"><a href="#压缩文件的demo" class="header-anchor">#</a> 压缩文件的demo</h3> <div class="language- extra-class"><pre class="language-text"><code>import os
+import time
+
+# C:\Users\Administrator\Desktop\myNote
+source = ['C:\\Users\Administrator\Desktop\myNote']
+target_dir = 'C:\\Users\Administrator\Desktop'
+target = target_dir + os.sep + \
+         time.strftime('%Y%m%d%H%M%S') + '.zip'
+print(target)
+# 如果目标目录还不存在，则进行创建
+if not os.path.exists(target_dir):
+    os.mkdir(target_dir)    # 创建目录
+
+# 5. 我们使用 zip 命令将文件打包成 zip 格式
+zip_command = 'zip -r {0} {1}'.format(target, ' '.join(source))
+
+print('Zip command is:')
+print(zip_command)
+print('Running:')
+
+if os.system(zip_command) == 0:
+    print('Successful backup to', target)
+else:
+    print('Backup FAILED')
+</code></pre></div><h2 id="class"><a href="#class" class="header-anchor">#</a> class</h2> <h3 id="类的基本用法（self，init）"><a href="#类的基本用法（self，init）" class="header-anchor">#</a> 类的基本用法（self，<strong>init</strong>）</h3> <div class="language- extra-class"><pre class="language-text"><code>self：相当于js中的this指针，指向这个类
+__init__：相当于js中的类的，初始化方法。每次被初始化的时候都会执行的函数
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def say_hi(self):
+        print(self)
+        print('hello,my name is', self.name)
+
+
+p = Person('shimingwen')
+p.say_hi()
+</code></pre></div><h3 id="类变量与对象变量"><a href="#类变量与对象变量" class="header-anchor">#</a> 类变量与对象变量</h3> <div class="language- extra-class"><pre class="language-text"><code>类变量：被所有实例化后的对象所共享，挂载在类下
+引用方法
+1、Robot.popluation
+2、self.__class__.population，因为每个对象都通过
+self.__class__ 属性来引用它的类
+
+对象变量：被实例化后的对象所拥有，挂载在self下
+class Robot:
+    &quot;&quot;&quot;表示有一个带有名字的机器人。&quot;&quot;&quot;
+    # 一个类变量，用来计数机器人的数量
+    population = 0
+
+    def __init__(self, name):
+        &quot;&quot;&quot;初始化数据&quot;&quot;&quot;
+        self.name = name
+        print(&quot;Initializing {}&quot;.format(self.name))
+
+        # 当有人被创建时，机器人
+        # 将会增加人口数量
+        Robot.population += 1
+
+    def die(self):
+        &quot;&quot;&quot;我挂了&quot;&quot;&quot;
+        print(&quot;{} is die&quot;.format(self.name))
+
+        Robot.population -= 1
+
+        if Robot.population == 0:
+            print(&quot;{} was this last one.&quot;.format(self.name))
+        else:
+            print(&quot;There are still {:d} robots working.&quot;.format(Robot.population))
+
+    def say_hi(self):
+        &quot;&quot;&quot;来自机器人的问候
+        没问题，你做得到
+        &quot;&quot;&quot;
+        print(&quot;Greetings, my masters call me {}&quot;.format(self.name))
+
+    @classmethod
+    def how_many(cls):
+        &quot;&quot;&quot;打印出当前的人口数量&quot;&quot;&quot;
+        print(&quot;We have {:d} robots&quot;.format(cls.population))
+
+
+droid1 = Robot(&quot;R2-D2&quot;)
+droid1.say_hi()
+Robot.how_many()
+
+droid2 = Robot(&quot;C-3PO&quot;)
+droid2.say_hi()
+Robot.how_many()
+
+
+print(&quot;\nRobots can do some work here.\n&quot;)
+print(&quot;Robots have finished their work. So let's destroy them.&quot;)
+droid1.die()
+droid2.die()
+
+Robot.how_many()
+
+</code></pre></div><h3 id="classmethod-（类方法）"><a href="#classmethod-（类方法）" class="header-anchor">#</a> classmethod （类方法）</h3> <h3 id="staticmethod（-静态方法）"><a href="#staticmethod（-静态方法）" class="header-anchor">#</a> staticmethod（ 静态方法）</h3> <div class="language- extra-class"><pre class="language-text"><code>只能存在于类下，不能被对象所继承的方法
+</code></pre></div><h3 id="继承"><a href="#继承" class="header-anchor">#</a> 继承</h3> <div class="language- extra-class"><pre class="language-text"><code>子类继承父类，类似js的继承，寻找方法时，会从原型链线上查找
+class SchoolMember:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        print(&quot;school member:{}&quot;.format(self.name))
+
+    def tell(self):
+        print(&quot;Name : '{}' Age: '{}' &quot;.format(self.name, self.age))
+
+
+class Teacher(SchoolMember):
+    def __init__(self, name, age, salary):
+        SchoolMember.__init__(self, name, age)
+        self.salary = salary
+        print(&quot;Add teacher : {}&quot;.format(self.name))
+
+    # def tell(self):
+    #     SchoolMember.tell(self)
+    #     print(&quot;Salary: '{:d}'&quot;.format(self.salary))
+
+
+class Student(SchoolMember):
+    def __init__(self, name, age, marks):
+        SchoolMember.__init__(self, name, age)
+        self.marks = marks
+        print(&quot;Add student: {}&quot;.format(self.name))
+
+    def tell(self):
+        SchoolMember.tell(self)
+        print('Marks: &quot;{:d}&quot;'.format(self.marks))
+</code></pre></div><h2 id="输入与输出"><a href="#输入与输出" class="header-anchor">#</a> 输入与输出</h2> <h3 id="open"><a href="#open" class="header-anchor">#</a> open</h3> <div class="language- extra-class"><pre class="language-text"><code>阅读模式（'r' ） ，写入模式（'w' ） 和追加模式（'a' ）
+文本模式（'t' ） 还是二进制模式（'b' ） 来读取
+help(open)
+
+默认为读取内容功能开启
+f = open('poem.txt')
+
+写入内容功能开启
+f = open('poem.txt', 'w')
+f.write(poem)
+
+读取每行内容
+line = f.readline()
+
+
+
+</code></pre></div><h2 id="pickle模块"><a href="#pickle模块" class="header-anchor">#</a> pickle模块</h2> <div class="language- extra-class"><pre class="language-text"><code>可以将数据写进文件，并且从文件中取出数据。
+要想将一个对象存储到一个文件中，我们首先需要通过 open 以写入（ write） 二进制
+（ binary） 模式打开文件，然后调用 pickle 模块的 dump 函数。这一过程被称作封装
+（ Pickling） 。
+接着，我们通过 pickle 模块的 load 函数接收返回的对象。这个过程被称作拆封
+（ Unpickling） 。
+</code></pre></div><h2 id="unicode-模块"><a href="#unicode-模块" class="header-anchor">#</a> Unicode 模块</h2> <div class="language- extra-class"><pre class="language-text"><code>将 # encoding=utf-8 这一注释放置在我们程序的顶端。
+# encoding=utf-8
+import io
+f = io.open(&quot;abc.txt&quot;, &quot;wt&quot;, encoding=&quot;utf-8&quot;)
+f.write(u&quot;Imagine non-English language here&quot;)
+f.close()
+text = io.open(&quot;abc.txt&quot;, encoding=&quot;utf-8&quot;).read()
+print(text)
+</code></pre></div><h2 id="异常处理"><a href="#异常处理" class="header-anchor">#</a> 异常处理</h2> <h3 id="捕捉异常"><a href="#捕捉异常" class="header-anchor">#</a> 捕捉异常</h3> <div class="language- extra-class"><pre class="language-text"><code>try:
+    text = input('Enter something --&gt; ')
+except EOFError:
+    print('Why did you do an EOF on me?')
+except KeyboardInterrupt:
+    print('You cancelled the operation.')
+else:
+    print('You entered {}'.format(text))
+</code></pre></div><h3 id="抛出异常"><a href="#抛出异常" class="header-anchor">#</a> 抛出异常</h3> <div class="language- extra-class"><pre class="language-text"><code>创建自定义异常类型，接收两个参数
+可以被except捕捉到
+class errorInput(Exception):
+    def __init__(self, length, atleast):
+        Exception.__init__(self)
+        self.length = length
+        self.atleast = atleast
+
+
+try:
+    text = input('enter something--&gt;')
+    if len(text) &lt; 3:
+        raise errorInput(len(text), 3)
+except EOFError:
+    print('Why did you do an EOF on me?')
+except errorInput as ex:
+    print(('ShortInputException: The input was ' +
+           '{0} long, expected at least {1}')
+          .format(ex.length, ex.atleast))
+else:
+    print('No exception was raised.')
+</code></pre></div><h3 id="with"><a href="#with" class="header-anchor">#</a> with</h3> <div class="language- extra-class"><pre class="language-text"><code>我们在 finally 代码块中编写的代码应该格外留心 __exit__ 方法的自动操作。这能
+够帮助我们避免重复显式使用 try..finally 语句。
+with open(&quot;poem.txt&quot;) as f:
+    for line in f:
+        print(line)
+</code></pre></div><h2 id="标准库"><a href="#标准库" class="header-anchor">#</a> 标准库</h2> <h3 id="sys模块"><a href="#sys模块" class="header-anchor">#</a> sys模块</h3> <div class="language- extra-class"><pre class="language-text"><code>提供python版本相关信息
+import sys
+print(sys.version_info)
+</code></pre></div><h3 id="日志模块"><a href="#日志模块" class="header-anchor">#</a> 日志模块</h3> <div class="language- extra-class"><pre class="language-text"><code>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/shimingw/vpblog/edit/master/docs/其他/python学习笔记.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">更新于:</span> <span class="time">2020-1-19 5:22:01 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/docs/2018-04-25-其他-Php/" class="prev">php</a></span> <span class="next"><a href="/docs/2018-04-21-其他-SLF、MLF、SLO/">SLF、MLF、SLO</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div class="pace  pace-inactive" style="display:none;" data-v-f74cb30c><div data-progress-text="100%" data-progress="99" class="pace-progress" style="transform:translate3d(0%, 0px, 0px);" data-v-f74cb30c><div class="pace-progress-inner" data-v-f74cb30c></div></div></div><div class="my-popup" style="display:none;" data-v-3414bdeb><div class="my-popup-container" data-v-3414bdeb><div class="my-popup-exit" data-v-3414bdeb></div> <img src="" alt data-v-3414bdeb></div></div><!----><!----><div></div></div></div>
+    <script src="/assets/js/app.36dd6cb9.js" defer></script><script src="/assets/js/2.43809916.js" defer></script><script src="/assets/js/40.987c596e.js" defer></script><script src="/assets/js/4.347cd80e.js" defer></script>
+  </body>
+</html>

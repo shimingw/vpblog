@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vscode使用eslint技巧 | 嘻哈工程师</title>
+    <meta name="description" content="嘻哈工程师的博客">
+    <link rel="icon" href="/favicon.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.dbb3e392.css" as="style"><link rel="preload" href="/assets/js/app.36dd6cb9.js" as="script"><link rel="preload" href="/assets/js/2.43809916.js" as="script"><link rel="preload" href="/assets/js/46.893c62ff.js" as="script"><link rel="preload" href="/assets/js/4.347cd80e.js" as="script"><link rel="prefetch" href="/assets/js/10.4e6ddd33.js"><link rel="prefetch" href="/assets/js/11.7561ad4c.js"><link rel="prefetch" href="/assets/js/12.0ea9617e.js"><link rel="prefetch" href="/assets/js/13.84483a71.js"><link rel="prefetch" href="/assets/js/14.a7f8c7cf.js"><link rel="prefetch" href="/assets/js/15.bba32bca.js"><link rel="prefetch" href="/assets/js/16.3133debb.js"><link rel="prefetch" href="/assets/js/17.a6d99212.js"><link rel="prefetch" href="/assets/js/18.a4402e69.js"><link rel="prefetch" href="/assets/js/19.e8b031b1.js"><link rel="prefetch" href="/assets/js/20.081f5fb5.js"><link rel="prefetch" href="/assets/js/21.13e3ceb6.js"><link rel="prefetch" href="/assets/js/22.705a061e.js"><link rel="prefetch" href="/assets/js/23.35cd7db7.js"><link rel="prefetch" href="/assets/js/24.54b1ed8d.js"><link rel="prefetch" href="/assets/js/25.0efbf215.js"><link rel="prefetch" href="/assets/js/26.f7aec095.js"><link rel="prefetch" href="/assets/js/27.707e3fb9.js"><link rel="prefetch" href="/assets/js/28.2805472f.js"><link rel="prefetch" href="/assets/js/29.8bcc2cc4.js"><link rel="prefetch" href="/assets/js/3.0d414669.js"><link rel="prefetch" href="/assets/js/30.6cf76f79.js"><link rel="prefetch" href="/assets/js/31.382ef51a.js"><link rel="prefetch" href="/assets/js/32.7a211421.js"><link rel="prefetch" href="/assets/js/33.8f702826.js"><link rel="prefetch" href="/assets/js/34.bb5099ce.js"><link rel="prefetch" href="/assets/js/35.1c10e20e.js"><link rel="prefetch" href="/assets/js/36.5f70896f.js"><link rel="prefetch" href="/assets/js/37.a3bd626a.js"><link rel="prefetch" href="/assets/js/38.e83486b4.js"><link rel="prefetch" href="/assets/js/39.1f9b5ee9.js"><link rel="prefetch" href="/assets/js/40.987c596e.js"><link rel="prefetch" href="/assets/js/41.6268667d.js"><link rel="prefetch" href="/assets/js/42.d4937b89.js"><link rel="prefetch" href="/assets/js/43.e74931b9.js"><link rel="prefetch" href="/assets/js/44.4cee6a3c.js"><link rel="prefetch" href="/assets/js/45.a24893f8.js"><link rel="prefetch" href="/assets/js/47.443e2b9b.js"><link rel="prefetch" href="/assets/js/48.7d16fcc1.js"><link rel="prefetch" href="/assets/js/49.7916c999.js"><link rel="prefetch" href="/assets/js/5.aed875d0.js"><link rel="prefetch" href="/assets/js/50.f2bb9d15.js"><link rel="prefetch" href="/assets/js/51.3abdc5a9.js"><link rel="prefetch" href="/assets/js/52.2e83f3ba.js"><link rel="prefetch" href="/assets/js/53.eb22de47.js"><link rel="prefetch" href="/assets/js/54.43cf2189.js"><link rel="prefetch" href="/assets/js/55.a8176dc1.js"><link rel="prefetch" href="/assets/js/6.c842520d.js"><link rel="prefetch" href="/assets/js/7.f63192aa.js"><link rel="prefetch" href="/assets/js/8.d3af474d.js"><link rel="prefetch" href="/assets/js/9.634ce07d.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.dbb3e392.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">嘻哈工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="External" class="dropdown-title"><span class="title">External</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/2019-11-11-开发工具-vscode使用eslint技巧/www.baidu.com.html" class="nav-link">baidu</a></li></ul></div></div> <a href="https://github.com/shimingw/vpblog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="External" class="dropdown-title"><span class="title">External</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/2019-11-11-开发工具-vscode使用eslint技巧/www.baidu.com.html" class="nav-link">baidu</a></li></ul></div></div> <a href="https://github.com/shimingw/vpblog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/docs/2019-11-11-开发工具-vscode使用eslint技巧/" class="active sidebar-link">vscode使用eslint技巧</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/2019-11-11-开发工具-vscode使用eslint技巧/#安装eslint" class="sidebar-link">安装eslint</a></li><li class="sidebar-sub-header"><a href="/docs/2019-11-11-开发工具-vscode使用eslint技巧/#配置eslint规则" class="sidebar-link">配置eslint规则</a></li><li class="sidebar-sub-header"><a href="/docs/2019-11-11-开发工具-vscode使用eslint技巧/#vscode中关于eslint的配置" class="sidebar-link">vscode中关于eslint的配置</a></li><li class="sidebar-sub-header"><a href="/docs/2019-11-11-开发工具-vscode使用eslint技巧/#使用效果" class="sidebar-link">使用效果</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p><strong>vscode</strong>中可以使用<code>eslint</code>对代码规范进行校验，并自动修复一些简单的错误（代码格式、<code>let</code>定义的常量修改为<code>const</code>）</p> <h2 id="安装eslint"><a href="#安装eslint" class="header-anchor">#</a> 安装eslint</h2> <p>在<code>vscode</code>商店中搜索<code>eslint</code>进行安装</p> <h2 id="配置eslint规则"><a href="#配置eslint规则" class="header-anchor">#</a> 配置eslint规则</h2> <p><strong>.eslintrc.js</strong></p> <div class="language- extra-class"><pre class="language-text"><code>module.exports = {
+  env: {
+    browser: true,
+    es6: true
+  },
+  extends: [
+    'plugin:vue/essential',
+    'standard'
+  ],
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: 'module'
+  },
+  plugins: [
+    'vue'
+  ],
+  rules: {
+    &quot;no-var&quot;: 2,
+    &quot;eqeqeq&quot;:&quot;off&quot;
+  }
+}
+</code></pre></div><h2 id="vscode中关于eslint的配置"><a href="#vscode中关于eslint的配置" class="header-anchor">#</a> vscode中关于eslint的配置</h2> <p>在根目录创建**.vscode/settings.json**文件进行配置</p> <div class="language- extra-class"><pre class="language-text"><code>  &quot;eslint.enable&quot;: true,
+  &quot;eslint.autoFixOnSave&quot;: true,		//是否在保存时自动修复错误，如果不开启自动修复也可以使用ctrl+shift+p，使用fix all auto-fixable problems进行手动修复
+  &quot;eslint.validate&quot;: [
+    &quot;javascript&quot;,
+    &quot;javascriptreact&quot;,
+    &quot;vue-html&quot;,
+    {
+      &quot;language&quot;: &quot;html&quot;,
+      &quot;autoFix&quot;: true
+    },
+    {
+      &quot;language&quot;: &quot;vue&quot;,
+      &quot;autoFix&quot;: true
+    }
+  ],
+  &quot;eslint.options&quot;: { &quot;configFile&quot;: &quot;./.eslintrc.js&quot; }	//关联eslint配置文件，vscode中的eslint将会根据配置文件中的规则进行校验
+</code></pre></div><h2 id="使用效果"><a href="#使用效果" class="header-anchor">#</a> 使用效果</h2> <p><img src="vscode%E4%BD%BF%E7%94%A8eslint%E6%8A%80%E5%B7%A7/vscode-eslint-demo.gif" alt="vscode-eslint-demo"></p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/shimingw/vpblog/edit/master/docs/开发工具/vscode使用eslint技巧.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">更新于:</span> <span class="time">2020-1-19 5:22:01 PM</span></div></footer> <!----> </main></div><div class="global-ui"><div class="pace  pace-inactive" style="display:none;" data-v-f74cb30c><div data-progress-text="100%" data-progress="99" class="pace-progress" style="transform:translate3d(0%, 0px, 0px);" data-v-f74cb30c><div class="pace-progress-inner" data-v-f74cb30c></div></div></div><div class="my-popup" style="display:none;" data-v-3414bdeb><div class="my-popup-container" data-v-3414bdeb><div class="my-popup-exit" data-v-3414bdeb></div> <img src="" alt data-v-3414bdeb></div></div><!----><!----><div></div></div></div>
+    <script src="/assets/js/app.36dd6cb9.js" defer></script><script src="/assets/js/2.43809916.js" defer></script><script src="/assets/js/46.893c62ff.js" defer></script><script src="/assets/js/4.347cd80e.js" defer></script>
+  </body>
+</html>

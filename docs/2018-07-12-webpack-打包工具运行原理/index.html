@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>打包工具运行原理 | 嘻哈工程师</title>
+    <meta name="description" content="嘻哈工程师的博客">
+    <link rel="icon" href="/favicon.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.dbb3e392.css" as="style"><link rel="preload" href="/assets/js/app.36dd6cb9.js" as="script"><link rel="preload" href="/assets/js/2.43809916.js" as="script"><link rel="preload" href="/assets/js/37.a3bd626a.js" as="script"><link rel="preload" href="/assets/js/4.347cd80e.js" as="script"><link rel="prefetch" href="/assets/js/10.4e6ddd33.js"><link rel="prefetch" href="/assets/js/11.7561ad4c.js"><link rel="prefetch" href="/assets/js/12.0ea9617e.js"><link rel="prefetch" href="/assets/js/13.84483a71.js"><link rel="prefetch" href="/assets/js/14.a7f8c7cf.js"><link rel="prefetch" href="/assets/js/15.bba32bca.js"><link rel="prefetch" href="/assets/js/16.3133debb.js"><link rel="prefetch" href="/assets/js/17.a6d99212.js"><link rel="prefetch" href="/assets/js/18.a4402e69.js"><link rel="prefetch" href="/assets/js/19.e8b031b1.js"><link rel="prefetch" href="/assets/js/20.081f5fb5.js"><link rel="prefetch" href="/assets/js/21.13e3ceb6.js"><link rel="prefetch" href="/assets/js/22.705a061e.js"><link rel="prefetch" href="/assets/js/23.35cd7db7.js"><link rel="prefetch" href="/assets/js/24.54b1ed8d.js"><link rel="prefetch" href="/assets/js/25.0efbf215.js"><link rel="prefetch" href="/assets/js/26.f7aec095.js"><link rel="prefetch" href="/assets/js/27.707e3fb9.js"><link rel="prefetch" href="/assets/js/28.2805472f.js"><link rel="prefetch" href="/assets/js/29.8bcc2cc4.js"><link rel="prefetch" href="/assets/js/3.0d414669.js"><link rel="prefetch" href="/assets/js/30.6cf76f79.js"><link rel="prefetch" href="/assets/js/31.382ef51a.js"><link rel="prefetch" href="/assets/js/32.7a211421.js"><link rel="prefetch" href="/assets/js/33.8f702826.js"><link rel="prefetch" href="/assets/js/34.bb5099ce.js"><link rel="prefetch" href="/assets/js/35.1c10e20e.js"><link rel="prefetch" href="/assets/js/36.5f70896f.js"><link rel="prefetch" href="/assets/js/38.e83486b4.js"><link rel="prefetch" href="/assets/js/39.1f9b5ee9.js"><link rel="prefetch" href="/assets/js/40.987c596e.js"><link rel="prefetch" href="/assets/js/41.6268667d.js"><link rel="prefetch" href="/assets/js/42.d4937b89.js"><link rel="prefetch" href="/assets/js/43.e74931b9.js"><link rel="prefetch" href="/assets/js/44.4cee6a3c.js"><link rel="prefetch" href="/assets/js/45.a24893f8.js"><link rel="prefetch" href="/assets/js/46.893c62ff.js"><link rel="prefetch" href="/assets/js/47.443e2b9b.js"><link rel="prefetch" href="/assets/js/48.7d16fcc1.js"><link rel="prefetch" href="/assets/js/49.7916c999.js"><link rel="prefetch" href="/assets/js/5.aed875d0.js"><link rel="prefetch" href="/assets/js/50.f2bb9d15.js"><link rel="prefetch" href="/assets/js/51.3abdc5a9.js"><link rel="prefetch" href="/assets/js/52.2e83f3ba.js"><link rel="prefetch" href="/assets/js/53.eb22de47.js"><link rel="prefetch" href="/assets/js/54.43cf2189.js"><link rel="prefetch" href="/assets/js/55.a8176dc1.js"><link rel="prefetch" href="/assets/js/6.c842520d.js"><link rel="prefetch" href="/assets/js/7.f63192aa.js"><link rel="prefetch" href="/assets/js/8.d3af474d.js"><link rel="prefetch" href="/assets/js/9.634ce07d.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.dbb3e392.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">嘻哈工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="External" class="dropdown-title"><span class="title">External</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/2018-07-12-webpack-打包工具运行原理/www.baidu.com.html" class="nav-link">baidu</a></li></ul></div></div> <a href="https://github.com/shimingw/vpblog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="External" class="dropdown-title"><span class="title">External</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/2018-07-12-webpack-打包工具运行原理/www.baidu.com.html" class="nav-link">baidu</a></li></ul></div></div> <a href="https://github.com/shimingw/vpblog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/docs/2019-06-14-webpack-Babel学习笔记/" class="sidebar-link">Babel学习笔记</a></li><li><a href="/docs/2019-10-26-webpack-webpack-plugin/" class="sidebar-link">webpack-plugin</a></li><li><a href="/docs/2017-04-06-webpack-webpack/" class="sidebar-link">webpack</a></li><li><a href="/docs/2019-10-24-webpack-使用 ESlint、lint-staged 提升项目代码质量/" class="sidebar-link">使用ESlint、lint-staged提升项目代码质量</a></li><li><a href="/docs/2018-07-12-webpack-打包工具运行原理/" class="active sidebar-link">打包工具运行原理</a><ul class="sidebar-sub-headers"></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="打包工具运行原理"><a href="#打包工具运行原理" class="header-anchor">#</a> 打包工具运行原理</h1> <p>日期：2018-7-12</p> <h3 id="核心原理"><a href="#核心原理" class="header-anchor">#</a> 核心原理</h3> <blockquote><p>打包工具会从一个入口文件开始，分析它里面的依赖，并且再进一步地分析依赖中的依赖，不断重复这个过程，直到把这些依赖关系理清挑明为止。</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>/* name.js */
+
+export const name = 'World'
+/* message.js */
+
+import { name } from './name.js'
+
+export default `Hello ${name}!`
+/* entry.js */
+
+import hello from './hello.js'
+
+console.log(hello)
+</code></pre></div><p>它们的依赖关系非常简单：  <strong>entry.js</strong> <strong>→</strong> <strong>hello.js</strong> <strong>→</strong> <strong>name.js</strong>，其中<strong>entry.js</strong> 将会成为打包工具的入口文件。</p> <h3 id="依赖关系解析"><a href="#依赖关系解析" class="header-anchor">#</a> 依赖关系解析</h3> <p>新建一个js文件，命名为<strong>minipack.js</strong>，首先引入必要的工具。</p> <div class="language- extra-class"><pre class="language-text"><code>/* minipack.js */
+
+const fs = require('fs')
+const path = require('path')
+
+//将js文件内容转化AST语法树
+const babylon = require('@babel/parser')
+
+//可以遍历AST语法树，获取其中的依赖关系
+const traverse = require('@babel/traverse').default
+
+//将es6语法转化成es5语法
+//还需要配置.babelrc文件，设置转化规则
+const { transformFromAst } = require('babel-core')
+</code></pre></div><h4 id="文件解析"><a href="#文件解析" class="header-anchor">#</a> 文件解析</h4> <p><code>.babelrc</code></p> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;presets&quot;: [
+        [&quot;env&quot;, {
+            &quot;modules&quot;: false,
+            &quot;targets&quot;: {
+                &quot;browsers&quot;: [&quot;&gt; 1%&quot;, &quot;last 2 versions&quot;, &quot;not ie &lt;= 8&quot;]
+            }
+        }],
+        &quot;stage-2&quot;
+    ]
+}
+</code></pre></div><p><code>createAsset</code>的作用</p> <ol><li>读取文件内容转化为AST语法树</li> <li>遍历AST语法树获取依赖关系</li> <li>将es6语法转化成es5</li> <li>返回依赖关系和转换后的代码</li></ol> <div class="language- extra-class"><pre class="language-text"><code>let ID = 0
+
+function createAsset(filename) {
+    // 读取文件内容
+    const content = fs.readFileSync(filename, 'utf-8')
+
+    // 转化成AST
+    const ast = babylon.parse(content, {
+        sourceType: 'module',
+    });
+
+    // 该文件的所有依赖
+    const dependencies = []
+
+    // 获取依赖声明
+    traverse(ast, {
+        ImportDeclaration: ({
+            node
+        }) =&gt; {
+            dependencies.push(node.source.value);
+        }
+    })
+
+    // 转化ES6语法到ES5
+    const {
+        code
+    } = transformFromAst(ast, null, {
+        presets: ['env'],
+    })
+    console.log(code);
+
+
+    // 分配ID
+    const id = ID++
+
+        // 返回这个模块
+        return {
+            id,
+            filename,
+            dependencies,
+            code,
+        }
+}
+
+</code></pre></div><p>输入如下：</p> <div class="language- extra-class"><pre class="language-text"><code>{
+	&quot;id&quot;: 0,
+	&quot;filename&quot;: &quot;./entry.js&quot;,
+	&quot;dependencies&quot;: [&quot;./hello.js&quot;],
+	&quot;code&quot;: &quot;\&quot;use strict\&quot;;\n\nvar _hello = require(\&quot;./hello.js\&quot;);\n\nvar _hello2 = _interopRequireDefault(_hello);\n\nfunction _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }\n\nvar a = function a() {\n  console.log(123123);\n};\n\nconsole.log(_hello2.default);&quot;
+}
+</code></pre></div><h4 id="依赖关系整合"><a href="#依赖关系整合" class="header-anchor">#</a> 依赖关系整合</h4> <p><code>createGraph</code>的作用：</p> <ol><li>获取入口文件的依赖关系和编译后的代码、并将其写入一个<strong>queue</strong>（被依赖的模块数组）</li> <li>遍历<strong>queue</strong>，将每个模块所依赖的模块的文件路径和<strong>id</strong>写入到<strong>mapping</strong>依赖关系表中</li> <li>返回这个被依赖的模块数组</li></ol> <div class="language- extra-class"><pre class="language-text"><code>function createGraph(entry) {
+    // 解析传入的文件为模块
+    const mainAsset = createAsset(entry)
+
+    // 维护一个数组，传入第一个模块
+    const queue = [mainAsset]
+
+    // 遍历数组，分析每一个模块是否还有其它依赖，若有则把依赖模块推进数组
+    for (const asset of queue) {
+        asset.mapping = {}
+        // 由于依赖的路径是相对于当前模块，所以要把相对路径都处理为绝对路径
+        const dirname = path.dirname(asset.filename)
+        // 遍历当前模块的依赖项并继续分析
+        asset.dependencies.forEach(relativePath =&gt; {
+            // 构造绝对路径
+            const absolutePath = path.join(dirname, relativePath)
+            // 生成依赖模块
+            const child = createAsset(absolutePath)
+            // 把依赖关系写入模块的mapping当中
+            asset.mapping[relativePath] = child.id
+            // 把这个依赖模块也推入到queue数组中，以便继续对其进行以来分析
+            queue.push(child)
+        })
+    }
+
+    // 最后返回这个queue，也就是依赖关系图集
+    return queue
+}
+</code></pre></div><p>输入如下：</p> <div class="language- extra-class"><pre class="language-text"><code>[{
+	&quot;id&quot;: 0,
+	&quot;filename&quot;: &quot;./entry.js&quot;,
+	&quot;dependencies&quot;: [&quot;./hello.js&quot;],
+	&quot;code&quot;: &quot;\&quot;use strict\&quot;;\n\nvar _hello = require(\&quot;./hello.js\&quot;);\n\nvar _hello2 = _interopRequireDefault(_hello);\n\nfunction _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : { default: obj }; }\n\nvar a = function a() {\n  console.log(123123);\n};\n\nconsole.log(_hello2.default);&quot;,
+	&quot;mapping&quot;: {
+		&quot;./hello.js&quot;: 1
+	}
+}, {
+	&quot;id&quot;: 1,
+	&quot;filename&quot;: &quot;hello.js&quot;,
+	&quot;dependencies&quot;: [&quot;./name.js&quot;],
+	&quot;code&quot;: &quot;\&quot;use strict\&quot;;\n\nObject.defineProperty(exports, \&quot;__esModule\&quot;, {\n  value: true\n});\n\nvar _name = require(\&quot;./name.js\&quot;);\n\nexports.default = \&quot;hello \&quot; + _name.name;&quot;,
+	&quot;mapping&quot;: {
+		&quot;./name.js&quot;: 2
+	}
+}, {
+	&quot;id&quot;: 2,
+	&quot;filename&quot;: &quot;name.js&quot;,
+	&quot;dependencies&quot;: [],
+	&quot;code&quot;: &quot;\&quot;use strict\&quot;;\n\nObject.defineProperty(exports, \&quot;__esModule\&quot;, {\n  value: true\n});\nvar name = exports.name = 'shimingw';&quot;,
+	&quot;mapping&quot;: {}
+}]
+</code></pre></div><h3 id="打包"><a href="#打包" class="header-anchor">#</a> 打包</h3> <h4 id="commonjs规范"><a href="#commonjs规范" class="header-anchor">#</a> commonJs规范</h4> <p>打包时，使用到了commonJs规范的概念，这里简单介绍一下。</p> <ol><li>先使用<code>require.register</code>注册文件路径和对应方法之间的映射关系保存在<strong>require.modules</strong>中</li> <li>再使用<code>require</code>方法，通过传入的路径去<strong>require.modules</strong>中取出对应的方法</li> <li>使用<code>require</code>获取方法的同时，会触发依赖模块中的<code>require</code>方法，这样就实现了模块的加载</li></ol> <div class="language- extra-class"><pre class="language-text"><code>function require(p) {
+  var path = require.resolve(p);  //匹配模块路径
+  var mod = require.modules[path];  //找到模块挂在在modules下的方法，mod是一个function
+  if (!mod) throw new Error('failed to require &quot;' + p + '&quot;');
+  if (!mod.exports) {
+    mod.exports = {};
+    // 执行完以下方法，可以获取模块导出内容，将导出内容挂在到mod.exports上
+    mod.call(mod.exports, mod, mod.exports, require.relative(path));
+  }
+  return mod.exports;
+}
+
+require.modules = {};
+
+//返回文件的真确路径，匹配时可以匹配目录下的index.js文件，可以自动补全.js
+require.resolve = function (path) {
+  var orig = path;
+  var reg = path + '.js';
+  var index = path + '/index.js';
+  return require.modules[reg] &amp;&amp; reg ||
+    require.modules[index] &amp;&amp; index ||
+    orig;
+};
+
+//将文件路径和其所包含的方法通过require对象下的modules进行绑定
+require.register = function (path, fn) {
+  require.modules[path] = fn;
+};
+
+// 根据父模块的位置去查找依赖模块的位置
+require.relative = function (parent) {
+  return function (p) {
+    // 如果不是相对路径就直接返回
+    if ('.' != p.charAt(0)) return require(p);
+    var path = parent.split('/');
+    var segs = p.split('/');
+    path.pop();
+
+    for (var i = 0; i &lt; segs.length; i++) {
+      var seg = segs[i];
+      if ('..' == seg) path.pop();
+      else if ('.' != seg) path.push(seg);
+    }
+    return require(path.join('/'));
+  };
+};
+</code></pre></div><p>example：</p> <div class="language- extra-class"><pre class="language-text"><code>require.register(&quot;./main.js&quot;, function (module, exports, require) {
+    //在这里也可以require其他模块
+    exports.name = 'xiha'
+});
+
+require.register(&quot;./foo.js&quot;, function (module, exports, require) {
+    // 在这里也可以require其他模块
+    let main = require('./main.js')
+    exports.say = function (x) {
+        console.log(123, x);
+    };
+    exports.myName = () =&gt; {
+        console.log(main.name);
+    }
+});
+var foo = require(&quot;./foo.js&quot;);
+foo.myName();
+</code></pre></div><h4 id="打包文件"><a href="#打包文件" class="header-anchor">#</a> 打包文件</h4> <div class="language- extra-class"><pre class="language-text"><code>function bundle(graph) {
+    let modules = ''
+
+    graph.forEach(mod =&gt; {
+        modules += `${mod.id}: [
+        function (require, module, exports) { ${mod.code} },      
+        ${JSON.stringify(mod.mapping)},
+      ],`
+    })
+
+    const result = `
+      (function(modules) {
+        function require(id) {
+          const [fn, mapping] = modules[id];
+  
+          function localRequire(name) {
+            return require(mapping[name]);
+          }
+  
+          const module = { exports : {} };
+  
+          fn(localRequire, module, module.exports);
+  
+          return module.exports;
+        }
+  
+        require(0);
+      })({${modules}})
+    `
+    // require(0); 从入口文件开始执行依赖
+    return result
+}
+
+let resultJs = bundle(createGraph('./example/entry.js'));
+let fsPath = path.join(__dirname, './hello.js');
+fs.writeFile(fsPath, resultJs, (err) =&gt; {
+    if (err) throw err;
+    console.log('打包成功！~~~~~~~~~~~')
+})
+</code></pre></div><p>打包后的文件</p> <div class="language- extra-class"><pre class="language-text"><code>(function (modules) {
+  function require(id) {
+    const [fn, mapping] = modules[id];
+
+    function localRequire(name) {
+      return require(mapping[name]);
+    }
+
+    const module = {
+      exports: {}
+    };
+
+    fn(localRequire, module, module.exports);
+
+    return module.exports;
+  }
+
+  require(0);
+})({
+  0: [
+    function (require, module, exports) {
+      &quot;use strict&quot;;
+
+      var _message = require(&quot;./message.js&quot;);
+
+      var _message2 = _interopRequireDefault(_message);
+
+      function _interopRequireDefault(obj) {
+        return obj &amp;&amp; obj.__esModule ? obj : {
+          default: obj
+        };
+      }
+
+      console.log(_message2.default);
+    },
+    {
+      &quot;./message.js&quot;: 1
+    },
+  ],
+  1: [
+    function (require, module, exports) {
+      &quot;use strict&quot;;
+
+      Object.defineProperty(exports, &quot;__esModule&quot;, {
+        value: true
+      });
+
+      var _name = require(&quot;./name.js&quot;);
+
+      exports.default = &quot;Hello &quot; + _name.name + &quot;!&quot;;
+    },
+    {
+      &quot;./name.js&quot;: 2
+    },
+  ],
+  2: [
+    function (require, module, exports) {
+      &quot;use strict&quot;;
+
+      Object.defineProperty(exports, &quot;__esModule&quot;, {
+        value: true
+      });
+      var name = exports.name = 'shimingwen';
+    },
+    {},
+  ],
+})
+</code></pre></div><h3 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h3> <p>模块化打包解决的问题</p> <ol><li>使单一文件的功能明确，便于开发和维护</li> <li>代码编译，使代码的兼容性更好。</li></ol> <p>tip：按需加载如何实现</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/shimingw/vpblog/edit/master/docs/webpack/打包工具运行原理.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">更新于:</span> <span class="time">2020-1-19 5:22:01 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/docs/2019-10-24-webpack-使用 ESlint、lint-staged 提升项目代码质量/" class="prev">使用ESlint、lint-staged提升项目代码质量</a></span> <!----></p></div> </main></div><div class="global-ui"><div class="pace  pace-inactive" style="display:none;" data-v-f74cb30c><div data-progress-text="100%" data-progress="99" class="pace-progress" style="transform:translate3d(0%, 0px, 0px);" data-v-f74cb30c><div class="pace-progress-inner" data-v-f74cb30c></div></div></div><div class="my-popup" style="display:none;" data-v-3414bdeb><div class="my-popup-container" data-v-3414bdeb><div class="my-popup-exit" data-v-3414bdeb></div> <img src="" alt data-v-3414bdeb></div></div><!----><!----><div></div></div></div>
+    <script src="/assets/js/app.36dd6cb9.js" defer></script><script src="/assets/js/2.43809916.js" defer></script><script src="/assets/js/37.a3bd626a.js" defer></script><script src="/assets/js/4.347cd80e.js" defer></script>
+  </body>
+</html>
