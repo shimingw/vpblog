@@ -2,7 +2,7 @@
  * @Description: vuepress的配置文件 api参考：https://www.vuepress.cn/config/
  * @Author: shimingwen
  * @Date: 2020-01-16 17:38:01
- * @LastEditTime : 2020-01-22 09:59:48
+ * @LastEditTime : 2020-01-22 10:36:17
  * @LastEditors  : shimingwen
  */
 const { headConf, localesConf, themeConf } = require('./config/')

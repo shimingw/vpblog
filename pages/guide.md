@@ -14,7 +14,7 @@ single: true
     :key="index"
     href="post"
   >
-    <a :href="post.path">《{{post.title}}》</a>
+    <a :href="'/'+baseUrl+post.path">《{{post.title}}》</a>
     <span>{{ post.formatDay }}</span>
   </li>
 </ul>
@@ -24,6 +24,7 @@ single: true
 </div>
 
 <script>
+import { baseUrl } from '../.vuepress/config/config-data.js'
 export default {
   data() {
     return {
@@ -34,13 +35,13 @@ export default {
       btnInfo: '加载更多',
       showBtn: true,
       timeout: null,
+      baseUrl
     }
   },
 
   mounted() {
     this.posts = this.$site.pages
     this.num = this.posts.length
-    console.log(this.$site.pages)
   },
 
   computed: {
