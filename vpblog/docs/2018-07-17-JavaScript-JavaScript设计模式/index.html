@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JavaScript设计模式 | 嘻哈工程师</title>
+    <meta name="description" content="嘻哈工程师的博客">
+    <link rel="icon" href="/vpblog/favicon.ico">
+    
+    <link rel="preload" href="/vpblog/assets/css/0.styles.63566c31.css" as="style"><link rel="preload" href="/vpblog/assets/js/app.93a61764.js" as="script"><link rel="preload" href="/vpblog/assets/js/2.43809916.js" as="script"><link rel="preload" href="/vpblog/assets/js/9.634ce07d.js" as="script"><link rel="preload" href="/vpblog/assets/js/4.347cd80e.js" as="script"><link rel="prefetch" href="/vpblog/assets/js/10.4e6ddd33.js"><link rel="prefetch" href="/vpblog/assets/js/11.d0f4b870.js"><link rel="prefetch" href="/vpblog/assets/js/12.5be46cfd.js"><link rel="prefetch" href="/vpblog/assets/js/13.2ecb1021.js"><link rel="prefetch" href="/vpblog/assets/js/14.556cda3a.js"><link rel="prefetch" href="/vpblog/assets/js/15.bba32bca.js"><link rel="prefetch" href="/vpblog/assets/js/16.10d89a64.js"><link rel="prefetch" href="/vpblog/assets/js/17.a6d99212.js"><link rel="prefetch" href="/vpblog/assets/js/18.def13457.js"><link rel="prefetch" href="/vpblog/assets/js/19.578119fb.js"><link rel="prefetch" href="/vpblog/assets/js/20.081f5fb5.js"><link rel="prefetch" href="/vpblog/assets/js/21.65db2aa7.js"><link rel="prefetch" href="/vpblog/assets/js/22.705a061e.js"><link rel="prefetch" href="/vpblog/assets/js/23.35cd7db7.js"><link rel="prefetch" href="/vpblog/assets/js/24.54b1ed8d.js"><link rel="prefetch" href="/vpblog/assets/js/25.0efbf215.js"><link rel="prefetch" href="/vpblog/assets/js/26.89bc626c.js"><link rel="prefetch" href="/vpblog/assets/js/27.2c4f62ff.js"><link rel="prefetch" href="/vpblog/assets/js/28.2805472f.js"><link rel="prefetch" href="/vpblog/assets/js/29.1121fa6a.js"><link rel="prefetch" href="/vpblog/assets/js/3.9bcecc7d.js"><link rel="prefetch" href="/vpblog/assets/js/30.6cf76f79.js"><link rel="prefetch" href="/vpblog/assets/js/31.382ef51a.js"><link rel="prefetch" href="/vpblog/assets/js/32.344bdff0.js"><link rel="prefetch" href="/vpblog/assets/js/33.1efd6a6b.js"><link rel="prefetch" href="/vpblog/assets/js/34.bb5099ce.js"><link rel="prefetch" href="/vpblog/assets/js/35.1c10e20e.js"><link rel="prefetch" href="/vpblog/assets/js/36.5f70896f.js"><link rel="prefetch" href="/vpblog/assets/js/37.2bfb5e3a.js"><link rel="prefetch" href="/vpblog/assets/js/38.e83486b4.js"><link rel="prefetch" href="/vpblog/assets/js/39.1f9b5ee9.js"><link rel="prefetch" href="/vpblog/assets/js/40.63a06e9c.js"><link rel="prefetch" href="/vpblog/assets/js/41.6268667d.js"><link rel="prefetch" href="/vpblog/assets/js/42.d4937b89.js"><link rel="prefetch" href="/vpblog/assets/js/43.e74931b9.js"><link rel="prefetch" href="/vpblog/assets/js/44.2a52b218.js"><link rel="prefetch" href="/vpblog/assets/js/45.dac39389.js"><link rel="prefetch" href="/vpblog/assets/js/46.c33151e8.js"><link rel="prefetch" href="/vpblog/assets/js/47.443e2b9b.js"><link rel="prefetch" href="/vpblog/assets/js/48.7d16fcc1.js"><link rel="prefetch" href="/vpblog/assets/js/49.7916c999.js"><link rel="prefetch" href="/vpblog/assets/js/5.aed875d0.js"><link rel="prefetch" href="/vpblog/assets/js/50.f2bb9d15.js"><link rel="prefetch" href="/vpblog/assets/js/51.298c6d66.js"><link rel="prefetch" href="/vpblog/assets/js/52.2e83f3ba.js"><link rel="prefetch" href="/vpblog/assets/js/53.eb22de47.js"><link rel="prefetch" href="/vpblog/assets/js/54.43cf2189.js"><link rel="prefetch" href="/vpblog/assets/js/55.a8176dc1.js"><link rel="prefetch" href="/vpblog/assets/js/6.c842520d.js"><link rel="prefetch" href="/vpblog/assets/js/7.f63192aa.js"><link rel="prefetch" href="/vpblog/assets/js/8.b53d8f3a.js">
+    <link rel="stylesheet" href="/vpblog/assets/css/0.styles.63566c31.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vpblog/" class="home-link router-link-active"><!----> <span class="site-name">嘻哈工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vpblog/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vpblog/guide/" class="nav-link">Guide</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="External" class="dropdown-title"><span class="title">External</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/www.baidu.com.html" class="nav-link">baidu</a></li></ul></div></div> <a href="https://github.com/shimingw/vpblog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vpblog/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vpblog/guide/" class="nav-link">Guide</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="External" class="dropdown-title"><span class="title">External</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/www.baidu.com.html" class="nav-link">baidu</a></li></ul></div></div> <a href="https://github.com/shimingw/vpblog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/vpblog/vpblog/docs/2019-01-13-JavaScript-ES6学习笔记/" class="sidebar-link">ES6</a></li><li><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/" class="active sidebar-link">JavaScript设计模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#创建型设计模式" class="sidebar-link">创建型设计模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#工厂方法模式" class="sidebar-link">工厂方法模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#抽象工厂模式" class="sidebar-link">抽象工厂模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#建造者模式" class="sidebar-link">建造者模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#原型模式" class="sidebar-link">原型模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#单例模式" class="sidebar-link">单例模式</a></li></ul></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#结构型设计模式" class="sidebar-link">结构型设计模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#外观模式" class="sidebar-link">外观模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#适配器模式" class="sidebar-link">适配器模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#代理模式" class="sidebar-link">代理模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#装饰者模式" class="sidebar-link">装饰者模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#桥接模式" class="sidebar-link">桥接模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#组合模式" class="sidebar-link">组合模式</a></li></ul></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#行为设计模式" class="sidebar-link">行为设计模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#观察者模式" class="sidebar-link">观察者模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#状态模式" class="sidebar-link">状态模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#策略模式" class="sidebar-link">策略模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#职责链模式" class="sidebar-link">职责链模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#访问者模式" class="sidebar-link">访问者模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#备忘录模式" class="sidebar-link">备忘录模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#迭代器模式" class="sidebar-link">迭代器模式</a></li></ul></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#技巧型设计模式" class="sidebar-link">技巧型设计模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#数据访问对象模式" class="sidebar-link">数据访问对象模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#节流模式" class="sidebar-link">节流模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#简单模板模式" class="sidebar-link">简单模板模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#惰性模式" class="sidebar-link">惰性模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#参与者模式" class="sidebar-link">参与者模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#等待者模式" class="sidebar-link">等待者模式</a></li></ul></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#架构型设计模式" class="sidebar-link">架构型设计模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#同步模块模式" class="sidebar-link">同步模块模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#异步模块模式" class="sidebar-link">异步模块模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#widget模式" class="sidebar-link">Widget模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#mvc模式" class="sidebar-link">MVC模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#mvp模式" class="sidebar-link">MVP模式</a></li><li class="sidebar-sub-header"><a href="/vpblog/vpblog/docs/2018-07-17-JavaScript-JavaScript设计模式/#mvvm模式" class="sidebar-link">MVVM模式</a></li></ul></li></ul></li><li><a href="/vpblog/vpblog/docs/2020-01-09-JavaScript-javaScript语言精粹—笔记/" class="sidebar-link">javaScript语言精粹—笔记</a></li><li><a href="/vpblog/vpblog/docs/2019-10-29-JavaScript-lodash干货-数组/" class="sidebar-link">lodash_backup</a></li><li><a href="/vpblog/vpblog/docs/2019-06-06-JavaScript-React学习笔记/" class="sidebar-link">React学习笔记</a></li><li><a href="/vpblog/vpblog/docs/2018-04-15-JavaScript-redux/" class="sidebar-link">redux</a></li><li><a href="/vpblog/vpblog/docs/2018-07-13-JavaScript-vue-cli3/" class="sidebar-link">vue-cli3</a></li><li><a href="/vpblog/vpblog/docs/2017-12-06-JavaScript-VueTable/" class="sidebar-link">VueTable学习笔记</a></li><li><a href="/vpblog/vpblog/docs/2017-09-06-JavaScript-Vue笔记/" class="sidebar-link">vue笔记</a></li><li><a href="/vpblog/vpblog/docs/2019-10-24-JavaScript-代码质量规范/" class="sidebar-link">代码规范</a></li><li><a href="/vpblog/vpblog/docs/2018-07-03-JavaScript-函数式编程/" class="sidebar-link">函数式编程</a></li><li><a href="/vpblog/vpblog/docs/2018-04-06-JavaScript-深入了解NodeList与HTMLCollection/" class="sidebar-link">深入了解NodeList与HTMLCollection</a></li><li><a href="/vpblog/vpblog/docs/2019-10-29-JavaScript-深入浅出lodash/" class="sidebar-link">深入浅出lodash</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="javascript设计模式"><a href="#javascript设计模式" class="header-anchor">#</a> JavaScript设计模式</h1> <p>日期：2018-7-17</p> <h2 id="创建型设计模式"><a href="#创建型设计模式" class="header-anchor">#</a> 创建型设计模式</h2> <h3 id="工厂方法模式"><a href="#工厂方法模式" class="header-anchor">#</a> 工厂方法模式</h3> <p>通过<code>Factory</code>可以实例化不同类型的实例</p> <div class="language- extra-class"><pre class="language-text"><code>var Factory = function (type, content) {
+    if (!(this instanceof Factory)) {
+        throw '请使用new关键词来创建';
+    }
+    this._init(type);
+    var s = new this[type](content);
+    return s;
+}
+
+Factory.prototype = {
+    _init: function (type) {
+        // 所有通过Factory这个工厂创建的实例公用的方法
+        // this指向的是Factory
+        // this[type].prototype的作用是，把公用方法单独挂在到声明的实例下
+        this[type].prototype = {
+            createElem: function () {
+                return document.createElement('div')
+            },
+            addContent: function (content) {
+                this.elem.textContent = content;
+                return this;
+            },
+            borderColor: function (style) {
+                this.elem.style.border = style;
+                return this;
+            },
+            appendElem: function () {
+                document.querySelector('#app').appendChild(this.elem);
+            }
+        }
+    },
+    // 这里定义的是Factory工厂下的实例
+    js: function (content) {
+        // 这里的this指向的是js这个方法
+        this.content = content;
+        this.elem = this.createElem();
+        this.addContent(content).borderColor('1px solid red').appendElem();
+    },
+    UI: function (content) {
+        this.content = content;
+        this.elem = this.createElem();
+        this.addContent(content).borderColor('1px solid blue').appendElem();
+    }
+}
+
+var js = new Factory('js', 'js学习')
+var ui = new Factory('UI', 'UI学习');
+</code></pre></div><h3 id="抽象工厂模式"><a href="#抽象工厂模式" class="header-anchor">#</a> 抽象工厂模式</h3> <p>在一些大型项目中，会有一些子类去集成父类，这些父类经常会定义一些必要的方法，却没有具体实现，一旦子类创建了这样一个对象，却没有重写这些方法，实例化对象便会调用父类中的这些方法，给一个友好的提示。</p> <div class="language- extra-class"><pre class="language-text"><code>var VehicleFactory = function (subType, superType) {
+    if (typeof VehicleFactory[superType] === 'function') {
+        function F() {}
+        F.prototype = new VehicleFactory[superType]();
+        subType.constructor = subType;
+        subType.prototype = new F();
+    } else {
+        throw new Error('未创建该抽象类')
+    }
+}
+
+VehicleFactory.Car = function (params) {
+    this.type = 'car'
+}
+
+VehicleFactory.Car.prototype = {
+    getPrice:function (params) {
+        throw new Error('抽象方法不能调用')
+    },
+    getSpeed:function (params) {
+        throw new Error('抽象方法不能调用')
+    }
+}
+
+var BMW = function (price,speed) {
+    this.price = price;
+    this.speed = speed;
+}   
+VehicleFactory(BMW,'Car');
+BMW.prototype.getPrice = function () {
+    return this.price;
+}
+BMW.prototype.getSpeed = function () {
+    return this.speed;
+}
+var b = new BMW(1000,100)
+console.log(b.getPrice());
+</code></pre></div><h3 id="建造者模式"><a href="#建造者模式" class="header-anchor">#</a> 建造者模式</h3> <div class="language- extra-class"><pre class="language-text"><code>/* eslint-disable */
+var Human = function (params) {
+    this.skill = params &amp;&amp; params.skill || '保密';
+    this.hobby = params &amp;&amp; params.hobby || '保密';
+}
+Human.prototype = {
+    getSkill: function () {
+        return this.skill;
+    },
+    getHobby: function () {
+        return this.hobby;
+    }
+}
+
+var Named = function (name) {
+    var that = this;
+    (function (name, that) {
+        that.wholeName = name;
+        var index = name.indexOf(' ');
+        if (index &gt; -1) {
+            that.FirstName = name.slice(0, index);
+            that.SecondName = name.slice(index);
+        } else {
+            that.FirstName = name.slice(0, 1);
+            that.SecondName = name.slice(1);
+        }
+    })(name, that)
+}
+
+var Work = function (work) {
+    var that = this;
+    (function (work, that) {
+        switch (work) {
+            case 'code':
+                that.work = '工程师';
+                that.workDescript = '每天沉迷于编程';
+                break;
+            case 'ue':
+                that.work = '设计师';
+                that.workDescript = '设计是一门艺术';
+                break;
+            default:
+                break;
+        }
+    })(work, that)
+}
+// 更换期望职位
+Work.prototype.changeWork = function (work) {
+    this.work = work;
+}
+// 添加对职位的描述
+Work.prototype.changeDescript = function (workDescript) {
+    this.workDescript = workDescript;
+}
+
+var Person = function (name, work) {
+    this.Human = new Human();
+    this.name = new Named(name)
+    this.work = new Work(work)
+}
+
+var person = new Person('小明', 'code')
+console.log(person);
+</code></pre></div><h3 id="原型模式"><a href="#原型模式" class="header-anchor">#</a> 原型模式</h3> <p>把所有属性放在挂载到一个构造函数的<code>prototype</code>上实现继承</p> <div class="language- extra-class"><pre class="language-text"><code>/**
+ * 把传入的对象放到原型链 prototype上
+ * 通过new F();返回一个继承了prototype的对象
+ */
+function prototypeExtend(params) {
+    var F = function () {}
+    var args = arguments;
+    var len = arguments.length;
+    for (var i = 0; i &lt; len; i++) {
+        for (var j in args[i]) {
+            F.prototype[j] = args[i][j];
+        }
+    }
+    return new F();
+}
+
+// penguin
+var penguin = prototypeExtend({
+    speed: 20,
+    swim: function (params) {
+        console.log('游泳速度' + this.speed);
+    }
+}, {
+    run: function (speed) {
+        console.log('奔跑速度' + speed);
+    }
+})
+
+console.log(penguin);
+penguin.swim()
+penguin.run(10)
+</code></pre></div><h3 id="单例模式"><a href="#单例模式" class="header-anchor">#</a> 单例模式</h3> <ol><li>定义命名空间</li> <li>通过单例模式来管理代码库的各个模块</li> <li>比如jquery就是使用的单例模式</li> <li>它是一个允许实例化一次的对象，有时这么做也是为了节省系统资源</li></ol> <h2 id="结构型设计模式"><a href="#结构型设计模式" class="header-anchor">#</a> 结构型设计模式</h2> <h3 id="外观模式"><a href="#外观模式" class="header-anchor">#</a> 外观模式</h3> <ol><li>解决兼容性问题</li> <li>简化底层接口复杂性</li></ol> <h3 id="适配器模式"><a href="#适配器模式" class="header-anchor">#</a> 适配器模式</h3> <blockquote><p>服务器端数据适配
+这样如果服务器返回的数据有变化只需要修改适配器</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>
+function ajaxData(data) {
+    return [
+        data['key1'],
+        data['key2'],
+        data['key3']
+    ]
+}
+
+var data = {
+    key1:11111111,
+    key2:222222,
+    key3:333333
+} 
+var data_change = ajaxData(data);
+console.log(data_change);
+</code></pre></div><h3 id="代理模式"><a href="#代理模式" class="header-anchor">#</a> 代理模式</h3> <ol><li>JSONP</li> <li>代理模板</li></ol> <h3 id="装饰者模式"><a href="#装饰者模式" class="header-anchor">#</a> 装饰者模式</h3> <blockquote><p>对原有对象的属性与方法的添加</p> <p>目的，避免对原有代码的修改。达到增加功能的目的</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>var decorator = function (input, fn) {
+    var input = document.getElementById(input);
+    if (typeof input.onclick === 'function') {
+        // 缓存事件原有回调函数
+        var oldClickFn = input.onclick;
+        input.onclick = function () {
+            // 重写原来的点击事件
+            oldClickFn();
+            fn();
+        }
+    } else {
+        // 未绑定事件，则直接为其绑定事件
+        input.onclick = fn;
+    }
+}
+</code></pre></div><h3 id="桥接模式"><a href="#桥接模式" class="header-anchor">#</a> 桥接模式</h3> <blockquote><p>提取事件与业务逻辑之间的共同点</p> <p>搭建事件与业务逻辑之间的桥梁</p> <p>实现事件与业务逻辑之间的解耦</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function changeColor(dom, color, bg) {
+    dom.style.color = color;
+    dom.style.background = bg;
+}
+
+var spans = document.querySelectorAll('.span span')
+spans[0].onmouseover = function () {
+    changeColor(this, 'red', '#ddd')
+}
+spans[0].onmouseout = function () {
+    changeColor(this, '#333', '#f5f5f5')
+}
+</code></pre></div><h3 id="组合模式"><a href="#组合模式" class="header-anchor">#</a> 组合模式</h3> <blockquote><p>组合对象类通过继承同一个父类使其具有统一的方法</p> <p>方便我们统一管理和使用</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function inheritObject(o) {
+    function F() {}
+    F.prototype = o;
+    return new F();
+}
+
+function inheritPrototype(child, parent) {
+    // 把原型链上的方法复制一份给child
+    var p = inheritObject(parent.prototype)
+    p.constructor = child;
+    child.prototype = p;
+}
+
+var News = function () {
+    this.children = [];
+    this.element = null;
+}
+
+News.prototype = {
+    init: function () {
+        throw new Error('1请重写你的方法')
+    },
+    add: function () {
+        throw new Error('2请重写你的方法')
+    },
+    getElement: function () {
+        throw new Error('3请重写你的方法')
+    },
+}
+
+var Container = function (id, parent) {
+    News.call(this);
+    this.id = id;
+    this.parent = parent;
+    // this.init();
+}
+
+inheritPrototype(Container, News);
+</code></pre></div><h2 id="行为设计模式"><a href="#行为设计模式" class="header-anchor">#</a> 行为设计模式</h2> <h3 id="观察者模式"><a href="#观察者模式" class="header-anchor">#</a> 观察者模式</h3> <blockquote><p>发布——订阅模式或消息机制，定义了一种依赖关系，解决了主体对象和观察者之间的耦合</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>var Observe = (function() {
+  var _message = {};
+  return {
+  //注册器
+    regist: function(type, fn) {
+      if (typeof _message[type] === &quot;undefined&quot;) {
+        _message[type] = [fn];
+      } else {
+        _message[type].push(fn);
+      }
+    },
+   //触发器
+    fire: function(type, args) {
+      if (!_message[type]) return;
+      var events = {
+          type: type,
+          args: args || {}
+        },
+        i = 0,
+        len = _message[type].length;
+      for (; i &lt; len; i++) {
+        _message[type][i].call(this, events);
+      }
+    },
+    //销毁器
+    remove: function(type, fn) {
+      if (_message[type] instanceof Array) {
+        var i = _message[type].length - 1;
+        for (; i &gt;= 0; i--) {
+          _message[type][i] === fn &amp;&amp; _message[type].splice(i, 1);
+        }
+      }
+    }
+  };
+})();
+
+Observe.regist(&quot;test&quot;, function(e) {
+  console.log(e.type, e.args.msg);
+});
+
+Observe.fire(&quot;test&quot;, { msg: &quot;hello world&quot; });
+</code></pre></div><h3 id="状态模式"><a href="#状态模式" class="header-anchor">#</a> 状态模式</h3> <blockquote><p>有时候我们在写一个方法的时候，会根据传入的值，做许多判断</p> <p>这样的代码，不易于拓展，也不易于维护</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>//这样的代码不是我们想要的
+
+var lastAction1 = ''
+var lastAction2 = ''
+
+function changeMarry(action1, action2) {
+    if (action1 === 'jump') {
+
+    } else if (action1 === 'move') {
+
+    } else if (action1 === 'jump' &amp;&amp; action2 === 'shoot') {
+        //跳跃中射击 
+    }
+    lastAction1 = action1;
+    lastAction2 = action2;
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>//这样的代码才是我们想要的
+
+var changeMarry = function () {
+    var currentState = {};
+    // 状态方法
+    var states = {
+        jump: function () {
+            console.log('jump');
+        },
+        move: function () {
+            console.log('move');
+        },
+        shoot: function () {
+            console.log('shoot');
+        },
+    }
+    // 动作控制类
+    var action = {
+        changeState: function () {
+            // 可以传入多个状态
+            var arg = arguments;
+            currentState = {};
+            for (let action of arg) {
+                currentState[action] = true;
+            }
+            return this;
+        },
+        goes: function () {
+            for (let o in currentState) {
+                states[o] &amp;&amp; states[o]();
+            }
+            return this;
+        }
+    }
+    return {
+        change: action.changeState,
+        goes: action.goes
+    }
+}
+
+var marry = new changeMarry()
+marry.change('jump', 'shoot').goes().goes()
+</code></pre></div><h3 id="策略模式"><a href="#策略模式" class="header-anchor">#</a> 策略模式</h3> <blockquote><p>一个简化版的状态模式</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>var priceStrategy = function () {
+    var strategy = {
+        return30: function (price) {
+            return +price + parseInt(price / 100) * 30;
+        },
+        return50: function (price) {
+            return +price + parseInt(price / 100) * 50;
+        },
+        percent90: function (price) {
+            return price * 100 * 90 / 10000;
+        },
+        percent80: function (price) {
+            return price * 100 * 80 / 10000;
+        },
+        percent50: function (price) {
+            return price * 100 * 50 / 10000;
+        }
+    }
+    // 策略算法调用接口
+    return function (algo, price) {
+        return strategy[algo] &amp;&amp; strategy[algo](price);
+    }
+}()
+
+
+var price = priceStrategy('return50','314.67')
+console.log(price);
+
+</code></pre></div><h3 id="职责链模式"><a href="#职责链模式" class="header-anchor">#</a> 职责链模式</h3> <blockquote><p>把一个大的功能拆分成几个小的模块进行发开</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>var dealData = function (data, dealType, dom) {
+    var dataType = Object.prototype.toString.call(data);
+    switch (dealType) {
+        case 'sug':
+            if (dataType === '[object Array]') {
+                return createSug(data, dom);
+            }
+
+            if (dataType === '[object Object]') {
+                var newData = [];
+                for (var i in data) {
+                    newData.push(data[i]);
+                }
+                return createSug(newData, dom);
+            }
+
+            return createSug([data], dom);
+        case 'validate':
+            return createValidateResult(data, dom);
+        default:
+            break;
+    }
+}
+
+var createSug = function (data, dom) {
+    var i = 0,
+        len = data.length,
+        html = ''
+    for (; i &lt; len; i++) {
+        html += '&lt;li&gt;' + data[i] + '&lt;/li&gt;';
+    }
+    dom.parentNode.getElementsByTagName('ul')[0].innerHTML = html;
+}
+
+var createValidateResult = function (data, dom) {
+    dom.parentNode.getElementsByTagName('span')[0].innerHTML = data;
+}
+
+var input = document.querySelectorAll(&quot;.tween input&quot;);
+dealData(123,'sug',input[0])
+dealData(['爱奇艺','阿里巴巴','bilibili'],'sug',input[1])
+</code></pre></div><h3 id="访问者模式"><a href="#访问者模式" class="header-anchor">#</a> 访问者模式</h3> <blockquote><p>解决数据与数据操作方法之间的耦合</p> <p>适用于数据稳定，但是操作方法易变的场景</p></blockquote> <h3 id="备忘录模式"><a href="#备忘录模式" class="header-anchor">#</a> 备忘录模式</h3> <blockquote><p>将请求过的数据保存在客户端</p> <p>减少请求数目，优化用户体验</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>var Page = function () {
+    var cache ={}
+    return function (page,fn) {
+        if(cache[page]){
+            // 页面在缓存中
+        }else{
+            // 页面不在缓存中
+            // 数据请求回来后将数据存储到cache中
+        }
+    }
+}
+</code></pre></div><h3 id="迭代器模式"><a href="#迭代器模式" class="header-anchor">#</a> 迭代器模式</h3> <div class="language- extra-class"><pre class="language-text"><code>var Getter = function (object, key) {
+    if (!object) return undefined;
+    key = key.split('.')
+    let result;
+    try {
+        result = key.reduce((current, next) =&gt; {
+            return current[next];
+        }, object);
+    } catch (error) {
+        result = undefined;
+    }
+    return result;
+}
+var obj = {
+    a: {
+        b: null
+    }
+}
+
+// var result = obj &amp;&amp; obj.a &amp;&amp; obj.b &amp;&amp; obj.c || [];
+var result = Getter(obj, 'a.b.c') || [];
+</code></pre></div><h2 id="技巧型设计模式"><a href="#技巧型设计模式" class="header-anchor">#</a> 技巧型设计模式</h2> <h3 id="数据访问对象模式"><a href="#数据访问对象模式" class="header-anchor">#</a> 数据访问对象模式</h3> <blockquote><p>防止本地存储时，出现覆盖，并且可以设置过期时间</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>var baseLocalStorage = function (preId, timeSign) {
+    this.preId = preId;
+    this.timeSign = timeSign || '-';
+}
+
+baseLocalStorage.prototype = {
+    status: {
+        SUCCESS: 0,
+        FAILURE: 1,
+        OVERFLOW: 2,
+        TIMEOUT: 3,
+    },
+    storage: localStorage,
+    getKey: function (key) {
+        return this.preId + key
+    },
+    set: function (key, value, cb, time) {
+        var status = this.status.SUCCESS,
+            key = this.getKey(key);
+
+        try {
+            time = new Date(time).getTime() || time.getTime();
+        } catch (error) {
+            time = '-'
+        }
+        try {
+            this.storage.setItem(key, time + this.timeSign + value)
+        } catch (error) {
+            status = this.status.FAILURE
+        }
+        cb &amp;&amp; cb.call(this, status, key, value);
+    }
+}
+</code></pre></div><h3 id="节流模式"><a href="#节流模式" class="header-anchor">#</a> 节流模式</h3> <blockquote><p>解决了页面中，因为交互造成事件重复触发的问题</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function throttle() {
+    var isClear = arguments[0],
+        fn;
+    if (isClear === true) {
+        fn = arguments[1]
+        fn.__throttleID &amp;&amp; clearTimeout(fn.__throttleID)
+    } else {
+        // 第一个参数为函数
+        fn = arguments[0];
+        // 第二个参数为函数执行时的参数
+        var params = arguments[1];
+        var p = Object.assign({
+            context: null,
+            args: [],
+            time: 300
+        }, params)
+        // 清除定时器，会将上一个定时任务清除
+        throttle(true, fn);
+        fn.__throttleID = setTimeout(() =&gt; {
+            fn.apply(p.context, p.args)
+        }, p.time);
+    }
+}
+
+var fn = function () {
+    console.log(arguments);
+}
+var index = 0;
+window.addEventListener('scroll', function (e) {
+    index++
+    throttle(fn, {
+        args: [index]
+    })
+})
+</code></pre></div><h3 id="简单模板模式"><a href="#简单模板模式" class="header-anchor">#</a> 简单模板模式</h3> <blockquote><p>可以更加灵活高效的创建视图</p> <p>mvc框架的 前端模板用的就是这种模式</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function formateString(str, data) {
+    return str.replace(/\{#(\w+)#\}/g, function (match, key) {
+        return typeof data[key] === undefined ? &quot;&quot; : data[key];
+    })
+}
+
+var liTpl = [
+    `&lt;li&gt;`,
+    `&lt;strong&gt; {#strong#}&lt;/strong&gt;`,
+    `&lt;span&gt;{#span#}&lt;/span&gt;`,
+    `&lt;/li&gt;`
+].join('')
+var data = {
+    strong: 'strong',
+    span: 'span'
+}
+
+var html = formateString(liTpl, data)
+console.log(html);
+document.querySelector('#container').innerHTML = html
+</code></pre></div><h3 id="惰性模式"><a href="#惰性模式" class="header-anchor">#</a> 惰性模式</h3> <blockquote><p>减少不必要的分支判断</p> <p>提高代码的执行效率</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function bindEvent() {}
+bindEvent.on = function (dom, type, fn) {
+    if (document.addEventListener) {
+        bindEvent.on = function (dom, type, fn) {
+            dom.addEventListener(type, fn, false)
+        }
+    }
+    bindEvent.on(dom, type, fn)
+}
+console.log(bindEvent.on);
+
+bindEvent.on(document.body, 'click', () =&gt; {
+    console.log(1111111);
+})
+console.log(bindEvent.on);
+</code></pre></div><h3 id="参与者模式"><a href="#参与者模式" class="header-anchor">#</a> 参与者模式</h3> <blockquote><p>运用参与者模式，使事件绑定功能更加完善</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>var btn = document.querySelector('#bind');
+var p = document.querySelector('#bindP');
+var bindFn = demoFn.bind(p,{name:11111111111})
+btn.addEventListener('click', bindFn)
+</code></pre></div><h3 id="等待者模式"><a href="#等待者模式" class="header-anchor">#</a> 等待者模式</h3> <blockquote><p>promise对象的实现</p></blockquote> <p>实现逻辑：</p> <ol><li>在一个实例内维护这多个方法的状态</li> <li>每当有一个方法的状态发生变化，遍历一遍所以方法的状态</li> <li>如果有其余方法状态为false，则不执行任何回调继续等待</li> <li>如果其余方法状态都为true，则执行成功回调</li> <li>如果遍历到有方法为false，则立即执行失败回调</li></ol> <div class="language- extra-class"><pre class="language-text"><code>var Waiter = function () {
+    // 注册了的等待对象容器
+    var dfd = [],
+        dataList = [],
+        // 成功回调
+        doneArr = [],
+        // 失败回调
+        failArr = [],
+        // slice = Array.prototype.slice,
+        that = this;
+    var promise = function () {
+        this.resolved = false;
+        this.rejected = false;
+    }
+    promise.prototype = {
+        // 成功
+        resolve: function (data) {
+            // 把当前状态修改为true；
+            this.resolved = true;
+            dataList.push(data);
+            // 如果有失败则监听对象会被清空
+            if (!dfd.length) return;
+            // 查看dfd中其余方法的状态，如果其余状态已完成则删除该状态，避免下次再遍历
+            for (let i = dfd.length - 1; i &gt;= 0; i--) {
+                if (dfd[i] &amp;&amp; !dfd[i].resolved || dfd[i].rejected) return;
+                dfd.splice(i, 1);
+            }
+            // 执行成功回调方法
+            _exec(doneArr, dataList);
+        },
+        // 失败
+        reject: function () {
+            this.rejected = true;
+            if (!dfd.length) return;
+            // 有失败则清空监听对象
+            dfd.splice(0);
+            // 执行失败回调方法
+            _exec(failArr);
+        }
+    }
+    // 创建监控对象
+    that.Deferred = function () {
+        return new promise();
+    }
+    // 回调执行方法
+    function _exec(arr,dataList) {
+        let i = 0,
+            len = arr.length;
+        for (; i &lt; len; i++) {
+            arr[i] &amp;&amp; arr[i].apply(null, [dataList]);
+        }
+    }
+
+    // 监控异步方法
+    that.when = function () {
+        // 将需要监听的对象保存到dfd中
+        dfd = Array.from(arguments);
+        var i = dfd.length;
+        // 如果不存在监控对象，或者监控对象已解决则退出
+        for (--i; i &gt;= 0; i--) {
+            if (!dfd[i] || dfd[i].resolved || dfd[i].rejected || !dfd[i] instanceof promise) {
+                dfd.splice(i, 1);
+            }
+        }
+        return that;
+    }
+
+    // 解决成功回调函数，将传入的fn数组合并到doneArr
+    that.done = function () {
+        doneArr = doneArr.concat(Array.from(arguments))
+        return that;
+    }
+    // 解决失败回调函数，将传入的fn数组合并到failArr
+    that.fail = function () {
+        failArr = failArr.concat(Array.from(arguments))
+        return that;
+    }
+
+}
+var waiter = new Waiter();
+
+var first = function () {
+    var dfd = waiter.Deferred();
+    setTimeout(() =&gt; {
+        console.log('11111111');
+        dfd.resolve('ajklsdhasjkdhasjkd');
+    }, 1000);
+    return dfd;
+}
+
+var second = function () {
+    var dfd = waiter.Deferred();
+    setTimeout(() =&gt; {
+        console.log('22222222');
+        dfd.resolve('asjkdhajksdhasjkdh');
+    }, 2000);
+    return dfd;
+}
+
+waiter.when(first(), second()).done((dataList) =&gt; {
+    console.log(dataList);
+})
+</code></pre></div><h2 id="架构型设计模式"><a href="#架构型设计模式" class="header-anchor">#</a> 架构型设计模式</h2> <h3 id="同步模块模式"><a href="#同步模块模式" class="header-anchor">#</a> 同步模块模式</h3> <blockquote><p>采用单例模式</p> <p>模块全都通过define方法挂在在F这个对象下</p> <p>通过module方法，解析所需要的模块，传入回调函数中</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>var F = F || {}
+
+// 定义模块的方法
+// 模块全都通过define方法挂在在F这个对象下
+F.define = function (str, fn) {
+    // 解析模块路由
+    var parts = str.split('.'),
+        old = parent = this,
+        // i 模块层级，len模块层级长度
+        len = 0,
+        i = 0
+    // 如果第一个模式使模块管理器单体对象，则移除
+    if (parts[0] === 'F') {
+        parts.splice(0, 1);
+    }
+    // 屏蔽对define与module模块方法的重写
+    if (parts[0] === 'define' || parts[0] === 'module') return;
+
+    // 遍历路由模块并定义每层模块
+    for (len = parts.length; i &lt; len; i++) {
+        // 如果父模块中不存在当前模块
+        // 如果存在的话，则会将此模块重写
+        if (typeof parent[parts[i]] === 'undefined') {
+            // 声明当前模块
+            parent[parts[i]] = {};
+        }
+        // 缓存下一层次的祖父模块
+        old = parent;
+        // 缓存下一层级父模块
+        parent = parent[parts[i]]
+    }
+    // 如果给定模块方法则定义该模块方法
+    if (fn) {
+        // 此时的i=parts.length，故减一
+        old[parts[--i]] = fn();
+    }
+    // 返回模块管理器单体对象
+    return this;
+}
+
+F.module = function (arr, fn) {
+    // modules所依赖的模块
+    // 执行的方法
+    let modules = [];
+    let parent = this;
+    for (let i = 0; i &lt; arr.length; i++) {
+        modules.push(parent[arr[i]])
+    }
+    fn.apply(null, modules)
+}
+
+F.define('ing', function () {
+    return {
+        trim: function (str) {
+            return str.replace(/^\s+|\s+$/g, '')
+        }
+    }
+})
+
+F.define('str', function () {
+    return {
+        trim: function (str) {
+            return str.replace(/^\s+|\s+$/g, '')
+        }
+    }
+})
+
+
+F.module(['str','ing'], function (str,ing) {
+    console.log(str.trim('  asdasd'));
+    console.log(ing);
+})
+</code></pre></div><h3 id="异步模块模式"><a href="#异步模块模式" class="header-anchor">#</a> 异步模块模式</h3> <blockquote><p>采用单例模式的模块依赖-&gt;模块动态加载-&gt;模块注册-&gt;触发模块依赖回调函数</p> <p><code>_module.onload</code>保存着指定模块加载完成的回调函数</p> <p><code>depsCount</code>保存着模块依赖的个数</p></blockquote> <ol><li>通过<code>F.module</code>传入依赖模块数组</li> <li>解析传入的依赖模块数组，通过<code>loadModule</code>方法在<code>moduleCache</code>中注册模块信息</li> <li>使用<code>loadScript</code>方法动态加载所依赖模块的<em>js</em>文件</li> <li>被依赖的模块加载完成后，通过<code>F.module</code>执行模块注册方法，传入模块名称字符串</li> <li>通过<code>setModule</code>方法，去矫正模块</li> <li><code>setModule</code>中的<code>_module.onload</code> 保存着每个依赖模块加载完成的回调</li> <li>每个被依赖的模块加载完成都会讲模块中的内容保存在<em>依赖模块序列</em><code>params</code>中</li> <li>并且每个依赖模块加载完成后都会检查一下依赖序列<code>depsCount</code>的长度是否为0</li> <li>如果<code>depsCount===0</code>则表示所有依赖已加载完成</li> <li>则将<code>params</code>中保存的依赖模块的方法传入，被依赖模块的回调函数中</li></ol> <p>main.js</p> <div class="language- extra-class"><pre class="language-text"><code>(function (window) {
+    window.F = {}
+    F.module = function (url, modDeps, modCallback) {
+        var args = Array.from(arguments)
+        var callback = args.pop();
+        // 依赖模块参数传入的不是数组则表示，不依赖模块，进行，模块注册操作
+        var deps = (args.length &amp;&amp; args[args.length - 1] instanceof Array) ? args.pop() : []
+        url = args.length ? args.pop() : null;
+        // 依赖模块序列
+        var params = []
+        // 未加载的依赖模块数量统计
+        var depsCount = 0
+        // 依赖模块序列中索引值
+        var i = 0;
+        // 依赖模块序列长度
+        var len;
+        if (len = deps.length) {
+            while (i &lt; len) {
+                (function (i) {
+                    // 增加未加载依赖模块数量统计
+                    depsCount++
+                    // 异步加载模块
+                    loadModule(deps[i], function (mod) {
+                        params[i] = mod;
+                        // 依赖模块加载完成，依赖模块数量统计减一
+                        depsCount--;
+                        // 如果依赖模块全部加载
+                        if (depsCount === 0) {
+                            // 在模块缓存器中矫正该模块，并执行构造函数
+                            setModule(url, params, callback)
+                        }
+                    })
+                })(i)
+                // 遍历下一个依赖模块
+                i++;
+            }
+            // 无依赖模块，直接执行回调函数
+        } else {
+            // 在模块缓存器中矫正该模块，并执行构造函数
+            /**
+             * url:模块注册名称
+             * cb：模块的方法
+             */
+            setModule(url, [], callback)
+        }
+    }
+
+    var moduleCache = {},
+        setModule = function (moduleName, params, callback) {
+            var _module, fn;
+            if (moduleCache[moduleName]) {
+                _module = moduleCache[moduleName];
+                _module.status = 'loaded'
+                _module.exports = callback ? callback.apply(_module, params) : null;
+                // 执行模块文件加载完成回调函数
+                while (fn = _module.onload.shift()) {
+                    fn(_module.exports)
+                }
+            } else {
+                // 模块不存在，则直接执行构造函数
+                callback &amp;&amp; callback.apply(null, params)
+            }
+        },
+        loadModule = function (moduleName, callback) {
+            // 依赖模块
+            var _module;
+            if (moduleCache[moduleName]) {
+                _module = moduleCache[moduleName];
+                if (_module.status === 'loaded') {
+                    // 执行模块加载完成回调函数
+                    setTimeout(callback(_module.exports), 0);
+                } else {
+                    // 缓存该模块所处文件加载完成回调函数
+                    _module.onload.push(callback)
+                }
+            } else {
+                // 模块第一次被依赖引用
+                // 缓存该模块初始化信息
+                moduleCache[moduleName] = {
+                    moduleName: moduleName, // 模块Id
+                    status: 'loading',
+                    exports: null,
+                    onload: [callback]
+                }
+                // 加载模块对应文件
+                loadScript(getUrl(moduleName))
+            }
+        },
+        getUrl = function (moduleName) {
+            return String(moduleName).replace(/\.js$/g, '') + '.js';
+        },
+        loadScript = function (src) {
+            var _script = document.createElement('script')
+            _script.type = 'text/JavaScript'
+            _script.async = true //异步加载
+            _script.src = src
+            document.querySelector('head').appendChild(_script)
+        }
+})(window)
+
+
+
+F.module(['36/lib/dom'], function (dom) {
+    console.log(dom);
+})
+
+</code></pre></div><p>dom.js， 注册依赖模块</p> <div class="language- extra-class"><pre class="language-text"><code>F.module('36/lib/dom', function () {
+    return {
+        g: function (id) {
+            return document.getElementById(id)
+        }
+    }
+})
+</code></pre></div><h3 id="widget模式"><a href="#widget模式" class="header-anchor">#</a> Widget模式</h3> <h3 id="mvc模式"><a href="#mvc模式" class="header-anchor">#</a> MVC模式</h3> <blockquote><p>model---view---control</p> <p>用一种将业务逻辑、数据、视图分离的方式组织架构代码</p> <p>MVC架构模式很好的解决了页面中数据层、视图层、业务逻辑层之间的耦合</p></blockquote> <ul><li>数据层：专注于获取保存数据</li> <li>视图层：专注于将数据渲染成html</li> <li>控制器层：专注于页面的交互逻辑</li></ul> <div class="language- extra-class"><pre class="language-text"><code>window.addEventListener('load', function () {
+    var MVC = MVC || {}
+    // 数据模型层
+    MVC.model = function () {
+        // 内部数据对象
+        var M = {}
+        M.data = {
+            slideBar: [{
+                    text: '1111',
+                    icon: '22222',
+                    content: '333333',
+                    img: '444444',
+                    href: '5555555'
+                },
+                {
+                    text: '1111',
+                    icon: '22222',
+                    content: '333333',
+                    img: '444444',
+                    href: '5555555'
+                },
+                {
+                    text: '1111',
+                    icon: '22222',
+                    content: '333333',
+                    img: '444444',
+                    href: '5555555'
+                }
+            ]
+        }
+        // 配置数据，页面加载时即提供
+        M.conf = {
+            slideBarCloseAnimate: false
+        }
+        return {
+            // 获取服务端数据的方法
+            getData: function (key) {
+                return M.data[key]
+            },
+            // 获取配置数据方法
+            getConf: function (key) {
+                return M.conf[key]
+            },
+            // 设置数据
+            setData: function (key, value) {
+                M.data[key] = value;
+                return this;
+            },
+            setConf: function (key, value) {
+                M.conf[key] = value;
+                return this;
+            }
+
+        }
+    }();
+    // 视图层
+    // 为了让控制器可操作视图层内的视图，我们需要返回一些操作接口方法
+    MVC.view = function () {
+        // 模型数据层对象操作方法引用
+        var M = MVC.model
+        // 内部视图创建方法对象
+        var V = {
+            createSlideBar:function () {
+                /**
+                 * 视图层与数据层绑定
+                 * 并最终渲染出html的操作逻辑
+                 */
+                var html = '',
+                // 获取数据模型层的数据
+                data = M.getData('slideBar');
+                console.log($);
+                if(!data || !data.length)return;
+                var dom = $.create('div',{
+                    'class': 'slideBar',
+                    'id': 'slideBar'
+                })
+                
+            }
+        }
+        // 获取视图接口方法
+        return function (v) {
+            // 根据视图名称返回视图
+            V[v]();
+        }
+    }()
+    // 控制器层
+    MVC.ctrl = function () {
+        var M = MVC.model;
+        var V = MVC.view
+        // 控制器创建方法对象
+        var C = {
+            // 侧边导航栏模块
+            initSlideBar:function () {
+                V('createSlideBar');
+                /**
+                 * 这里写一系列交互逻辑
+                 */
+                
+            }
+        }
+
+        // 为侧边导航模块添加交互与动画特效
+        C.initSlideBar();
+    }()
+
+})
+</code></pre></div><h3 id="mvp模式"><a href="#mvp模式" class="header-anchor">#</a> MVP模式</h3> <blockquote><p>model---view---presenter</p> <p>view层不直接引用model层内的数据，而是通过presenter层实现对model层内的数据访问。</p> <p>即所有层次的交互都发生在presenter层中</p> <p>与mvc模式略有不同</p> <p>mvc模式中v层和c层都对数据进行了操作，有可能会造成冲突</p> <p>mvp模式中将v层对数据的操作交给了c层，形成了管理器层，达到了数据统一操作的目的</p> <p>后期维护也只需要维护p层</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>/* eslint-disable */
+window.addEventListener(&quot;load&quot;, function() {
+  (function(window) {
+    var MVP = function() {};
+    // 数据模型层
+    MVP.model = function() {
+      // 内部数据对象
+      var M = {};
+      M.data = {};
+      // 配置数据，页面加载时即提供
+      M.conf = {
+        slideBarCloseAnimate: false
+      };
+      return {
+        // 获取服务端数据的方法
+        getData: function(key) {
+          return M.data[key];
+        },
+        // 获取配置数据方法
+        getConf: function(key) {
+          return M.conf[key];
+        },
+        // 设置数据
+        setData: function(key, value) {
+          M.data[key] = value;
+          return this;
+        },
+        setConf: function(key, value) {
+          M.conf[key] = value;
+          return this;
+        }
+      };
+    };
+    /**
+     * 视图层
+     * 将非HTML语言以及数据编译成html语言
+     * @returns
+     */
+    MVP.view = function() {
+      var REPLACEKEY = &quot;__REPLACEKEY__&quot;;
+      /**
+       * 获取完整元素模板
+       * @param {*} str   元素字符串
+       * @param {*} replacePos    元素类型
+       */
+      function getHTML(str, replacePos) {}
+
+      /**
+       * 数组迭代器
+       * 将数组中的每个值依次传入fn中执行
+       * @param arr 数组
+       * @param fn 回调函数
+       */
+      function eachArray(arr, fn) {}
+      /**
+       * 替换兄弟元素模板或子元素模板
+       * @param str 原始字符串
+       * @param rep 兄弟元素模板或者子元素模板
+       */
+      function formateItem(str, rep) {
+        return str.replace(new RegExp(REPLACEKEY, &quot;g&quot;), rep);
+      }
+      /**
+       * 将传入的字符串解析成html模板
+       */
+      return function(str) {
+        var part = str;
+      };
+    };
+    /**
+     * 控制器层
+     * 使用视图层提供的方法， 模板编写， 数据绑定
+     * 以及交互逻辑
+     */
+    MVP.presenter = (function() {
+      var V = MVP.view;
+      var M = MVP.model;
+      var C = {
+        /**
+         * 导航管理器
+         * @param {*} M     数据层对象
+         * @param {*} V     视图层对象
+         */
+        nav: function(M, V) {
+          // 获取导航渲染数据
+          var data = M.getData(&quot;nav&quot;);
+          // 获取导航渲染模板
+          var tpl = V(&quot;li.@mode @choose&quot;);
+          //  生成html的业务逻辑
+          $.create(&quot;ul&quot;, {
+            class: &quot;navigation&quot;,
+            id: &quot;nav&quot;
+          })
+            //   插入导航视图
+            .html(
+              //   渲染导航视图
+              V.formateItem(tpl, data)
+            )
+            .appendTo();
+
+          //   剩下的页面交互逻辑、
+          // 。。。。。
+        }
+      };
+      return {
+        init: function() {
+          // 遍历内部管理器
+          for (var i in C) {
+            // 执行所有管理器内部逻辑
+            C[i] &amp;&amp; C[i](M, V, i);
+          }
+        }
+      };
+    })();
+
+    // mvp入口
+    MVP.init = function() {
+      this.presenter.init();
+    };
+    window.MVP = MVP;
+  })(window);
+});
+
+</code></pre></div><h3 id="mvvm模式"><a href="#mvvm模式" class="header-anchor">#</a> MVVM模式</h3> <blockquote><p>model---view---viewModel</p></blockquote></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/shimingw/vpblog/edit/master/docs/JavaScript/JavaScript设计模式.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">更新于:</span> <span class="time">2020-1-19 5:22:01 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vpblog/vpblog/docs/2019-01-13-JavaScript-ES6学习笔记/" class="prev">ES6</a></span> <span class="next"><a href="/vpblog/vpblog/docs/2020-01-09-JavaScript-javaScript语言精粹—笔记/">javaScript语言精粹—笔记</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div class="pace  pace-inactive" style="display:none;" data-v-f74cb30c><div data-progress-text="100%" data-progress="99" class="pace-progress" style="transform:translate3d(0%, 0px, 0px);" data-v-f74cb30c><div class="pace-progress-inner" data-v-f74cb30c></div></div></div><div class="my-popup" style="display:none;" data-v-3414bdeb><div class="my-popup-container" data-v-3414bdeb><div class="my-popup-exit" data-v-3414bdeb></div> <img src="" alt data-v-3414bdeb></div></div><!----><!----><div></div></div></div>
+    <script src="/vpblog/assets/js/app.93a61764.js" defer></script><script src="/vpblog/assets/js/2.43809916.js" defer></script><script src="/vpblog/assets/js/9.634ce07d.js" defer></script><script src="/vpblog/assets/js/4.347cd80e.js" defer></script>
+  </body>
+</html>
