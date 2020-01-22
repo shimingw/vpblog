@@ -5,7 +5,10 @@
   "scripts": {
     "start": "npm run dev1",
     "dev": "nodemon --watch docs bin/sidebar.js & ./node_modules/.bin/vuepress dev .",
-    "dev1": "vuepress dev ."
+    "dev1": "vuepress dev .",
+    "build": "node bin/sidebar.js && vuepress build .",
+    "release": "gh-pages -d ./.vuepress/dist",
+    "deploy": "npm run build && npm run release"
   },
   "author": "shimingw",
   "license": "MIT",
@@ -14,6 +17,7 @@
     "@vuepress/plugin-google-analytics": "^1.2.0",
     "@vuepress/plugin-pwa": "^1.2.0",
     "ejs": "^3.0.1",
+    "gh-pages": "^2.2.0",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "nodemon": "^2.0.2",

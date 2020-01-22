@@ -40,6 +40,7 @@ export default {
   mounted() {
     this.posts = this.$site.pages
     this.num = this.posts.length
+    console.log(this.$site.pages)
   },
 
   computed: {

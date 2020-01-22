@@ -2,15 +2,17 @@
  * @Description: vuepress的配置文件 api参考：https://www.vuepress.cn/config/
  * @Author: shimingwen
  * @Date: 2020-01-16 17:38:01
- * @LastEditTime : 2020-01-21 19:21:03
+ * @LastEditTime : 2020-01-22 09:59:48
  * @LastEditors  : shimingwen
  */
 const { headConf, localesConf, themeConf } = require('./config/')
+const { baseUrl } = require('./config/config-data')
 
 module.exports = {
   locales: localesConf,
   head: headConf,
   themeConfig: themeConf,
+  base: `/${baseUrl}/`,
   plugins: [
     // 路由切换时的过渡动画插件
     require('./plugins/my-loader'),
