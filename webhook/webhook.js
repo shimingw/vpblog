@@ -1,6 +1,6 @@
 var http = require('http')
 var createHandler = require('github-webhook-handler')
-var handler = createHandler({ path: '/', secret: 'root' })
+var handler = createHandler({ path: '/', secret: 'smw' })
 // 上面的 secret 保持和 GitHub 后台设置的一致
 function run_cmd(cmd, args, callback) {
   var spawn = require('child_process').spawn
