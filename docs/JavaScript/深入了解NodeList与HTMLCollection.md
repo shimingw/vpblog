@@ -9,7 +9,7 @@ permalink: "2018-04-06-JavaScript-深入了解NodeList与HTMLCollection"
 
 #### 获取NodeList的方法
 
-```
+```js
 element.childNodes
 document.querySelectorAll()
 获取的值包含元素节点与文本节点
@@ -19,7 +19,7 @@ document.querySelectorAll()
 
 #### 获取HTMLCollection的方法
 
-```
+```js
 element.children
 document.getElementsByClassName
 document.getElementsByTagName
@@ -36,7 +36,7 @@ document.getElementsByTagName
 
 > 动态集合指的就是元素集合会随着DOM树元素的增加而增加，减少而减少；静态集合则不会受DOM树元素变化的影响。
 
-```
+```js
 document.querySelector()
 document.querySelectorAll() 
 document.getElementById()
@@ -49,7 +49,7 @@ document.getElementById()
 
 #### `querySelectorAll()`与其他获取dom节点方法的速度
 
-```
+```js
 querySelectorAll()方法的速度要比其他方法的速度慢
 ```
 

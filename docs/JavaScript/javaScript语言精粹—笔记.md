@@ -19,7 +19,7 @@ permalink: "2020-01-09-JavaScript-javaScript语言精粹—笔记"
 
 推荐使用第一种，因为第二种，在以下情景会造成错误
 
-```
+```js
 /*
     var rm_a = /a*/.match(s)
 */
@@ -84,7 +84,7 @@ permalink: "2020-01-09-JavaScript-javaScript语言精粹—笔记"
 
 在下面这个方法中`help1`输出的是`window`，`help2`输出的是`myObj`对象
 
-```
+```js
 const myObj = {}
 myObj.double = function () {
     const help1 = function () {
@@ -107,7 +107,7 @@ myObj.double()
 
 ##### 优化前
 
-```
+```js
 function fact(n) {
     if (n <= 0) {
         return 1;
@@ -119,7 +119,7 @@ function fact(n) {
 
 递归栈
 
-```
+```js
 6 * fact(5)
 6 * (5 * fact(4))
 6 * (5 * (4 * fact(3))))
@@ -129,7 +129,7 @@ function fact(n) {
 
 ##### 优化后
 
-```
+```js
 function fact(n, r) {
     if (n <= 0) {
         return 1 * r;
@@ -141,7 +141,7 @@ function fact(n, r) {
 
 递归栈
 
-```
+```js
 fact(6, 1) // 1 是 fact(0) 的值，我们需要手动写一下
 fact(5, 6)
 fact(4, 30)
@@ -160,7 +160,7 @@ fact(1, 720)
 因为，如果if分支抛出异常，此时变量encrypted就不会被使用，并且需要承受string 的构造和析构成本。
 所以应尽量在变量要使用的地方再去定义它
 
-```
+```js
 encryptPassword(password) {
     const encrypted = encrypt(password);
     if(password.length() < MinimumPasswordLengt) {  
@@ -173,7 +173,7 @@ encryptPassword(password) {
 
 修改如下
 
-```
+```js
 encryptPassword(password) {
     if(password.length() < MinimumPasswordLengt) {  
         throw (“Password is too short”)  
@@ -192,7 +192,7 @@ encryptPassword(password) {
 
 第一种：没有采取闭包的方式，每次执行`deentityify`时，`entity`变量都会被求值一次，会带来运行时的损耗
 
-```
+```js
 String.prototype.deentityify = function() {
   const entity = {
     quot: '"',
@@ -209,7 +209,7 @@ String.prototype.deentityify = function() {
 
 第二种：采取闭包的方式，只有`deentityify`方法才有权访问`entity`变量，既做到了不污染全局变量，又做到了，减少运行时带来的损耗
 
-```
+```js
 String.prototype.deentityify = function() {
   const entity = {
     quot: '"',
@@ -255,7 +255,7 @@ String.prototype.deentityify = function() {
 
 一个简单柯里化函数的实现
 
-```
+```js
 Function.prototype.curry = function(...initParams) {
   return (...curryParams) =>
     this.apply(null, initParams.concat(curryParams))
@@ -273,7 +273,7 @@ console.log(add1(6))	//=>7
 
 `compute`只有打印了一次
 
-```
+```js
 const add = (function() {
   const cache = {}
   const addMem = (a, b) => {
@@ -308,7 +308,7 @@ add(1, 1)
 - 在子类中无法访问`super`（父类）方法
 - 如果在调用构造器函数时忘了在前面加`new`，那么`this`会绑定到`window`上，污染全局变量
 
-```
+```js
 const body = function(type) {
   this.type = type
 }
@@ -338,7 +338,7 @@ const bodyExa = body('people')
 
 对象的原型继承
 
-```
+```js
 const obj1 = {
   name: '1111111'
 }
@@ -348,7 +348,7 @@ console.log(obj2)
 
 `function`的原型继承
 
-```
+```js
 const fn1 = function(name) {
   this.name = name
 }
@@ -365,7 +365,7 @@ console.log(fn2)
 
 优化组合继承
 
-```
+```js
 Student.prototype = new Person()  //未优化的时候   Person实例充当原型链的中间对象（缓冲）
 -------------------------
 Student.prototype = Object.create(Person.prototype) //优化后    一个继承Person的空对象充当中间对象（缓冲）
@@ -375,7 +375,7 @@ Student.prototype.__proto__ = Person.prototype  //当然也有人这么写  道�
 
 
 
-```
+```js
 'use strict'
 
 function _inheritsLoose(subClass, superClass) {

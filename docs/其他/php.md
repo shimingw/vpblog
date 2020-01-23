@@ -7,7 +7,7 @@ permalink: "2018-04-25-其他-Php"
 
 ### namespace
 
-```
+```php
 include 'nameSpace.php';		//引入php文件
 $r = new \Other\Flag();			//使用引入文件下的命名空间下的类
 
@@ -18,34 +18,28 @@ use方法可以引入某个命名空间下具体的类，也可以使用as来修
 
 ### 类中声明函数的方法
 
-```
-public:权限是最大的，可以内部调用，实例调用等。
-protected: 受保护类型，用于本类和继承类调用。
+- public:权限是最大的，可以内部调用，实例调用等。
+- protected: 受保护类型，用于本类和继承类调用。
 		可以class内部调用，实例化调用报错。
 		可以被继承
-private: 私有类型，只有在本类中使用。
+- private: 私有类型，只有在本类中使用。
 		可以class内部调用，实例化调用报错。
 		不可以被继承
-```
-
 
 
 ### this,self,parent的区别
 
-```
-this：就是指向当前对象实例的指针，不指向任何其他对象或类
+- this：就是指向当前对象实例的指针，不指向任何其他对象或类
 		new声明后指向声明后的对象
-self：是指向类本身，也就是self是不指向任何已经实例化的对象
+- self：是指向类本身，也就是self是不指向任何已经实例化的对象
 		self使用::来调用类中的静态方法或变量
 		静态方法中无法使用$this指针
-parent：是指向父类的指针，一般我们使用parent来调用父类的构造函数
-```
-
+- parent：是指向父类的指针，一般我们使用parent来调用父类的构造函数
 
 
 ### 魔术函数
 
-```
+```php
 __construct函数：在类被实例化的时候触发
 class name {
     function __construct()
@@ -62,11 +56,7 @@ class name {
 
 
 
-
-
-
-
-# Directory and File Functions
+## Directory and File Functions
 
  The following directory and file functions should be used in Zend modules. They behave exactly like their C counterparts, but provide virtual working directory support on the thread level. 
 
@@ -93,7 +83,7 @@ abstract类中声明函数时家protected和public有什么区别；
 
 
 
-```
+```php
 abstract class AbstractClass
 {
     // 强制要求子类定义这些方法
@@ -118,7 +108,6 @@ class ConcreteClass1 extends AbstractClass
     }
 }
 
-
 ```
 
 
@@ -131,7 +120,7 @@ class ConcreteClass1 extends AbstractClass
 
 还可以继承多个interface
 
-```
+```php
 interface a
 {
     public function foo();
@@ -146,7 +135,7 @@ interface b extends a
 
 你的class也可以implements**多个**interface
 
-```
+```php
 interface template1
 {
     public function f1();
@@ -179,7 +168,6 @@ class test implments template1, template2
 
 #### 没有理解第四点
 
-```
 1. In abstract classes this is not necessary that every method should be abstract. But in interface every method is abstract.
 
 在Abstract class中并非所有的method都必须是抽象的，但是在interface中所有的method都自动成为抽象的。就是在子类中必须声明和实现
@@ -197,23 +185,17 @@ interface中的method必须是public的，但是在abstract class中可以是pub
 4. In abstract class you can define as well as declare methods. But in interface you can only defined your methods.
 
 在abstract class中你可以同时声明（declare）和定义（define）methodes，但是在interface中你只能定义那个methods
-```
-
-
 
 
 ## 6.22
 
-```
 问题：
 路由：channel/rate
 方法：
 
-```
-
 问题1：
 
-```
+```php
 static静态关键字的作用
 与self的区别(private)
 class BaseRepository
@@ -250,7 +232,7 @@ class BaseRepository
 
 问题2：
 
-```
+```php
 PaymentRate
 model模型中有一些属性不理解
 protected static $model_class = PaymentRate::class;
@@ -259,7 +241,7 @@ protected static $model_class = PaymentRate::class;
 
 问题3：
 
-```
+```php
 自带的默认分页方法？
 new LengthAwarePaginator($items->forPage($page, $pageSize), $items->count(), $pageSize);
 ```

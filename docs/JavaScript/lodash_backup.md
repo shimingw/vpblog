@@ -13,7 +13,7 @@ permalink: "2019-10-29-JavaScript-lodash干货-数组"
 
 过滤到数据中所有的假值，例如`false`, `null`, `0`, `""`, `undefined`, 和 `NaN` 都是被认为是“假值”。
 
-```
+```js
 _.compact([0, 1, false, 2, '', 3]);
 // => [1, 2, 3]
 ```
@@ -24,7 +24,7 @@ _.compact([0, 1, false, 2, '', 3]);
 
 检查某个数组，将特定的值过滤掉，过滤规则为`===`，如果比较返回`false`则保留
 
-```
+```js
 const obj = {name:1111111}
 console.log(
     _.difference([obj, "2", 1], [obj, 2])
@@ -36,7 +36,7 @@ console.log(
 
 与`difference`相比，多了一个前置步骤，数组中的每个值在比较前都会过一遍迭代器中的函数，最后比较返回`false`则保留
 
-```
+```js
 // 数组中的每个值比较前，都会执行Math.floor方法，执行后的结果相同，则认为需要过滤
 _.differenceBy([3.1, 2.2, 1.3], [4.4, 2.5], Math.floor);
 // => [3.1, 1.3]
@@ -51,7 +51,7 @@ _.differenceBy([{ 'x': 2 }, { 'x': 1 }], [{ 'x': 1 }], 'x');
 
 与`difference`相比，可以自定义比较方法，不一定使用`===`进行比较，比较返回`false`则保留
 
-```
+```js
 // _.isEqual，对两个引用值也会进行深度遍历进行比较，例如_.isEqual({},{})返回true
 var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
 
@@ -164,7 +164,7 @@ _.differenceWith(objects, [{ 'x': 1, 'y': 2 }], (a,b)=>{
 
 用二进制的方式进行比较，获取某个值插入数组的位置
 
-```
+```js
 _.sortedIndex([30, 50], 40);
 // => 1
 ```
@@ -173,7 +173,7 @@ _.sortedIndex([30, 50], 40);
 
 与`sortedIndex`类似，区别是，在比较前，可使数组中的值经过特定方法的转换
 
-```
+```js
 var objects = [{ 'x': 4 }, { 'x': 5 }];
  
 _.sortedIndexBy(objects, { 'x': 4 }, function(o) { return o.x; });
@@ -200,7 +200,7 @@ _.sortedIndexBy(objects, { 'x': 4 }, function(o) { return o.x; });
 
 方法类似[`_.difference`](https://www.lodashjs.com/docs/latest#difference), 不同是这个方法会改变数组 `array`，并且参数是单个传入
 
-```
+```js
 var array = [1, 2, 3, 1, 2, 3];
  
 _.pull(array, 2, 3);
@@ -224,7 +224,7 @@ console.log(array);
 
 根据索引 `indexes`，移除`array`中对应的元素，并返回被移除元素的数组。 
 
-```
+```js
 var array = [5, 10, 15, 20];
 var evens = _.pullAt(array, 1, 3);
  
@@ -239,7 +239,7 @@ console.log(evens);
 
 根据规则，移除`array`中对应的元素，并返回被移除元素的数组。 
 
-```
+```js
 var array = [1, 2, 3, 4];
 var evens = _.remove(array, function(n) {
   return n % 2 == 0;

@@ -7,20 +7,18 @@ permalink: "2018-07-27-css-LESS"
 
 ## less中的注释
 
-```
+```less
 //不会被编译进css文件
 /* */会被编译进css文件
 ```
 
 ##  变量
 
-```
 已@开头来命名变量
-```
 
 ## 混合
 
-```
+```less
 .border{
   border: 1px solid rebeccapurple;
 }
@@ -33,7 +31,7 @@ permalink: "2018-07-27-css-LESS"
 
 ## 匹配模式
 
-```
+```less
 .borderLine(top,@width:5px){
   border-top: @width solid red;
 }
@@ -45,15 +43,8 @@ permalink: "2018-07-27-css-LESS"
 
 ## 运算
 
-```
 可以对px与颜色进行加减乘除
-```
 
 ## 嵌套规则
 
-```
 &在嵌套规则里代表上一层元素
-```
-
-
-

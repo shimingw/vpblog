@@ -19,7 +19,7 @@ permalink: "2018-06-05-数据可视化-three.js 学习笔记"
 
 场景就只有一种
 
-```
+```js```
 var scene = new THREE.Scene();
 ```
 
@@ -27,7 +27,7 @@ var scene = new THREE.Scene();
 
 ### 相机
 
-```
+```js
 透视相机，也就是类似于人眼观察的方式
 
 PerspectiveCamera("field of view", "aspect ratio", "near clipping plane", "far clipping plane")	
@@ -38,7 +38,7 @@ PerspectiveCamera("field of view", "aspect ratio", "near clipping plane", "far c
 
 ### 渲染器
 
-```
+```js
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement)
@@ -50,7 +50,7 @@ document.body.appendChild(renderer.domElement)
 
 ### 添加物体到场景中
 
-```
+```js
 var geometry = new THREE.CubeGeometry(1,1,1); 	//盒子模型
 var material = new THREE.MeshBasicMaterial({color: 0x00ff00});	//材料着色
 var cube = new THREE.Mesh(geometry, material); 	
@@ -66,7 +66,7 @@ depth：立方体z轴的深度，也就是长度
 
 ### 渲染
 
-```
+```js
 renderer.render(scene, camera);
 
 渲染函数的原型如下：

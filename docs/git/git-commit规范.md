@@ -1,14 +1,12 @@
 ---
-title: "git-commit规范"
+title: 'git-commit规范'
 date: 2019-10-11
-permalink: "2019-10-11-git-git-commit规范"
+permalink: '2019-10-11-git-git-commit规范'
 ---
-
-
 
 在`git-commit-message`中约束规范`message`信息，提高`message`中信息的质量
 
-[Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html )
+[Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 
 ## 模块配置
 
@@ -20,13 +18,13 @@ permalink: "2019-10-11-git-git-commit规范"
 
 如果你的**npm<5.2**则需要全局安装
 
-```
+```bash
 npm install -g commitizen
 ```
 
 如果你使用**npm 5.2+**，则可以使用局部安装，然后使用一下命令运行
 
-```
+```bash
 npx git-cz
 ```
 
@@ -36,19 +34,19 @@ npx git-cz
 
 **npm**
 
-```
+```bash
 commitizen init cz-conventional-changelog --save-dev --save-exact
 ```
 
 **yarn**
 
-```
+```bash
 commitizen init cz-conventional-changelog --yarn --dev --exact
 ```
 
 并在`package.json`中配置
 
-```
+```json
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
@@ -60,15 +58,13 @@ commitizen init cz-conventional-changelog --yarn --dev --exact
 
 需要借助[cz-customizable](#cz-customizable)
 
-
-
 ### commitlint
 
 > 制定`commit`信息规范，对`commit`信息进行校验，如果不满足，则不允许提交
 
 #### 安装
 
-```
+```bash
 # Install commitlint cli and conventional config
 npm install --save-dev @commitlint/{config-conventional,cli}
 # For Windows:
@@ -79,15 +75,15 @@ npm install --save-dev @commitlint/config-conventional @commitlint/cli
 
 ##### 引用规则
 
-```
+```bash
 echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
 ```
 
 ##### 自定义规则
 
-rule由name和配置数组组成，如：`'name:[0, 'always', 72]'`
+rule 由 name 和配置数组组成，如：`'name:[0, 'always', 72]'`
 
-- **level**：可选`0,1,2`，0为disable，1为warning，2为error
+- **level**：可选`0,1,2`，0 为 disable，1 为 warning，2 为 error
 - **Applicable**：`always|never`是否应用
 - **Value**：此规则需要匹配的值
 
@@ -95,17 +91,15 @@ rule由name和配置数组组成，如：`'name:[0, 'always', 72]'`
 
 [配置说明](https://github.com/conventional-changelog/commitlint/blob/master/docs/reference-rules.md)
 
-**配置规则的同时还需要注意[commitlint解析器预设](https://commitlint.js.org/#/reference-configuration?id=parser-presets)能否正常解析**
-
-
+**配置规则的同时还需要注意[commitlint 解析器预设](https://commitlint.js.org/#/reference-configuration?id=parser-presets)能否正常解析**
 
 ### Husky
 
->  这使我们可以通过husky.hooks字段将git钩子直接添加到package.json中。
+> 这使我们可以通过 husky.hooks 字段将 git 钩子直接添加到 package.json 中。
 
 #### 安装
 
-```
+```bash
 npm install -D husky
 ```
 
@@ -113,7 +107,7 @@ npm install -D husky
 
 在`package.json`中添加挂钩
 
-```
+```json
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
@@ -121,15 +115,13 @@ npm install -D husky
   }
 ```
 
-
-
 ### cz-customizable
 
->  可定制的`Commitizen`插件
+> 可定制的`Commitizen`插件
 
 #### 安装
 
-```
+```bash
 npm install cz-customizable --save-dev
 ```
 
@@ -137,7 +129,7 @@ npm install cz-customizable --save-dev
 
 在`package.json`中配置
 
-```
+```json
 "config": {
   "commitizen": { // not needed for standlone usage
     "path": "node_modules/cz-customizable"
@@ -150,10 +142,10 @@ npm install cz-customizable --save-dev
 
 ##### 配置规则
 
-- **subjectLimit**：header的长度
+- **subjectLimit**：header 的长度
 - **types**：自定义`type`类型选项
 
-```json5
+```json
     types: [{
             value: '新功能',
             name: '新功能 : 新增加一个功能'
@@ -185,11 +177,9 @@ npm install cz-customizable --save-dev
     ]
 ```
 
-
-
 - **scopes**：自定义`scopes`类型选项
 
-```json5
+```json
     scopes: [{
         name: '小'
     }, {
@@ -203,7 +193,7 @@ npm install cz-customizable --save-dev
 
 - **scopeOverrides**：针对每个`type`可以自定义对应的`scope`
 
-```json5
+```json
     scopeOverrides: {
       fix: [
         {name: 'merge'},

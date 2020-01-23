@@ -17,7 +17,7 @@ permalink: "2019-11-11-开发工具-vscode使用eslint技巧"
 
 **.eslintrc.js**
 
-```
+```js
 module.exports = {
   env: {
     browser: true,
@@ -45,7 +45,7 @@ module.exports = {
 
 在根目录创建**.vscode/settings.json**文件进行配置
 
-```
+```json
   "eslint.enable": true,
   "eslint.autoFixOnSave": true,		//是否在保存时自动修复错误，如果不开启自动修复也可以使用ctrl+shift+p，使用fix all auto-fixable problems进行手动修复
   "eslint.validate": [

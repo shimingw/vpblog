@@ -10,7 +10,7 @@ permalink: "2018-05-06-数据库-sql学习笔记"
 
 ## 筛选字段
 
-```
+```sql
 SELECT column_name,column_name
 
 FROM table_name;
@@ -24,13 +24,13 @@ SELECT * FROM Websites;
 
 选择不重复的
 
-```
+```sql
 select distinct sex from test;
 ```
 
 筛选条件
 
-```
+```sql
 Select * from emp where sal > 2000 and sal < 3000;
 
 Select * from emp where sal > 2000 or comm > 500;
@@ -47,7 +47,7 @@ Select * from emp where sal in (5000,3000,1500);
 
 Like模糊查询
 
-```
+```sql
 Select * from emp where ename like 'M%';
 ```
 
@@ -69,13 +69,13 @@ VALUES (value1,value2,value3,...);
 
 ## update
 
-```
+```sql
 update test set sex='hahahahah' where name='smw';
 ```
 
 在更新记录时要格外小心！在上面的实例中，如果我们省略了 WHERE 子句，如下所示：
 
-```
+```sql
 UPDATE Websites
 SET alexa='5000', country='USA'
 ```
@@ -103,7 +103,7 @@ WHERE some_column=some_value;
 
 选择前十条
 
-```
+```sql
 select  * from test limit 10;
 ```
 
@@ -119,7 +119,7 @@ SELECT * FROM test	WHERE name LIKE '%oo%';
 
 下面的 SQL 语句选取 name 为 "Google" 或 "菜鸟教程" 的所有网站：
 
-```
+```sql
 SELECT * FROM Websites	WHERE name IN ('Google','菜鸟教程');
 ```
 
@@ -142,13 +142,13 @@ SELECT * FROM Websites	WHERE alexa NOT BETWEEN 1 AND 20;
 
 Concat可以使两个字段一起查出来
 
-```
+```sql
 select name , CONCAT(sex,type) as info from test;
 ```
 
 多表查询语句。使用第一张表的字段匹配第二张表的字段。来进行查询
 
-```
+```sql
 select i.hobby from test as t , test_info as i where t.name=i.name;
 ```
 
@@ -160,7 +160,7 @@ SQL JOIN 子句用于把来自两个或多个表的行结合起来，基于这�
 
 最常见的 JOIN 类型：**SQL INNER JOIN（简单的 JOIN）**。 SQL INNER JOIN 从多个表中返回满足 JOIN 条件的所有行。
 
-```
+```sql
 select t.type , i.name ,i.hobby from test as t inner join test_info as i  on t.name = i.name;
 ```
 
@@ -179,7 +179,7 @@ union 选取不同的
 
 union 允许选取重复的值
 
-```
+```sql
 select name  from test 
 union
 select name  from test_info 
@@ -197,7 +197,7 @@ INSERT INTO SELECT 语句从一个表复制数据，然后把数据插入到一�
 
 但是字段个数必须相同
 
-```
+```sql
 insert into test_info select * from test;
 ```
 
@@ -205,7 +205,7 @@ insert into test_info select * from test;
 
 ## SQL CREATE TABLE 语句
 
-```
+```sql
 CREATE TABLE test3
 (
 PersonID int primary key,
@@ -238,13 +238,13 @@ City varchar(255)
 
 添加列
 
-```
+```sql
 ALTER TABLE table_name	ADD column_name datatype
 ```
 
 删除列
 
-```
+```sql
 ALTER TABLE table_name	DROP COLUMN column_name
 ```
 
@@ -254,7 +254,7 @@ ALTER TABLE table_name	DROP COLUMN column_name
 
 Auto-increment 会在新记录插入表中时生成一个唯一的数字。
 
-```
+```sql
 CREATE TABLE Persons
 (
 ID int NOT NULL AUTO_INCREMENT,
@@ -276,7 +276,7 @@ PRIMARY KEY (ID)
 
 ### SQL 创建表
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS `use` (
 	`id` INT  UNSIGNED  AUTO_INCREMENT,
     `name` VARCHAR (100) NOT NULL,
@@ -299,7 +299,7 @@ VALUES
 
 Order by 查询两列
 
-```
+```sql
 SELECT * FROM Websites
 ORDER BY country,alexa;
 ```
@@ -320,7 +320,7 @@ SELECT * FROM `use` as u inner JOIN pname as p ON u.part = p.type;
 
 使用表的别名来查询 一样
 
-```
+```sql
 .col-md-offset-4{margin-left:33.33333333%;margin-top: 33.333333%}
 ```
 
@@ -340,7 +340,7 @@ yunying.shuzutech.com：数族角色登录页面
 
 
 
-```
+```sql
 pip uninstall powerline-status
 /usr/local/lib/python2.7/site-packages
 ```

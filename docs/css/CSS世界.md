@@ -1,9 +1,8 @@
 ---
-title: "CSS世界学习笔记"
+title: 'CSS世界学习笔记'
 date: 2018-10-28
-permalink: "2018-10-28-css-CSS世界学习笔记"
+permalink: '2018-10-28-css-CSS世界学习笔记'
 ---
-
 
 ## css 属性
 
@@ -39,7 +38,7 @@ permalink: "2018-10-28-css-CSS世界学习笔记"
 
 > 内容可以被替换
 
-```
+```css
 img,iframe,viedeo,select等
 ```
 
@@ -203,43 +202,45 @@ img,iframe,viedeo,select等
 
     - 实现思路使用 after 伪类使遮罩的字体内容区域高度为 100%，这样使用`vertical-align:middle`就可以实现上下居中。左右居中使用`text-align: center`
 
-      ```
-       <div class="container">
-          <div class="dialog">
-            asdasd
-            asdasd
-          </div>
+      ```html
+      <div class="container">
+        <div class="dialog">
+          asdasd asdasd
         </div>
-          .container {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            text-align: center;
-            font-size: 0;
-            white-space: nowrap;
-            overflow: auto;
-          }
+      </div>
+      ```
 
-          .container:after {
-            content: '';
-            display: inline-block;
-            height: 100%;
-            vertical-align: middle;
-          }
+      ```css
+      .container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        text-align: center;
+        font-size: 0;
+        white-space: nowrap;
+        overflow: auto;
+      }
 
-          .dialog {
-            display: inline-block;
-            vertical-align: middle;
-            font-size: 14px;
-            white-space: normal;
-            width: 100px;
-            background: #fff;
-            max-height: 100px;
-            overflow: auto;
-          }
+      .container:after {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+
+      .dialog {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 14px;
+        white-space: normal;
+        width: 100px;
+        background: #fff;
+        max-height: 100px;
+        overflow: auto;
+      }
       ```
 
 ## 流的破坏与保护
@@ -255,7 +256,6 @@ img,iframe,viedeo,select等
 - 触发 BFC
 
 ```
-
   <html>根元素；
   float 的值不为 none；
   overflow 的值为 auto、 scroll 或 hidden；
@@ -271,7 +271,7 @@ img,iframe,viedeo,select等
 
 - 滚动条可以自定义
 
-  ```
+  ```css
   整体部分， ::-webkit-scrollbar；
   两端按钮， ::-webkit-scrollbar-button；
   外层轨道， ::-webkit-scrollbar-track；
@@ -282,19 +282,22 @@ img,iframe,viedeo,select等
 
   但是我们平时开发中只用下面 3 个属性：
 
-  ```
-  ::-webkit-scrollbar { /_ 血槽宽度 _/
-  width: 8px; height: 8px;
+  ```css
+  ::-webkit-scrollbar {
+    /_血槽宽度 _/
+  width: 8px;
+    height: 8px;
   }
-  ::-webkit-scrollbar-thumb { /_ 拖动条 _/
-  background-color: rgba(0,0,0,.3);
-  border-radius: 6px;
+  ::-webkit-scrollbar-thumb {
+    /_拖动条 _/
+  background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
   }
-  ::-webkit-scrollbar-track { /_ 背景槽 _/
+  ::-webkit-scrollbar-track {
+    /_背景槽 _/
   background-color: #ddd;
-  border-radius: 6px;
+    border-radius: 6px;
   }
-
   ```
 
 - 锚点定位
@@ -303,7 +306,7 @@ img,iframe,viedeo,select等
 
 - 一种是`<a>`标签以及 name 属性
 
-- ```
+- ```html
   <a href="#1">发展历程></a>
   <a name="1"></a>
 
@@ -313,18 +316,18 @@ img,iframe,viedeo,select等
 
 - 使用 label+input 可以实现无锚点定位，也可以使用`document.querySelector(input).focus`
 
-  ```
+  ```html
   <div class="box">
-      <div class="list"><input id="one">1</div>
-      <div class="list"><input id="two">2</div>
-      <div class="list"><input id="three">3</div>
-      <div class="list"><input id="four">4</div>
+    <div class="list"><input id="one" />1</div>
+    <div class="list"><input id="two" />2</div>
+    <div class="list"><input id="three" />3</div>
+    <div class="list"><input id="four" />4</div>
   </div>
   <div class="link">
-      <label class="click" for="one">1</label>
-      <label class="click" for="two">2</label>
-      <label class="click" for="three">3</label>
-      <label class="click" for="four">4</label>
+    <label class="click" for="one">1</label>
+    <label class="click" for="two">2</label>
+    <label class="click" for="three">3</label>
+    <label class="click" for="four">4</label>
   </div>
   ```
 
@@ -335,61 +338,59 @@ img,iframe,viedeo,select等
 - 无依赖绝对定位
   这可以使元素脱离文档流，但是又不影响元素的位置，并且使用 margin 可以改变相对位置
 
+```html
+<div class="nav">
+  <h4 class="nav-list">
+    <a href class="nav-a">普通导航</a>
+  </h4>
+  <h4 class="nav-list">
+    <a href class="nav-a"> 热门导航<i class="icon-hot"></i> </a>
+  </h4>
+  <h4 class="nav-list">
+    <a href class="nav-a"> 新导航<i class="icon-new"></i> </a>
+  </h4>
+</div>
 ```
 
-  <div class="nav">
-      <h4 class="nav-list">
-          <a href class="nav-a">普通导航</a>
-      </h4>
-      <h4 class="nav-list">
-          <a href class="nav-a">
-              热门导航<i class="icon-hot"></i>
-          </a>
-      </h4>
-      <h4 class="nav-list">
-          <a href class="nav-a">
-              新导航<i class="icon-new"></i>
-          </a>
-      </h4>
-  </div>
-
+```css
 .nav {
-display: table;
-table-layout: fixed;
-width: 100%;
-max-width: 600px;
-margin: 1em auto;
-background-color: #333;
-text-align: center;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  max-width: 600px;
+  margin: 1em auto;
+  background-color: #333;
+  text-align: center;
 }
 .nav-list {
-display: table-cell;
-font-weight: 400;
+  display: table-cell;
+  font-weight: 400;
 }
 .nav-a {
-display: block;
-line-height: 20px;
-padding: 20px;
-color: #bbb;
-text-decoration: none;
+  display: block;
+  line-height: 20px;
+  padding: 20px;
+  color: #bbb;
+  text-decoration: none;
 }
 .nav-a:hover {
-color: #fff;
+  color: #fff;
 }
 
 .icon-hot {
-position: absolute;
-width: 28px; height: 11px;
-margin: -6px 0 0 2px;
-background: url(hot.gif);
+  position: absolute;
+  width: 28px;
+  height: 11px;
+  margin: -6px 0 0 2px;
+  background: url(hot.gif);
 }
 .icon-new {
-position: absolute;
-width: 12px; height: 13px;
-margin: -6px 0 0 2px;
-background: url(new.png) no-repeat center;
+  position: absolute;
+  width: 12px;
+  height: 13px;
+  margin: -6px 0 0 2px;
+  background: url(new.png) no-repeat center;
 }
-
 ```
 
 - 当使用无状态定位置时，元素会留在原地，并脱离文档流，但当遇到 float 时，每个 fireFox 和 chrome 的表现会有不同，需要注意
@@ -400,7 +401,7 @@ background: url(new.png) no-repeat center;
 
 - 利用`absolute`可以使元素具有流的特性，可以适应`padding、margin`，加上`width: 100%; height: 100%;`后反而会破坏流的特性
 
-```
+```css
 
 .box {
 position: absolute;
@@ -464,7 +465,7 @@ ch：0 的字符宽度
 
 **无衬线字体**：没有这些额外的装饰，而且笔画的粗细差不多， 如中文的“雅黑”字体，英文包括 Arial、 Verdana、 Tahoma、 Helivetica、 Calibri 等 。
 
-```
+```css
 
 font-family: serif; /_ 衬线字体 _/
 font-family: sans-serif; /_ 无衬线字体 _/
@@ -473,7 +474,7 @@ font-family: sans-serif; /_ 无衬线字体 _/
 
 ### font-weight
 
-```
+```css
 
 /_ 平常用的最多的 _/
 font-weight: normal;
@@ -534,7 +535,7 @@ font-weight 无论是设置 300、 400、 500 还是 600， 文字的粗细都�
 
 ### @font-face
 
-```
+```css
 
 配置
 @font-face {
@@ -558,7 +559,7 @@ font-feature-settings： "liga1" on;
 
 外链字体
 
-```
+```css
 
 src: url('icon.eot') format('eot');
 src: url('icon.eot?#iefix') format('embedded-opentype'),
@@ -591,7 +592,7 @@ IE9 之前的版本解析有一个严重的问题，当 src 属性包含多个 u
 
 > 如此定义 icon 字体图标，使用不同的`font-weight`会加载与之对应的图标
 
-```
+```css
 
 @font-face {
 font-family: ICON;
@@ -623,7 +624,7 @@ font-weight: 100;
 
 例如， “微软雅黑”字体的引号左右间隙不均，方向不明，实在是看着不舒服，此时我们就专门指定这 两个引号使用其他字体， CSS 代码如下：
 
-```
+```css
 
 @font-face {
 font-family: quote;
@@ -644,7 +645,7 @@ font-family: quote, 'Microsoft Yahei';
 
 实现一些排版效果（提问后面的内容才会实现自动换行）
 
-```
+```html
 
       <p>提问：问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容...</p>
       <p>回答：问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容问题内容...</p>
@@ -718,7 +719,7 @@ font-family: quote, 'Microsoft Yahei';
 
 `background-image`统一解决点击变色需求，并且不会覆盖原来的`background`的颜色。
 
-```
+```css
 
 a[href]:active,
 button:active {
@@ -738,7 +739,7 @@ rgba(0, 0, 0, 0.05)
 
 如果希望元素不可见，同时不占据空间，辅助设备无法访问，同时不渲染，可以使用`<script>`标签隐藏。例如：
 
-    ```
+    ```html
     <script type="text/html">
     <img src="1.jpg">
     </script>
@@ -747,7 +748,8 @@ rgba(0, 0, 0, 0.05)
 此时，图片 1.jpg 是不会有请求的。 `<script>`标签是不支持嵌套的，因此，如果希望在
 
 `<script>`标签中再放置其他不渲染的模板内容，可以试试使用`<textarea>`元素。例如：
-```
+
+```html
 <script type="text/html">
 <img src="1.jpg">
 <textarea style="display:none;">
@@ -764,7 +766,7 @@ textarea.value。
 
 `Highlight`是系统高亮色，与`outline`效果相当。
 
-```
+```css
 
 .input:focus {
 border-color: Highlight;

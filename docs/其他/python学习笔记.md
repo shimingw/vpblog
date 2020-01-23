@@ -11,7 +11,7 @@ permalink: "2018-04-25-其他-python学习笔记"
 
 ### def
 
-```
+```python
 用来声明函数
 def say_hello():
 	print('hello word')
@@ -19,13 +19,11 @@ def say_hello():
 
 ### global
 
-```
 用来在函数内部声明引用全局变量
-```
 
 ### 可以为参数设置默认值
 
-```
+```python
 def func(a, b=5, c=10):
 传值时也可以使用这样的方法
 func(c=50, a=100)
@@ -33,54 +31,42 @@ func(c=50, a=100)
 
 ### *param 
 
-```
 从此处开始直到结束的所有位置参数
 （ Positional Arguments） 都将被收集并汇集成一个称为“param”的元组（ Tuple） 
-```
 
 ### **param
 
-```
 从此处开始直至结束的所有关键字
 参数都将被收集并汇集成一个名为 param 的字典（ Dictionary）
-```
 
 ### None
 
-```
 如果一个函数没有返回值，则print返回值为None
 每一个函数都在其末尾隐含了一句 return None
-```
 
 ### import
 
-```
 同js的import功能
-```
 
 ### .pyc 文件 
 
-```
 更快速的完成模块导入
-```
 
 ### from ... import ...
 
-```
 引入模块中的某个功能
 同js中的import from
-```
 
 ### __name__
 
-```
+```python
 __name__ == '__main__'
 如果相等表示模块是独立运行的
 ```
 
 ### dir() 
 
-```
+```python
 import my_module_one
 print(dir(my_module_one))
 显示当前模块的属性和方法
@@ -88,7 +74,7 @@ print(dir(my_module_one))
 
 ### tuple
 
-```
+```python
 可以用索引获取
 zoo = ('python', 'elephant', 'penguin')
 new_zoo = 'monkey', 'camel', zoo
@@ -96,7 +82,7 @@ new_zoo = 'monkey', 'camel', zoo
 
 ### 元组
 
-```
+```python
 key、value的形式
 ab = {
 'Swaroop': 'swaroop@swaroopch.com',
@@ -108,17 +94,13 @@ ab = {
 
 ### list
 
-```
 类似js数组
-```
-
-
 
 ## project
 
 ### 压缩文件的demo
 
-```
+```python
 import os
 import time
 
@@ -151,7 +133,7 @@ else:
 
 ### 类的基本用法（self，__init__）
 
-```
+```python
 self：相当于js中的this指针，指向这个类
 __init__：相当于js中的类的，初始化方法。每次被初始化的时候都会执行的函数
 
@@ -172,7 +154,7 @@ p.say_hi()
 
 ### 类变量与对象变量
 
-```
+```python
 类变量：被所有实例化后的对象所共享，挂载在类下
 引用方法
 1、Robot.popluation
@@ -239,15 +221,11 @@ Robot.how_many()
 
 ### staticmethod（ 静态方法） 
 
-```
 只能存在于类下，不能被对象所继承的方法
-```
-
-
 
 ### 继承
 
-```
+```python
 子类继承父类，类似js的继承，寻找方法时，会从原型链线上查找
 class SchoolMember:
     def __init__(self, name, age):
@@ -287,7 +265,7 @@ class Student(SchoolMember):
 
 ### open
 
-```
+```python
 阅读模式（'r' ） ，写入模式（'w' ） 和追加模式（'a' ）
 文本模式（'t' ） 还是二进制模式（'b' ） 来读取
 help(open)
@@ -301,16 +279,12 @@ f.write(poem)
 
 读取每行内容
 line = f.readline()
-
-
-
 ```
-
 
 
 ## pickle模块
 
-```
+```python
 可以将数据写进文件，并且从文件中取出数据。
 要想将一个对象存储到一个文件中，我们首先需要通过 open 以写入（ write） 二进制
 （ binary） 模式打开文件，然后调用 pickle 模块的 dump 函数。这一过程被称作封装
@@ -323,7 +297,7 @@ line = f.readline()
 
 ## Unicode 模块
 
-```
+```python
 将 # encoding=utf-8 这一注释放置在我们程序的顶端。
 # encoding=utf-8
 import io

@@ -15,7 +15,7 @@ permalink: "2018-07-17-JavaScript-JavaScript设计模式"
 
 通过`Factory`可以实例化不同类型的实例
 
-```
+```js
 var Factory = function (type, content) {
     if (!(this instanceof Factory)) {
         throw '请使用new关键词来创建';
@@ -69,7 +69,7 @@ var ui = new Factory('UI', 'UI学习');
 
 在一些大型项目中，会有一些子类去集成父类，这些父类经常会定义一些必要的方法，却没有具体实现，一旦子类创建了这样一个对象，却没有重写这些方法，实例化对象便会调用父类中的这些方法，给一个友好的提示。
 
-```
+```js
 var VehicleFactory = function (subType, superType) {
     if (typeof VehicleFactory[superType] === 'function') {
         function F() {}
@@ -113,7 +113,7 @@ console.log(b.getPrice());
 
 ### 建造者模式
 
-```
+```js
 /* eslint-disable */
 var Human = function (params) {
     this.skill = params && params.skill || '保密';
@@ -183,7 +183,7 @@ console.log(person);
 
 把所有属性放在挂载到一个构造函数的`prototype`上实现继承
 
-```
+```js
 /**
  * 把传入的对象放到原型链 prototype上
  * 通过new F();返回一个继承了prototype的对象
@@ -238,7 +238,7 @@ penguin.run(10)
 > 服务器端数据适配
 > 这样如果服务器返回的数据有变化只需要修改适配器
 
-```
+```js
 
 function ajaxData(data) {
     return [
@@ -268,7 +268,7 @@ console.log(data_change);
 >
 > 目的，避免对原有代码的修改。达到增加功能的目的
 
-```
+```js
 var decorator = function (input, fn) {
     var input = document.getElementById(input);
     if (typeof input.onclick === 'function') {
@@ -296,7 +296,7 @@ var decorator = function (input, fn) {
 >
 > 实现事件与业务逻辑之间的解耦
 
-```
+```js
 function changeColor(dom, color, bg) {
     dom.style.color = color;
     dom.style.background = bg;
@@ -317,7 +317,7 @@ spans[0].onmouseout = function () {
 >
 > 方便我们统一管理和使用
 
-```
+```js
 function inheritObject(o) {
     function F() {}
     F.prototype = o;
@@ -366,7 +366,7 @@ inheritPrototype(Container, News);
 
 > 发布——订阅模式或消息机制，定义了一种依赖关系，解决了主体对象和观察者之间的耦合
 
-```
+```js
 var Observe = (function() {
   var _message = {};
   return {
@@ -418,7 +418,7 @@ Observe.fire("test", { msg: "hello world" });
 >
 > 这样的代码，不易于拓展，也不易于维护
 
-```
+```js
 //这样的代码不是我们想要的
 
 var lastAction1 = ''
@@ -439,7 +439,7 @@ function changeMarry(action1, action2) {
 
 
 
-```
+```js
 //这样的代码才是我们想要的
 
 var changeMarry = function () {
@@ -490,7 +490,7 @@ marry.change('jump', 'shoot').goes().goes()
 
 > 一个简化版的状态模式
 
-```
+```js
 var priceStrategy = function () {
     var strategy = {
         return30: function (price) {
@@ -527,7 +527,7 @@ console.log(price);
 
 > 把一个大的功能拆分成几个小的模块进行发开
 
-```
+```js
 var dealData = function (data, dealType, dom) {
     var dataType = Object.prototype.toString.call(data);
     switch (dealType) {
@@ -587,7 +587,7 @@ dealData(['爱奇艺','阿里巴巴','bilibili'],'sug',input[1])
 >
 > 减少请求数目，优化用户体验
 
-```
+```js
 var Page = function () {
     var cache ={}
     return function (page,fn) {
@@ -605,7 +605,7 @@ var Page = function () {
 
 ### 迭代器模式
 
-```
+```js
 var Getter = function (object, key) {
     if (!object) return undefined;
     key = key.split('.')
@@ -639,7 +639,7 @@ var result = Getter(obj, 'a.b.c') || [];
 
 >防止本地存储时，出现覆盖，并且可以设置过期时间
 
-```
+```js
 var baseLocalStorage = function (preId, timeSign) {
     this.preId = preId;
     this.timeSign = timeSign || '-';
@@ -681,7 +681,7 @@ baseLocalStorage.prototype = {
 
 > 解决了页面中，因为交互造成事件重复触发的问题
 
-```
+```js
 function throttle() {
     var isClear = arguments[0],
         fn;
@@ -726,7 +726,7 @@ window.addEventListener('scroll', function (e) {
 >
 > mvc框架的 前端模板用的就是这种模式
 
-```
+```js
 function formateString(str, data) {
     return str.replace(/\{#(\w+)#\}/g, function (match, key) {
         return typeof data[key] === undefined ? "" : data[key];
@@ -757,7 +757,7 @@ document.querySelector('#container').innerHTML = html
 >
 > 提高代码的执行效率
 
-```
+```js
 function bindEvent() {}
 bindEvent.on = function (dom, type, fn) {
     if (document.addEventListener) {
@@ -781,7 +781,7 @@ console.log(bindEvent.on);
 
 > 运用参与者模式，使事件绑定功能更加完善
 
-```
+```js
 var btn = document.querySelector('#bind');
 var p = document.querySelector('#bindP');
 var bindFn = demoFn.bind(p,{name:11111111111})
@@ -802,7 +802,7 @@ btn.addEventListener('click', bindFn)
 4. 如果其余方法状态都为true，则执行成功回调
 5. 如果遍历到有方法为false，则立即执行失败回调
 
-```
+```js
 var Waiter = function () {
     // 注册了的等待对象容器
     var dfd = [],
@@ -919,7 +919,7 @@ waiter.when(first(), second()).done((dataList) => {
 >
 > 通过module方法，解析所需要的模块，传入回调函数中
 
-```
+```js
 var F = F || {}
 
 // 定义模块的方法
@@ -1017,7 +1017,7 @@ F.module(['str','ing'], function (str,ing) {
 
 main.js
 
-```
+```js
 (function (window) {
     window.F = {}
     F.module = function (url, modDeps, modCallback) {
@@ -1128,7 +1128,7 @@ F.module(['36/lib/dom'], function (dom) {
 
 dom.js， 注册依赖模块
 
-```
+```js
 F.module('36/lib/dom', function () {
     return {
         g: function (id) {
@@ -1158,7 +1158,7 @@ F.module('36/lib/dom', function () {
 - 视图层：专注于将数据渲染成html
 - 控制器层：专注于页面的交互逻辑
 
-```
+```js
 window.addEventListener('load', function () {
     var MVC = MVC || {}
     // 数据模型层
@@ -1285,7 +1285,7 @@ window.addEventListener('load', function () {
 >
 > 后期维护也只需要维护p层
 
-```
+```js
 /* eslint-disable */
 window.addEventListener("load", function() {
   (function(window) {

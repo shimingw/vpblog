@@ -21,7 +21,7 @@ permalink: "2018-04-15-JavaScript-redux"
 >
 > 定义了contextTypes验证的子孙组件可以通过this.context.xxx，从context对象中读取xxx字段的值。
 
-```
+```jsx
 export default class Provider extends Component {
   getChildContext() {
     return { store: this.store }
@@ -77,7 +77,7 @@ Provider.childContextTypes = {
 
 例子：
 
-```
+```jsx
 action 内必须使用一个字符串类型的 type 字段来表示将要执行的动作。
 
 const ADD_TODO = 'ADD_TODO'
@@ -98,7 +98,7 @@ dispatch(action)
 >
 > 根据传入的action，执行预设好reducer，修改store值，类似vuex的mutation
 
-```
+```jsx
 定义了一个todoApp的reducer
 
 function todoApp(state = initialState, action) {
@@ -149,7 +149,7 @@ const todoApp = combineReducers({
 
 
 
-```
+```jsx
 action和reducer创建好后
 使用createStore方法生成store通过provider组件传给整个应用
 
@@ -162,7 +162,7 @@ let store = createStore(todoApp)
 
 > 在组件中注册获取store中的值得方法
 
-```
+```jsx
 const mapStateToProps = store => {
   return {
     articleList: store.articleList
@@ -174,7 +174,7 @@ const mapStateToProps = store => {
 
 > 在组件中注册触发reducer的方法
 
-```
+```jsx
 const mapDispatchToProps = dispatch => {
   return {
     addArticleList: list => {
@@ -190,7 +190,7 @@ const mapDispatchToProps = dispatch => {
 >
 > 使组件可以访问和修改store中的值
 
-```
+```jsx
 export default connect(
   mapStateToProps,
   mapDispatchToProps

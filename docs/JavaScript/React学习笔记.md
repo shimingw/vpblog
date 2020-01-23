@@ -20,14 +20,14 @@ permalink: "2019-06-06-JavaScript-React学习笔记"
 两种使用方式
 > 函数式组件无法使用`ref`属性，只有实例化组件和**html**组件可以使用`ref`
 1. 类似**vue**的用法
-```
+```jsx
 为组件定义ref名称
 <Card ref="card" /> 
 调用组件实例
 this.refs.card
 ```
 2. 在组件实例化时定义
-```
+```jsx
 constructor(props) {
     super(props);
     this.card = React.createRef();
@@ -104,7 +104,7 @@ componentDidMount, componentDidUpdate, and componentWillUnmount
 
 #### 组件更新时触发
 正常情况下，初始化会触发一次`useEffect`，只要组件更新就会触发`useEffect`
-```
+```jsx
   React.useEffect(() => {
     // Update the document title using the browser API
     document.title = `You clicked ${count} times`;
@@ -113,7 +113,7 @@ componentDidMount, componentDidUpdate, and componentWillUnmount
 
 #### 特定值发生变化时触发
 当不需要每次组件状态更新都触发时，在尾部传入数组可以设置需要监听的值
-```
+```jsx
 useEffect(() => {
   document.title = `You clicked ${count} times`;
 }, [ count ]);
@@ -121,7 +121,7 @@ useEffect(() => {
 
 #### 仅初始化时触发
 如果数组中什么值都不传入，那就只会在初始化时触发一次
-```
+```jsx
 useEffect(() => {
   document.title = `You clicked ${count} times`;
 }, [ ]);
@@ -129,7 +129,7 @@ useEffect(() => {
 
 #### 仅在组件销毁时触发
 数组中不传入任何值，并且在钩子中return一个函数
-```
+```jsx
 useEffect(() => {
   return () => {
     console.log('delete');
@@ -141,7 +141,7 @@ useEffect(() => {
 > 自定义挂钩是一种自然遵循Hooks设计的约定，而不是React功能
 
 将hook封装在一个函数中，使其具有复用性
-```
+```jsx
 import React, { useState, useEffect } from 'react';
 
 function useFriendStatus(friendID) {
@@ -168,7 +168,7 @@ function useFriendStatus(friendID) {
 
 ## prop-types
 用来设置组件的接受的props，以及一些限制
-```
+```jsx
 component.propTypes = {
   onClick: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
@@ -179,7 +179,7 @@ component.propTypes = {
 ## redux
 ### action
 > 定义了动作的类型，以及每个动作所需要的参数
-```
+```jsx
 export function addTodo(text) {
   return { type: ADD_TODO, text }
 }
@@ -188,7 +188,7 @@ export function addTodo(text) {
 ### reducers
 > 使用switch...case匹配action类型的动作，修改相对应的state
 
-```
+```jsx
 function visibilityFilter(state = initialState.visibilityFilter, action) {
   switch (action.type) {
     case SET_VISIBILITY_FILTER:
@@ -199,7 +199,7 @@ function visibilityFilter(state = initialState.visibilityFilter, action) {
 }
 ```
 使用`combineReducers`封装多个`reducer`
-```
+```jsx
 const todoApp = combineReducers({
   visibilityFilter,
   todos,

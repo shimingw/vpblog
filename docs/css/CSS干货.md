@@ -11,7 +11,7 @@ permalink: "2019-10-28-css-CSS干货"
 
 ## 自适应布局实现文字超长显示
 
-```
+```css
 width: 100px;
 text-overflow: ellipsis;
 overflow: hidden;
@@ -23,7 +23,7 @@ display:block;
 
 但是，如果一下代码能否实现？
 
-```
+```html
 <div class="flex">
     <div class="left">
    		<p>我在左边，自适应布局我在左边，自适应布局我在左边，自适应布局我在左边，自适应布局</p>
@@ -31,6 +31,8 @@ display:block;
     <div class="right">我在右边，定宽</div>
 </div>
 
+```
+```css
 .flex {
     display: flex;
 }
@@ -52,8 +54,6 @@ display:block;
     min-width: 200px;
 	white-space: nowrap;
 }
-
-
 ```
 
 答案是不可以的，需要在left的div上设置最小宽度才可以实现，因为元素的默认宽度为`width：auto`
@@ -74,8 +74,8 @@ flex是一个[简写属性](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Sho
 
 用来定义元素大小比例，例如
 
-```
-//box1的宽度，为box的2倍
+```css
+/* box1的宽度，为box的2倍 */
 .box {
     flex-grow: 1;
     border: 3px solid rgba(0, 0, 0, .2);

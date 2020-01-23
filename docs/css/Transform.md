@@ -15,11 +15,11 @@ permalink: "2018-02-06-css-transform"
 
 #### rotateZ
 
-```
+```css
 transform: rotateX(50deg) rotateY(50deg) rotateZ(50deg) ;
 ```
 
-```
+```css
 transform:rotate(30deg);
 ```
 
@@ -31,7 +31,7 @@ transform:rotate(30deg);
 
 #### skewY
 
-```
+```css
 向 Y轴 和 X轴 压缩
 transform:skew(20deg);
 ```
@@ -40,7 +40,7 @@ transform:skew(20deg);
 
 ## scale	放大属性
 
-```
+```css
 放大的倍数
 transform:scale(2);
 ```
@@ -49,7 +49,7 @@ transform:scale(2);
 
 ## translate	变动，位移
 
-```
+```css
 x y 轴移动
 transform:translate(120px,100px)
 ```
@@ -60,9 +60,9 @@ transform:translate(120px,100px)
 
 # perspective
 
-```
-父元素的中心点与子元素z轴上的距离
-营造一种父元素当前视角的感觉	
+```css
+/* 父元素的中心点与子元素z轴上的距离
+营造一种父元素当前视角的感觉	 */
 perspective:150;
 ```
 
