@@ -1,5 +1,4 @@
 const sidebar = require('./sidebar-auto.js')
-console.log(sidebar)
 
 module.exports = {
   // 会自动在每个页面的导航栏生成生成一个 GitHub 链接，以及在页面的底部生成一个 "Edit this page" 链接
