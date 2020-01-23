@@ -17,18 +17,13 @@ module.exports = {
   // },
   sidebar,
   sidebarDepth: 3,
-  // TODO: 增加头部导航栏
+  // TODO: 增加一个归档页面，同时增加检索功能
   nav: [
     { text: '首页', link: '/' },
     { text: '最新', link: '/guide/' },
     {
-      text: 'External',
-      items: [
-        {
-          text: 'baidu',
-          link: 'www.baidu.com'
-        }
-      ]
+      text: '归档',
+      link: '/archives/'
     }
   ]
 }
