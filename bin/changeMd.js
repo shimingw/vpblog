@@ -2,7 +2,7 @@
  * @Description:md文件的yaml-front-matter属性转换
  * @Author: shimingwen
  * @Date: 2020-01-17 19:13:44
- * @LastEditTime : 2020-01-27 18:48:18
+ * @LastEditTime : 2020-01-27 21:29:58
  * @LastEditors  : shimingwen
  * * 实现思路
  * 1、使用readdirSync递归遍历docs目录
@@ -27,11 +27,20 @@ permalink: "${params.permalink}"
 ${params.__content}`
 
 const mdPathDrop = fp.dropWhile(val => val !== 'docs')
+const delNum = fp.map(val=>{
+  const[num,title] = val.split('.')
+  if(title){
+    return title
+  }else{
+    return num
+  }
+})
 const mdPathFormat = fp.flow(
   splitMdPath,
   mdPathDrop,
   fp.drop(1),
   fp.dropLast(1),
+  delNum,
   fp.join('-')
 )
 
