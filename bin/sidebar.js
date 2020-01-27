@@ -2,7 +2,7 @@
  * @Description: 根据docs中目录结构自动生成侧边栏
  * @Author: shimingwen
  * @Date: 2020-01-17 09:46:11
- * @LastEditTime : 2020-01-20 17:22:37
+ * @LastEditTime : 2020-01-27 19:24:20
  * @LastEditors  : shimingwen
  */
 const fs = require('fs')
@@ -116,33 +116,33 @@ function mapTocToSidebar(root, prefix) {
     const file = path.resolve(root, filename)
     const stat = fs.statSync(file)
 
-    const [title, type] = filename.split('.')
-    // order = parseInt(order, 10)
-    // if (isNaN(order) || order < 0) {
-    //   return
-    // }
+    let [order, title, type] = filename.split('.')
+    order = parseInt(order, 10)
+    if (isNaN(order) || order < 0) {
+      return
+    }
 
-    // if (sidebar[order]) {
-    //   logger.warn(
-    //     `For ${file}, its order has appeared in the same level directory. And it will be rewritten.`
-    //   )
-    // }
+    if (sidebar[order]) {
+      logger.warn(
+        `For ${file}, its order has appeared in the same level directory. And it will be rewritten.`
+      )
+    }
 
-    if (stat.isFile()) {
+    if (stat.isDirectory()) {
+      sidebar[order] = {
+        title,
+        collapsable: false,
+        children: mapTocToSidebar(file, prefix + filename + '/')
+      }
+    } else {
       if (type !== 'md') {
         logger.error(`For ${file}, its type is not supported.`)
         return
       }
-      sidebar.push([prefix + filename, title])
-    } else {
-      // sidebar[order] = {
-      //   title,
-      //   collapsable: false,
-      //   children: mapTocToSidebar(file, prefix + filename + '/')
-      // }
+      sidebar[order] = [prefix + filename, title]
     }
   })
 
-  // sidebar = sidebar.filter(item => item !== null && item !== undefined)
+  sidebar = sidebar.filter(item => item !== null && item !== undefined)
   return sidebar
 }

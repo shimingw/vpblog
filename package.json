@@ -6,7 +6,7 @@
     "start": "npm run dev1",
     "dev": "nodemon --watch docs bin/sidebar.js & ./node_modules/.bin/vuepress dev .",
     "dev1": "vuepress dev .",
-    "build": "node bin/sidebar.js && vuepress build .",
+    "build": "node bin/sidebar.js && node bin/changeMd.js && vuepress build .",
     "release": "gh-pages -d ./.vuepress/dist",
     "deploy": "npm run build && npm run release"
   },
