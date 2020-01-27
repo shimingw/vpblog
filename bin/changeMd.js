@@ -2,7 +2,7 @@
  * @Description:md文件的yaml-front-matter属性转换
  * @Author: shimingwen
  * @Date: 2020-01-17 19:13:44
- * @LastEditTime : 2020-01-19 20:14:36
+ * @LastEditTime : 2020-01-27 18:48:18
  * @LastEditors  : shimingwen
  * * 实现思路
  * 1、使用readdirSync递归遍历docs目录
@@ -37,7 +37,7 @@ const mdPathFormat = fp.flow(
 
 function main(docsRoot) {
   const mdPaths = getMdPaths(docsRoot)
-  mdPaths.forEach(mdPath => changeYamlFrontMatter(mdPaths))
+  mdPaths.forEach(mdPath => changeYamlFrontMatter(mdPath))
 }
 
 function changeYamlFrontMatter(mdPath) {
@@ -45,7 +45,7 @@ function changeYamlFrontMatter(mdPath) {
     const fileContents = fs.readFileSync(mdPath)
     const yamlData = yamlFront.loadFront(fileContents)
     const { title, date } = yamlData
-    const mdDocTitle = mdPathFormat(mdPathList)
+    const mdDocTitle = mdPathFormat(mdPath)
     yamlData.date = moment(date).format('YYYY-MM-DD')
     yamlData.permalink = `${yamlData.date}-${mdDocTitle}-${title}`
     fs.writeFileSync(mdPath, template(yamlData))
