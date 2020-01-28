@@ -21,19 +21,11 @@ program.parse(process.argv)
 
 let files = []
 
-console.log(program.target);
-console.log(program.lint);
-console.log(program.check);
-program.target = 'docs'
-program.lint = true
 if (program.target) {
   files = 
     readDir(program.target)
     .filter(file => file.path.endsWith('.md'))
-  
 
-    console.log(files);
-    
   if (!files.length) {
     print(chalk.grey('INFO: no markdown found'))
     process.exit(0)
