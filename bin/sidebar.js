@@ -2,7 +2,7 @@
  * @Description: 根据docs中目录结构自动生成侧边栏
  * @Author: shimingwen
  * @Date: 2020-01-17 09:46:11
- * @LastEditTime : 2020-01-27 19:24:20
+ * @LastEditTime : 2020-01-27 22:57:44
  * @LastEditors  : shimingwen
  */
 const fs = require('fs')
@@ -10,7 +10,7 @@ const path = require('path')
 const ejs = require('ejs')
 const logger = require('tracer').colorConsole()
 const fp = require('lodash/fp')
-const { getMdPaths } = require('./util')
+const { getMdPaths, readTocs } = require('./util')
 
 const docsRoot = path.join(__dirname, '..', 'docs')
 const notesRoot = path.join(__dirname, '..', 'notes')
@@ -84,22 +84,6 @@ function main() {
   })
 
   fs.writeFileSync(sidebarPath, ejs.render(template, { variables }))
-}
-
-/**
- * 读取指定目录的文件夹作为不同的目录
- * @param {String} root
- */
-function readTocs(root) {
-  const result = []
-  const files = fs.readdirSync(root)
-  files.forEach(name => {
-    const file = path.resolve(root, name)
-    if (fs.statSync(file).isDirectory()) {
-      result.push(file)
-    }
-  })
-  return result
 }
 
 /**

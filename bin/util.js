@@ -22,7 +22,24 @@ const getMdPaths = docsRoot => {
 
 const splitMdPath = fp.split(path.sep)
 
+/**
+ * 读取指定目录的文件夹作为不同的目录
+ * @param {String} root
+ */
+const readTocs = root => {
+  const result = []
+  const files = fs.readdirSync(root)
+  files.forEach(name => {
+    const file = path.resolve(root, name)
+    if (fs.statSync(file).isDirectory()) {
+      result.push(file)
+    }
+  })
+  return result
+}
+
 module.exports = {
   getMdPaths,
-  splitMdPath
+  splitMdPath,
+  readTocs
 }
