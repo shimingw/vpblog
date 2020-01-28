@@ -6,7 +6,7 @@ footer: MIT Licensed | Copyright © 2020 嘻哈工程师
 ---
 
 <!-- TODO: 做一个可视化的分类展示 -->
-  <div>
+  <div class="home">
     <ul v-for="post in posts">
       <h2>{{ post.title }}</h2>
       <li v-for="postChild in post.child">
@@ -42,3 +42,9 @@ export default {
   methods: {}
 }
 </script>
+
+<style>
+.home a:hover{
+  text-decoration: underline;
+}
+</style>
