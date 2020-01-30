@@ -63,7 +63,7 @@ export default {
             ...post,
             updateTimestamp: (new Date(post.frontmatter.date)).getTime(),
             filename: execs ? execs['1'] : '',
-            formatDay: this.formatDate(new Date(post.lastUpdated || post.frontmatter.date))
+            formatDay: this.formatDate(new Date(post.frontmatter.date))
           }
         })
         .sort((a, b) => b.updateTimestamp - a.updateTimestamp)
