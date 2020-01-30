@@ -2,7 +2,7 @@
 
   const css = [["01.CSS干货.md","CSS干货"],["02.CSS世界.md","CSS世界"],["03.less学习笔记.md","less学习笔记"],["04.Transform.md","Transform"],["05.动画库.md","动画库"]]
 
-  const git = [["01.git干货.md","git干货"],["02.git-commit规范.md","git-commit规范"]]
+  const git = [["01.git干货.md","git干货"],["02.git-commit规范.md","git-commit规范"],["03.git如何配置ssh代理.md","git如何配置ssh代理"]]
 
   const JavaScript = [{"title":"ES6","collapsable":false,"children":[["01.ES6/01.ES6.md","ES6"]]},{"title":"React","collapsable":false,"children":[["02.React/01.React学习笔记.md","React学习笔记"],["02.React/02.Redux.md","Redux"]]},{"title":"Vue","collapsable":false,"children":[["03.Vue/01.vue笔记.md","vue笔记"],["03.Vue/02.vue-cli3.md","vue-cli3"],["03.Vue/03.VueTable学习笔记.md","VueTable学习笔记"]]},{"title":"其他","collapsable":false,"children":[["04.其他/01.深入浅出lodash.md","深入浅出lodash"],["04.其他/02.代码规范.md","代码规范"],["04.其他/03.函数式编程.md","函数式编程"],["04.其他/04.深入了解NodeList与HTMLCollection.md","深入了解NodeList与HTMLCollection"]]},{"title":"书籍学习笔记","collapsable":false,"children":[["05.书籍学习笔记/01.JavaScript设计模式—笔记.md","JavaScript设计模式—笔记"],["05.书籍学习笔记/02.JavaScript语言精粹—笔记.md","JavaScript语言精粹—笔记"]]}]
 
