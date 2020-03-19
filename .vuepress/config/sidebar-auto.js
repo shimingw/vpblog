@@ -26,7 +26,7 @@
 
   const 服务器搭建 = [["01.SSL的申请与部署.md","SSL的申请与部署"]]
 
-  const 源码学习笔记 = [["01.源码习笔记1.md","源码习笔记1"]]
+  const 源码学习笔记 = [{"title":"汇总","collapsable":false,"children":[["01.汇总/01.源码习笔记1.md","源码习笔记1"]]},{"title":"vue","collapsable":false,"children":[["02.vue/01.v-model原理.md","v-model原理"],["02.vue/02.用vue实现表单组件.md","用vue实现表单组件"]]}]
 
 
 module.exports = {
@@ -57,6 +57,6 @@ module.exports = {
   
     "/docs/服务器搭建/": 服务器搭建,
   
-    "/docs/源码,
+    "/docs/源码学习笔记/": 源码学习笔记,
   
 }
