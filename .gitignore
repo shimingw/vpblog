@@ -10,3 +10,5 @@ dist
 
 # test
 test
+
+package-lock.json
