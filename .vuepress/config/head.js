@@ -8,7 +8,7 @@ module.exports = [
   //     async: ""
   //   }
   // ],
-  ['link', { rel: 'icon', href: '/logo.jpg' }],
+  ['link', { rel: 'icon', href: '/icons/favicon.ico' }],
   ['meta', { name: 'referrer', content: 'no-referrer' }],
   ['link', { rel: 'manifest', href: '/manifest.json' }],
 ]
