@@ -18,7 +18,7 @@
 
   const 源码学习笔记 = [{"title":"汇总","collapsable":false,"children":[["01.汇总/01.源码习笔记1.md","源码习笔记1"]]},{"title":"vue","collapsable":false,"children":[["02.vue/01.v-model原理.md","v-model原理"],["02.vue/02.用vue实现表单组件.md","用vue实现表单组件"],["02.vue/03.实现弹窗组件.md","实现弹窗组件"],["02.vue/04.实现递归组件Tree.md","实现递归组件Tree"],["02.vue/05.实现vue-route.md","实现vue-route"],["02.vue/06.实现vuex.md","实现vuex"],["02.vue/07.实现vue.md","实现vue"]]}]
 
-  const 缓存 = [["01.service-worker.md","service-worker"]]
+  const 缓存 = [["01.service-worker.md","service-worker"],["02.pwa实践.md","pwa实践"]]
 
 
 module.exports = {
