@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "vuepress dev . && npm run watch",
-    "watch":"nodemon --watch docs bin/sidebar.js",
+    "watch": "nodemon --watch docs bin/sidebar.js",
     "check": "node bin/prettier.js -t docs -c",
     "lint": "node bin/prettier.js -t docs -l",
     "build": "node bin/sidebar.js && node bin/changeMd.js && node bin/category.js && vuepress build .",
@@ -15,9 +15,6 @@
   "author": "shimingw",
   "license": "MIT",
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.2.0",
-    "@vuepress/plugin-google-analytics": "^1.2.0",
-    "@vuepress/plugin-pwa": "^1.2.0",
     "commander": "^4.1.0",
     "ejs": "^3.0.1",
     "gh-pages": "^2.2.0",
@@ -33,6 +30,9 @@
     "yaml-front-matter": "^4.1.0"
   },
   "dependencies": {
-    "vuepress-plugin-comment": "^0.7.2"
+    "vuepress-plugin-comment": "^0.7.2",
+    "@vuepress/plugin-pwa": "^1.2.0",
+    "@vuepress/plugin-back-to-top": "^1.2.0",
+    "@vuepress/plugin-google-analytics": "^1.4.0"
   }
 }

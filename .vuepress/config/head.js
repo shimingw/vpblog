@@ -4,7 +4,8 @@ module.exports = [
     'script',
     {
       type: 'text/javascript',
-      src: 'https://hm.baidu.com/hm.js?40097b2aeb9b4c2735a2443c9430bb8d'
+      src: '/baidu-analytics.js',
+      async: 'async'
     }
   ],
   ['link', { rel: 'icon', href: '/icons/favicon.ico' }],
