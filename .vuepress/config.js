@@ -2,8 +2,8 @@
  * @Description: vuepress的配置文件 api参考：https://www.vuepress.cn/config/
  * @Author: shimingwen
  * @Date: 2020-01-16 17:38:01
- * @LastEditTime : 2020-01-23 15:24:08
- * @LastEditors  : shimingwen
+ * @LastEditTime: 2020-04-01 17:14:21
+ * @LastEditors: shimingwen
  */
 const { headConf, localesConf, themeConf } = require('./config/')
 const { baseUrl } = require('./config/config-data')
@@ -31,7 +31,7 @@ module.exports = {
       }
     ],
     // https://analytics.google.com/analytics/web/provision/#/provision
-    // ["@vuepress/google-analytics", { ga: "UA-124601890-1" }],
+    ['@vuepress/google-analytics', { ga: 'UA-162461200-1' }],
     [
       'vuepress-plugin-comment',
       {

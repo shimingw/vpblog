@@ -1,13 +1,12 @@
 module.exports = [
-  // TODO: 插入百度分析脚本
-  // [
-  //   "script",
-  //   {
-  //     type: "text/javascript",
-  //     src: "/scripts/baidu-analytics.js",
-  //     async: ""
-  //   }
-  // ],
+  // 插入百度分析脚本
+  [
+    'script',
+    {
+      type: 'text/javascript',
+      src: 'https://hm.baidu.com/hm.js?40097b2aeb9b4c2735a2443c9430bb8d'
+    }
+  ],
   ['link', { rel: 'icon', href: '/icons/favicon.ico' }],
   ['meta', { name: 'referrer', content: 'no-referrer' }],
   ['link', { rel: 'manifest', href: '/manifest.json' }],
