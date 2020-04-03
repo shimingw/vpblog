@@ -2,8 +2,18 @@
  * @Description: vuepress的配置文件 api参考：https://www.vuepress.cn/config/
  * @Author: shimingwen
  * @Date: 2020-01-16 17:38:01
- * @LastEditTime: 2020-04-01 17:14:21
+ * @LastEditTime: 2020-04-01 18:00:19
  * @LastEditors: shimingwen
+ * <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162461200-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162461200-1');
+</script>
+
  */
 const { headConf, localesConf, themeConf } = require('./config/')
 const { baseUrl } = require('./config/config-data')
