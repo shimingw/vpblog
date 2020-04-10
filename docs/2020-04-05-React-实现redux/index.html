@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实现redux | 嘻哈工程师</title>
+    <meta name="description" content="嘻哈工程师的博客">
+    <meta name="generator" content="VuePress 1.4.0">
+    <script type="text/javascript" src="/baidu-analytics.js" async="async"></script>
+  <link rel="icon" href="/icons/favicon.ico">
+  <meta name="referrer" content="no-referrer">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/192.png">
+  <meta name="msapplication-TileImage" content="/icons/144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.cb726fc1.css" as="style"><link rel="preload" href="/assets/js/app.6f68b129.js" as="script"><link rel="preload" href="/assets/js/2.8423ab85.js" as="script"><link rel="preload" href="/assets/js/37.f7226c1a.js" as="script"><link rel="preload" href="/assets/js/5.d4f27e5e.js" as="script"><link rel="prefetch" href="/assets/js/10.9c969eb6.js"><link rel="prefetch" href="/assets/js/11.16adbd5c.js"><link rel="prefetch" href="/assets/js/12.938b338e.js"><link rel="prefetch" href="/assets/js/13.0e98e0bc.js"><link rel="prefetch" href="/assets/js/14.efae0289.js"><link rel="prefetch" href="/assets/js/15.70eb78b5.js"><link rel="prefetch" href="/assets/js/16.aed666fd.js"><link rel="prefetch" href="/assets/js/17.f138c180.js"><link rel="prefetch" href="/assets/js/18.cc901061.js"><link rel="prefetch" href="/assets/js/19.8da24dde.js"><link rel="prefetch" href="/assets/js/20.e47cb901.js"><link rel="prefetch" href="/assets/js/21.91ea2e64.js"><link rel="prefetch" href="/assets/js/22.b18f749d.js"><link rel="prefetch" href="/assets/js/23.a7b86688.js"><link rel="prefetch" href="/assets/js/24.807bc40c.js"><link rel="prefetch" href="/assets/js/25.1398ded3.js"><link rel="prefetch" href="/assets/js/26.f585d757.js"><link rel="prefetch" href="/assets/js/27.99908274.js"><link rel="prefetch" href="/assets/js/28.be286382.js"><link rel="prefetch" href="/assets/js/29.cda20e9f.js"><link rel="prefetch" href="/assets/js/3.84fef7c2.js"><link rel="prefetch" href="/assets/js/30.9ad432b0.js"><link rel="prefetch" href="/assets/js/31.5e93eac6.js"><link rel="prefetch" href="/assets/js/32.4248a674.js"><link rel="prefetch" href="/assets/js/33.493754cb.js"><link rel="prefetch" href="/assets/js/34.e91cd7f0.js"><link rel="prefetch" href="/assets/js/35.caf76798.js"><link rel="prefetch" href="/assets/js/36.f4268c78.js"><link rel="prefetch" href="/assets/js/38.88387523.js"><link rel="prefetch" href="/assets/js/39.712e9b76.js"><link rel="prefetch" href="/assets/js/4.e25523f8.js"><link rel="prefetch" href="/assets/js/40.c894fec7.js"><link rel="prefetch" href="/assets/js/41.4b5881b1.js"><link rel="prefetch" href="/assets/js/42.f869ff7c.js"><link rel="prefetch" href="/assets/js/43.4b6904b4.js"><link rel="prefetch" href="/assets/js/44.67b11155.js"><link rel="prefetch" href="/assets/js/45.8aed626c.js"><link rel="prefetch" href="/assets/js/46.e3e72d72.js"><link rel="prefetch" href="/assets/js/47.3b1495db.js"><link rel="prefetch" href="/assets/js/48.7dd5863b.js"><link rel="prefetch" href="/assets/js/49.34b2b8fb.js"><link rel="prefetch" href="/assets/js/50.f06ce6c9.js"><link rel="prefetch" href="/assets/js/51.af4dc46b.js"><link rel="prefetch" href="/assets/js/52.acbf024d.js"><link rel="prefetch" href="/assets/js/53.3c473d6b.js"><link rel="prefetch" href="/assets/js/54.ffe9ff71.js"><link rel="prefetch" href="/assets/js/55.ddd7eed8.js"><link rel="prefetch" href="/assets/js/56.1901a77d.js"><link rel="prefetch" href="/assets/js/57.5463c1a5.js"><link rel="prefetch" href="/assets/js/58.74f66383.js"><link rel="prefetch" href="/assets/js/59.61963284.js"><link rel="prefetch" href="/assets/js/6.e021ca0d.js"><link rel="prefetch" href="/assets/js/60.041a78ac.js"><link rel="prefetch" href="/assets/js/61.ac80192c.js"><link rel="prefetch" href="/assets/js/62.73f028c7.js"><link rel="prefetch" href="/assets/js/63.703593bc.js"><link rel="prefetch" href="/assets/js/64.0eb177ee.js"><link rel="prefetch" href="/assets/js/65.a2490517.js"><link rel="prefetch" href="/assets/js/66.c6ce897b.js"><link rel="prefetch" href="/assets/js/67.1903a05f.js"><link rel="prefetch" href="/assets/js/68.2ca1c9af.js"><link rel="prefetch" href="/assets/js/69.4d86e48f.js"><link rel="prefetch" href="/assets/js/7.ed32b398.js"><link rel="prefetch" href="/assets/js/70.c29b7129.js"><link rel="prefetch" href="/assets/js/71.42c4a9e8.js"><link rel="prefetch" href="/assets/js/72.c7538ba1.js"><link rel="prefetch" href="/assets/js/73.ccda9a60.js"><link rel="prefetch" href="/assets/js/74.7faf760b.js"><link rel="prefetch" href="/assets/js/75.883badf8.js"><link rel="prefetch" href="/assets/js/76.abc0a130.js"><link rel="prefetch" href="/assets/js/77.3a973af5.js"><link rel="prefetch" href="/assets/js/78.f629306a.js"><link rel="prefetch" href="/assets/js/8.ccbaf34c.js"><link rel="prefetch" href="/assets/js/9.c6296729.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.cb726fc1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">嘻哈工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link">
+  最新
+</a></div><div class="nav-item"><a href="/archives/" class="nav-link">
+  归档
+</a></div> <a href="https://github.com/shimingw/vpblog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link">
+  最新
+</a></div><div class="nav-item"><a href="/archives/" class="nav-link">
+  归档
+</a></div> <a href="https://github.com/shimingw/vpblog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/docs/2020-04-04-React-常用API/" class="sidebar-link">常用API</a></li><li><a href="/docs/2020-04-05-React-实现redux/" class="active sidebar-link">实现redux</a></li><li><a href="/docs/2020-04-05-React-实现react-redux/" class="sidebar-link">实现react-redux</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p><strong>SRedux.js</strong></p> <p>实现<code>redux</code>主要需要对外暴露三个方法</p> <ul><li><code>getState</code>：获取store中的数据</li> <li><code>subscribe</code>：订阅数据变化后的回调</li> <li><code>dispatch</code>：触发组件状态更新方法</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">createStore</span><span class="token punctuation">(</span><span class="token parameter">reducer<span class="token punctuation">,</span> enhancer</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// store中数据保存在currentState中</span>
+  <span class="token keyword">let</span> currentState <span class="token operator">=</span> <span class="token function">reducer</span><span class="token punctuation">(</span><span class="token keyword">undefined</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token keyword">undefined</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword">let</span> currentListeners <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+  <span class="token keyword">function</span> <span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> currentState
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 每当有组件使用store数据时，都会调用该方法</span>
+  <span class="token keyword">function</span> <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token parameter">listener</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    currentListeners<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+    <span class="token comment">// 触发更新方法</span>
+  <span class="token keyword">function</span> <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token parameter">action</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    currentState <span class="token operator">=</span> <span class="token function">reducer</span><span class="token punctuation">(</span>currentState<span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+    currentListeners<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">v</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> action
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> getState<span class="token punctuation">,</span> subscribe<span class="token punctuation">,</span> dispatch <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>实现中间件方法</p> <ul><li>拦截<code>createStore</code>方法，对其中的<code>dispatch</code>方法进行二次改造</li> <li>使用中间件对<code>dispatch</code>方法进行改造</li> <li>中间件接收一个<code>dispatch</code>方法并返回一个<code>dispatch</code>方法</li> <li>然后以这样的形式一次传递<code>mid2(mid1(dispathc))</code></li> <li>最终完成对<code>dispatch</code>封装</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">applyMiddleware</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>middlewares</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// args是reducer</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token parameter">createStore</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span>
+    <span class="token keyword">let</span> dispatch <span class="token operator">=</span> store<span class="token punctuation">.</span>dispatch
+    <span class="token keyword">const</span> midApi <span class="token operator">=</span> <span class="token punctuation">{</span>
+      getState<span class="token operator">:</span> store<span class="token punctuation">.</span>getState<span class="token punctuation">,</span>
+      <span class="token function-variable function">dispatch</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">action</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">dispatch</span><span class="token punctuation">(</span>action<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 使中间件可以获取状态值、派发action</span>
+    <span class="token comment">// export interface Middleware {</span>
+    <span class="token comment">//   &lt;S&gt;(api: MiddlewareAPI&lt;S&gt;): (next: Dispatch&lt;S&gt;) =&gt; Dispatch&lt;S&gt;;</span>
+    <span class="token comment">// }</span>
+    <span class="token comment">// middlewareChain是一个函数数组</span>
+    <span class="token comment">// 每个函数接收一个dispatch方法并返回一个dispatch方法</span>
+    <span class="token comment">// 在此过程中会对dispatch方法进行二次封装</span>
+    <span class="token keyword">const</span> middlewareChain <span class="token operator">=</span> middlewares<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">middleware</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">middleware</span><span class="token punctuation">(</span>midApi<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment">// compose可以middlewareChain函数数组合并成一个函数</span>
+    <span class="token comment">// 使中间件以这样的方式执行 mid2(mid1(dispathc))</span>
+    <span class="token comment">// 最终返回一个被封装过的dispatch函数</span>
+    dispatch <span class="token operator">=</span> <span class="token function">compose</span><span class="token punctuation">(</span><span class="token operator">...</span>middlewareChain<span class="token punctuation">)</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>dispatch<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token operator">...</span>store<span class="token punctuation">,</span>
+      dispatch<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/shimingw/vpblog/edit/master/docs/React/02.实现redux.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">更新于:</span> <span class="time">2020-4-9 7:47:20 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/docs/2020-04-04-React-常用API/" class="prev">
+        常用API
+      </a></span> <span class="next"><a href="/docs/2020-04-05-React-实现react-redux/">
+        实现react-redux
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div class="pace  pace-inactive" style="display:none;" data-v-57a75e74><div data-progress-text="100%" data-progress="99" class="pace-progress" style="transform:translate3d(0%, 0px, 0px);" data-v-57a75e74><div class="pace-progress-inner" data-v-57a75e74></div></div></div><div class="my-popup" style="display:none;" data-v-3414bdeb><div class="my-popup-container" data-v-3414bdeb><div class="my-popup-exit" data-v-3414bdeb></div> <img src="" alt data-v-3414bdeb></div></div><!----><!----><div></div></div></div>
+    <script src="/assets/js/app.6f68b129.js" defer></script><script src="/assets/js/2.8423ab85.js" defer></script><script src="/assets/js/37.f7226c1a.js" defer></script><script src="/assets/js/5.d4f27e5e.js" defer></script>
+  </body>
+</html>
