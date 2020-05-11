@@ -8,7 +8,7 @@
 
   const React = [["01.常用API.md","常用API"],["02.实现redux.md","实现redux"],["03.实现react-redux.md","实现react-redux"],["04.实现ant-form-create.md","实现ant-form-create"],["05.实现递归组件Tree.md","实现递归组件Tree"],["06.实现react-router.md","实现react-router"]]
 
-  const Vue = [["01.v-model原理.md","v-model原理"],["02.用vue实现表单组件.md","用vue实现表单组件"],["03.实现弹窗组件.md","实现弹窗组件"],["04.实现递归组件Tree.md","实现递归组件Tree"],["05.实现vue-route.md","实现vue-route"],["06.实现vuex.md","实现vuex"],["07.实现vue.md","实现vue"]]
+  const Vue = [["01.v-model原理.md","v-model原理"],["02.用vue实现表单组件.md","用vue实现表单组件"],["03.实现弹窗组件.md","实现弹窗组件"],["04.实现递归组件Tree.md","实现递归组件Tree"],["05.实现vue-route.md","实现vue-route"],["06.实现vuex.md","实现vuex"],["07.实现vue.md","实现vue"],["08.vue源码解析.md","vue源码解析"]]
 
   const webpack = [["01.webpack.md","webpack"],["02.打包工具运行原理.md","打包工具运行原理"],["03.使用ESlint、lint-staged提升项目代码质量.md","使用ESlint、lint-staged提升项目代码质量"],["04.Babel学习笔记.md","Babel学习笔记"]]
 
