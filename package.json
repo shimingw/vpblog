@@ -8,7 +8,8 @@
     "watch": "nodemon --watch docs bin/sidebar.js",
     "check": "node bin/prettier.js -t docs -c",
     "lint": "node bin/prettier.js -t docs -l",
-    "build": "node bin/sidebar.js && node bin/changeMd.js && node bin/category.js && vuepress build .",
+    "formatMd":"node bin/changeMd.js",
+    "build": "node bin/sidebar.js && node bin/category.js && vuepress build .",
     "release": "gh-pages -d ./.vuepress/dist",
     "deploy": "npm run build && npm run release",
     "push":"git add .&&git commit -m 'update'&&git push"
