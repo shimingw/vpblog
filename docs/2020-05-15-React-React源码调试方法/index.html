@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>React源码调试方法 | 嘻哈工程师</title>
+    <meta name="description" content="嘻哈工程师的博客">
+    <meta name="generator" content="VuePress 1.4.0">
+    <script type="text/javascript" src="/baidu-analytics.js" async="async"></script>
+  <link rel="icon" href="/icons/favicon.ico">
+  <meta name="referrer" content="no-referrer">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/192.png">
+  <meta name="msapplication-TileImage" content="/icons/144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.cb726fc1.css" as="style"><link rel="preload" href="/assets/js/app.82d5831e.js" as="script"><link rel="preload" href="/assets/js/2.8423ab85.js" as="script"><link rel="preload" href="/assets/js/41.4d935934.js" as="script"><link rel="preload" href="/assets/js/5.d4f27e5e.js" as="script"><link rel="prefetch" href="/assets/js/10.584dfaad.js"><link rel="prefetch" href="/assets/js/11.21934ff8.js"><link rel="prefetch" href="/assets/js/12.622d7aaf.js"><link rel="prefetch" href="/assets/js/13.4b1c45af.js"><link rel="prefetch" href="/assets/js/14.bdb8c56d.js"><link rel="prefetch" href="/assets/js/15.909c20b4.js"><link rel="prefetch" href="/assets/js/16.4a775862.js"><link rel="prefetch" href="/assets/js/17.1ab27502.js"><link rel="prefetch" href="/assets/js/18.a53dfd48.js"><link rel="prefetch" href="/assets/js/19.17d17687.js"><link rel="prefetch" href="/assets/js/20.f942fb19.js"><link rel="prefetch" href="/assets/js/21.98ca7d4f.js"><link rel="prefetch" href="/assets/js/22.111cba00.js"><link rel="prefetch" href="/assets/js/23.77771bff.js"><link rel="prefetch" href="/assets/js/24.291a01c4.js"><link rel="prefetch" href="/assets/js/25.4d9e2913.js"><link rel="prefetch" href="/assets/js/26.8594e444.js"><link rel="prefetch" href="/assets/js/27.e3dd80d3.js"><link rel="prefetch" href="/assets/js/28.c7ff221a.js"><link rel="prefetch" href="/assets/js/29.7ccb2086.js"><link rel="prefetch" href="/assets/js/3.964dd521.js"><link rel="prefetch" href="/assets/js/30.95adae2a.js"><link rel="prefetch" href="/assets/js/31.a46ba375.js"><link rel="prefetch" href="/assets/js/32.f6bee87d.js"><link rel="prefetch" href="/assets/js/33.844214e5.js"><link rel="prefetch" href="/assets/js/34.17e3b6e3.js"><link rel="prefetch" href="/assets/js/35.146bfc1a.js"><link rel="prefetch" href="/assets/js/36.54d1b090.js"><link rel="prefetch" href="/assets/js/37.a97640bf.js"><link rel="prefetch" href="/assets/js/38.e24fef7e.js"><link rel="prefetch" href="/assets/js/39.20879433.js"><link rel="prefetch" href="/assets/js/4.a24a1734.js"><link rel="prefetch" href="/assets/js/40.7940f596.js"><link rel="prefetch" href="/assets/js/42.1d8ed827.js"><link rel="prefetch" href="/assets/js/43.c2d3435d.js"><link rel="prefetch" href="/assets/js/44.5bba9b0f.js"><link rel="prefetch" href="/assets/js/45.ab7ad8fd.js"><link rel="prefetch" href="/assets/js/46.2a751e0d.js"><link rel="prefetch" href="/assets/js/47.4d289900.js"><link rel="prefetch" href="/assets/js/48.fc7073fe.js"><link rel="prefetch" href="/assets/js/49.ee62096f.js"><link rel="prefetch" href="/assets/js/50.8081383a.js"><link rel="prefetch" href="/assets/js/51.50b4ac6d.js"><link rel="prefetch" href="/assets/js/52.2a1c3e04.js"><link rel="prefetch" href="/assets/js/53.2a054661.js"><link rel="prefetch" href="/assets/js/54.2bac38f3.js"><link rel="prefetch" href="/assets/js/55.191935a2.js"><link rel="prefetch" href="/assets/js/56.176a7439.js"><link rel="prefetch" href="/assets/js/57.1b789337.js"><link rel="prefetch" href="/assets/js/58.a8648607.js"><link rel="prefetch" href="/assets/js/59.4c25c46a.js"><link rel="prefetch" href="/assets/js/6.f2102c70.js"><link rel="prefetch" href="/assets/js/60.a83459ff.js"><link rel="prefetch" href="/assets/js/61.1fb92025.js"><link rel="prefetch" href="/assets/js/62.b6e1b70d.js"><link rel="prefetch" href="/assets/js/63.2420abcf.js"><link rel="prefetch" href="/assets/js/64.110271ce.js"><link rel="prefetch" href="/assets/js/65.51265dc4.js"><link rel="prefetch" href="/assets/js/66.94449ac4.js"><link rel="prefetch" href="/assets/js/67.c86b38fc.js"><link rel="prefetch" href="/assets/js/68.7563e776.js"><link rel="prefetch" href="/assets/js/69.28b5b0e2.js"><link rel="prefetch" href="/assets/js/7.ed32b398.js"><link rel="prefetch" href="/assets/js/70.25071617.js"><link rel="prefetch" href="/assets/js/71.48c29f8d.js"><link rel="prefetch" href="/assets/js/72.2fbc6430.js"><link rel="prefetch" href="/assets/js/73.f7f156cb.js"><link rel="prefetch" href="/assets/js/74.0b396520.js"><link rel="prefetch" href="/assets/js/75.3f782a2d.js"><link rel="prefetch" href="/assets/js/8.63fa3eff.js"><link rel="prefetch" href="/assets/js/9.07ec0533.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.cb726fc1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">嘻哈工程师</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link">
+  最新
+</a></div><div class="nav-item"><a href="/archives/" class="nav-link">
+  归档
+</a></div> <a href="https://github.com/shimingw/vpblog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link">
+  最新
+</a></div><div class="nav-item"><a href="/archives/" class="nav-link">
+  归档
+</a></div> <a href="https://github.com/shimingw/vpblog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/docs/2020-04-04-React-常用API/" class="sidebar-link">常用API</a></li><li><a href="/docs/2020-04-05-React-实现redux/" class="sidebar-link">实现redux</a></li><li><a href="/docs/2020-04-05-React-实现react-redux/" class="sidebar-link">实现react-redux</a></li><li><a href="/docs/2020-04-06-React-实现ant-form-create/" class="sidebar-link">实现ant-form-create</a></li><li><a href="/docs/2020-04-07-React-实现递归组件Tree/" class="sidebar-link">实现递归组件Tree</a></li><li><a href="/docs/2020-04-07-React-实现react-router/" class="sidebar-link">实现react-router</a></li><li><a href="/docs/2020-05-15-React-使用vscode调试React项目/" class="sidebar-link">使用vscode调试React项目</a></li><li><a href="/docs/2020-05-15-React-React源码调试方法/" class="active sidebar-link">React源码调试方法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/2020-05-15-React-React源码调试方法/#利用-jest-单元测试调试" class="sidebar-link">利用 Jest 单元测试调试</a></li><li class="sidebar-sub-header"><a href="/docs/2020-05-15-React-React源码调试方法/#使用-webpack-调试" class="sidebar-link">使用 webpack 调试</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/2020-05-15-React-React源码调试方法/#创建-react-项目" class="sidebar-link">创建 react 项目</a></li><li class="sidebar-sub-header"><a href="/docs/2020-05-15-React-React源码调试方法/#克隆-react-源码" class="sidebar-link">克隆 React 源码</a></li><li class="sidebar-sub-header"><a href="/docs/2020-05-15-React-React源码调试方法/#修改项目-webpack-配置" class="sidebar-link">修改项目 webpack 配置</a></li><li class="sidebar-sub-header"><a href="/docs/2020-05-15-React-React源码调试方法/#vscode-配置" class="sidebar-link">vscode 配置</a></li></ul></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><blockquote><p>源码版本 16.13.1</p></blockquote> <h2 id="利用-jest-单元测试调试"><a href="#利用-jest-单元测试调试" class="header-anchor">#</a> 利用 Jest 单元测试调试</h2> <p>借助<code>react</code>的单元测试可以进行源码的调试</p> <ol><li><p>配置<code>vscode</code>的<code>launch.json</code>文件</p> <p>第一个配置执行所有的测试用例</p> <p>第二个配置是执行当前打开的测试用例，一般使用第二个</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token string">&quot;0.2.0&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;configurations&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;node&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;request&quot;</span><span class="token operator">:</span> <span class="token string">&quot;launch&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Jest All&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;program&quot;</span><span class="token operator">:</span> <span class="token string">&quot;${workspaceFolder}/node_modules/.bin/jest&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;args&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;--config&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;./scripts/jest/config.source.js&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;--runInBand&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;console&quot;</span><span class="token operator">:</span> <span class="token string">&quot;integratedTerminal&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;internalConsoleOptions&quot;</span><span class="token operator">:</span> <span class="token string">&quot;neverOpen&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;disableOptimisticBPs&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;windows&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;program&quot;</span><span class="token operator">:</span> <span class="token string">&quot;${workspaceFolder}/node_modules/jest/bin/jest&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;env&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;NODE_ENV&quot;</span><span class="token operator">:</span> <span class="token string">&quot;development&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;node&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;request&quot;</span><span class="token operator">:</span> <span class="token string">&quot;launch&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Jest Current File&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;program&quot;</span><span class="token operator">:</span> <span class="token string">&quot;${workspaceFolder}/node_modules/.bin/jest&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;args&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;${fileBasenameNoExtension}&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;--config&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;./scripts/jest/config.source.js&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;--runInBand&quot;</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;console&quot;</span><span class="token operator">:</span> <span class="token string">&quot;integratedTerminal&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;internalConsoleOptions&quot;</span><span class="token operator">:</span> <span class="token string">&quot;neverOpen&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;disableOptimisticBPs&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;env&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;NODE_ENV&quot;</span><span class="token operator">:</span> <span class="token string">&quot;development&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;windows&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;program&quot;</span><span class="token operator">:</span> <span class="token string">&quot;${workspaceFolder}/node_modules/jest/bin/jest&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>配置<code>Jest</code>对代码编译的<code>sourceMap</code></p> <p>需要在<code>scripts/jest/preprocessor.js</code>的<code>babel</code>配置中添加<code>sourceMaps: 'both'</code>或者<code>sourceMaps: 'inline'</code></p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br></div><pre class="language-js"><code><span class="token keyword">const</span> babelOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token comment">// For Node environment only. For builds, Rollup takes care of ESM.</span>
+    require<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&quot;@babel/plugin-transform-modules-commonjs&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    pathToBabelPluginDevWithCode<span class="token punctuation">,</span>
+
+    <span class="token comment">// Keep stacks detailed in tests.</span>
+    <span class="token comment">// Don't put this in .babelrc so that we don't embed filenames</span>
+    <span class="token comment">// into ReactART builds that include JSX.</span>
+    <span class="token comment">// TODO: I have not verified that this actually works.</span>
+    require<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&quot;@babel/plugin-transform-react-jsx-source&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    pathToTransformInfiniteLoops<span class="token punctuation">,</span>
+    pathToTransformTestGatePragma<span class="token punctuation">,</span>
+
+    <span class="token comment">// This optimization is important for extremely performance-sensitive (e.g. React source).</span>
+    <span class="token comment">// It's okay to disable it for tests.</span>
+    <span class="token punctuation">[</span>
+      require<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&quot;@babel/plugin-transform-block-scoping&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> throwIfClosureRequired<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  retainLines<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  sourceMaps<span class="token operator">:</span> <span class="token string">&quot;both&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>在单元测试中打上断点<code>packages\react-dom\src\__tests__</code>，执行<code>debugger</code>，即可实现断点调试</p></li></ol> <h2 id="使用-webpack-调试"><a href="#使用-webpack-调试" class="header-anchor">#</a> 使用 webpack 调试</h2> <h3 id="创建-react-项目"><a href="#创建-react-项目" class="header-anchor">#</a> 创建 react 项目</h3> <ol><li>使用<code>create-react-app</code>创建一个<code>react</code>项目</li> <li>运行<code>yarn eject</code>，将<code>webpack</code>弹出</li></ol> <h3 id="克隆-react-源码"><a href="#克隆-react-源码" class="header-anchor">#</a> 克隆 React 源码</h3> <p>将<code>react</code>源码<strong>clone</strong>到项目中<code>git clone git@github.com:facebook/react.git src/react</code></p> <h3 id="修改项目-webpack-配置"><a href="#修改项目-webpack-配置" class="header-anchor">#</a> 修改项目 webpack 配置</h3> <ol><li><p>webpack 中将包链接到源代码</p> <p>修改<code>/config/webpack.config.js</code></p> <div class="language-json extra-class"><pre class="language-json"><code>resolve<span class="token operator">:</span> <span class="token punctuation">{</span>
+    alias<span class="token operator">:</span> <span class="token punctuation">{</span>
+        'react-native'<span class="token operator">:</span> 'react-native-web'<span class="token punctuation">,</span>
++        'react'<span class="token operator">:</span> path.resolve(__dirname<span class="token punctuation">,</span> '../src/react/packages/react')<span class="token punctuation">,</span>
++        'react-dom'<span class="token operator">:</span> path.resolve(__dirname<span class="token punctuation">,</span> '../src/react/packages/react-dom')<span class="token punctuation">,</span>
++        'shared'<span class="token operator">:</span> path.resolve(__dirname<span class="token punctuation">,</span> '../src/react/packages/shared')<span class="token punctuation">,</span>
++        'legacy-events'<span class="token operator">:</span> path.resolve(__dirname<span class="token punctuation">,</span> '../src/react/packages/legacy-events')<span class="token punctuation">,</span>
++        'react-reconciler'<span class="token operator">:</span> path.resolve(__dirname<span class="token punctuation">,</span> '../src/react/packages/react-reconciler')<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>修改环境变量</p> <p>修改<code>/config/env.js</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> stringified <span class="token operator">=</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span> __DEV__<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token operator">+</span> __PROFILE__<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token operator">+</span> __UMD__<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token operator">+</span> __EXPERIMENTAL__<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token string">'process.env'</span><span class="token operator">:</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>raw<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">env<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    env<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>raw<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> env
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>根目录创建<code>.eslintrc.json</code>文件</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;extends&quot;</span><span class="token operator">:</span> <span class="token string">&quot;react-app&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;globals&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;__DEV__&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;__PROFILE__&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;__UMD__&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;__EXPERIMENTAL__&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>配置<code>flow</code></p> <p>运行<code>yarn add @babel/plugin-transform-flow-strip-types -D</code></p> <p>同时在<code>/config/webpack.config.js</code>中<code>babel-loader</code>的<code>plugins</code>中添加该插件</p> <div class="language-json extra-class"><pre class="language-json"><code>plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
++	require.resolve('@babel/plugin-transform-flow-strip-types')<span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>
+        require.resolve('babel-plugin-named-asset-import')<span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            loaderMap<span class="token operator">:</span> <span class="token punctuation">{</span>
+                svg<span class="token operator">:</span> <span class="token punctuation">{</span>
+                    ReactComponent<span class="token operator">:</span>
+                    '@svgr/webpack?-svgo<span class="token punctuation">,</span>+titleProp<span class="token punctuation">,</span>+ref!<span class="token punctuation">[</span>path<span class="token punctuation">]</span>'
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+</code></pre></div></li> <li><p>导出 <code>HostConfig</code></p> <p>修改文件<code>/src/react/packages/react-reconciler/src/ReactFiberHostConfig.js</code>。注释中说明，这块还需要根据环境去导出<code>HostConfig</code>。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// invariant(false, 'This module must be shimmed by a specific renderer.');</span>
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">&quot;./forks/ReactFiberHostConfig.dom&quot;</span><span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>保持 import first，根据编译信息修改</p> <p>修改文件<code>/src/react/packages/shared/ReactSharedInternals.js</code>。<code>react</code>此时未<code>export</code>内容，直接从<code>ReactSharedInternals</code>拿值</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// import * as React from 'react';</span>
+
+<span class="token comment">// const ReactSharedInternals =</span>
+<span class="token comment">//   React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;</span>
+
+<span class="token keyword">import</span> ReactSharedInternals <span class="token keyword">from</span> <span class="token string">&quot;../react/src/ReactSharedInternals&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> ReactSharedInternals<span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>关闭 <code>ESlint</code> 对 <code>fbjs</code> 插件的扩展</p> <p>修改<code>src/react/.eslintrc.js</code>，在<code>module.exports</code>中删去<code>extends: 'fbjs'</code></p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// extends: 'fbjs',</span>
+  <span class="token operator">...</span><span class="token operator">...</span>
+</code></pre></div></li> <li><p>修改<code>src/react/packages/shared/invariant</code>中的函数为</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">invariant</span><span class="token punctuation">(</span><span class="token parameter">condition<span class="token punctuation">,</span> format<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> e<span class="token punctuation">,</span> f</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>condition<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>
+    <span class="token string">&quot;Internal React error: invariant() is meant to be replaced at compile &quot;</span> <span class="token operator">+</span>
+      <span class="token string">&quot;time. There is no runtime version.&quot;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ol> <h3 id="vscode-配置"><a href="#vscode-配置" class="header-anchor">#</a> vscode 配置</h3> <p>安装<code>flowtype.flow-for-vscode</code>插件</p> <p>进行配置，一般来说，我们只会在看源码的时候用到<code>flow</code>，所以我们将配置写在<code>workspace</code>的配置文件下：</p> <p><code>.vscode\setting.json</code></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;javascript.validate.enable&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;typescript.validate.enable&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/shimingw/vpblog/edit/master/docs/React/08.React源码调试方法.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">更新于:</span> <span class="time">2020-5-19 5:55:38 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/docs/2020-05-15-React-使用vscode调试React项目/" class="prev">
+        使用vscode调试React项目
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><div class="pace  pace-inactive" style="display:none;" data-v-57a75e74><div data-progress-text="100%" data-progress="99" class="pace-progress" style="transform:translate3d(0%, 0px, 0px);" data-v-57a75e74><div class="pace-progress-inner" data-v-57a75e74></div></div></div><div class="my-popup" style="display:none;" data-v-3414bdeb><div class="my-popup-container" data-v-3414bdeb><div class="my-popup-exit" data-v-3414bdeb></div> <img src="" alt data-v-3414bdeb></div></div><!----><!----><div></div></div></div>
+    <script src="/assets/js/app.82d5831e.js" defer></script><script src="/assets/js/2.8423ab85.js" defer></script><script src="/assets/js/41.4d935934.js" defer></script><script src="/assets/js/5.d4f27e5e.js" defer></script>
+  </body>
+</html>
