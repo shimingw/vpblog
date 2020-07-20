@@ -22,19 +22,22 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: install dependencies
-      run: npm install
-      
-    # Runs a single command using the runners shell
-    - name: build project
-      run: npm run build
+    - name: test
+      run: ping 49.235.97.90
 
-    - name: Deploy to Server
-      uses: easingthemes/ssh-deploy@v2.0.7
-      env: # 以下为参数
-        SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-        ARGS: "-avz --delete"
-        REMOTE_USER: ${{ secrets.DEPLOY_USER }} # 为了用户信息安全对敏感数据可以在secrets中配置请看下图
-        REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
-        SOURCE: '.vuepress/dist'
-        TARGET: '/usr/share/nginx/html'
+    # - name: install dependencies
+    #   run: npm install
+      
+    # # Runs a single command using the runners shell
+    # - name: build project
+    #   run: npm run build
+
+    # - name: Deploy to Server
+    #   uses: easingthemes/ssh-deploy@v2.0.7
+    #   env: # 以下为参数
+    #     SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+    #     ARGS: "-avz --delete"
+    #     REMOTE_USER: ${{ secrets.DEPLOY_USER }} # 为了用户信息安全对敏感数据可以在secrets中配置请看下图
+    #     REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+    #     SOURCE: '.vuepress/dist'
+    #     TARGET: '/usr/share/nginx/html'
