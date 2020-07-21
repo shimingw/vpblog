@@ -29,6 +29,9 @@ jobs:
 
     - name: install dependencies
       run: npm install
+   
+    - name: lint
+      run: npm run lint
       
     # Runs a single command using the runners shell
     - name: build project
