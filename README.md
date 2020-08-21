@@ -4,9 +4,9 @@ comment: false
 single: true
 footer: MIT Licensed | Copyright © 2020 嘻哈工程师
 ---
-
 <!-- TODO: 做一个可视化的分类展示 -->
   <div class="home">
+    <img src="./.vuepress/img/wx.png" />
     <ul v-for="post in posts">
       <h2>{{ post.title }}</h2>
       <li v-for="postChild in post.child">
